@@ -6,7 +6,7 @@ local definitions = {
       class              = [[CHeatCloudProjectile]],
       count              = 1,
       ground             = true,
-      water              = true, 
+      water              = true,
 	  underwater         = true,
       properties = {
         heat               = 10,
@@ -79,7 +79,7 @@ local definitions = {
       class              = [[CSimpleParticleSystem]],
       count              = 1,
       ground             = true,
-      water              = true, 
+      water              = true,
 	  underwater         = true,
       properties = {
         airdrag            = 0.82,
@@ -246,7 +246,7 @@ local definitions = {
       class              = [[CSimpleParticleSystem]],
       count              = 1,
       ground             = true,
-      water              = true, 
+      water              = true,
 	  underwater         = true,
       properties = {
         airdrag            = 0.96,
@@ -608,7 +608,7 @@ local sizes = {
 	    },
     },
   },
-	
+
   small = {
     centerflare = {
       properties = {
@@ -635,7 +635,7 @@ local sizes = {
       },
     },
   },
-	
+
   medium = {
     centerflare = {
       properties = {
@@ -784,7 +784,7 @@ local sizes = {
       },
     },
   },
-	
+
   large = {
     centerflare = {
       properties = {

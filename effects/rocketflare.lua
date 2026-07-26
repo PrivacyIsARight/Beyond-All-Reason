@@ -153,7 +153,7 @@ local definitions = {
 			},
 		},
 	},
-	
+
 }
 
 return definitions

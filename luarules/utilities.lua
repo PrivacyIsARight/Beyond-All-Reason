@@ -4,7 +4,7 @@
 --
 -- Load utility files whose functionality is applicable to gadgets ONLY
 -- Utility files with global functionality should go in /common/Utilities/
--- 
+--
 -------------------------------------------------------------------------------------
 
 local utilitiesFiles = VFS.DirList('luarules/Utilities/', "*.lua")

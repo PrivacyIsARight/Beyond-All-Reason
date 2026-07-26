@@ -39,7 +39,7 @@ function widget:UnitCreated(unitID, unitDefID, unitTeam, builderID)
         local unitsNear = GetUnitsInSphere(pos[1], pos[2], pos[3], nanoDefs[unitDefID], -3)
         -- Echo("found units nearby: " .. unitsNear)
         for _, id in ipairs(unitsNear) do
-            if (nanoDefs[GetUnitDefID(id)] ~= nil) then 
+            if (nanoDefs[GetUnitDefID(id)] ~= nil) then
                 local commandQueue = GetUnitCommands(id, 10)
                 if (commandQueue[2] ~= nil and commandQueue[2]["id"] == CMD_FIGHT) or (commandQueue[1] ~= nil and commandQueue[1]["id"] == CMD_FIGHT) or commandQueue[1] == nil then
                     -- Echo("giving repair command to " .. id)

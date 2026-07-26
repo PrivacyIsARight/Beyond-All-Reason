@@ -416,7 +416,7 @@ local function techsplitTweaks(name, uDef)
         uDef.featuredefs.dead["object"] = "Units/armaaplat_dead.s3o"
         uDef.buildoptions = {
             [1] = "armaca",
-            [2] = "armseap",			
+            [2] = "armseap",
             [3] = "armsb",
             [4] = "armsfig",
             [5] = "armsehak",
@@ -656,7 +656,7 @@ local function techsplitTweaks(name, uDef)
             [26] = "corfmd",
         }
     end
-    
+
     ------------
     -- Sea Split
 
@@ -693,7 +693,7 @@ local function techsplitTweaks(name, uDef)
 
     elseif name == "corasy" then
         uDef.metalcost = uDef.metalcost + 400
-        uDef.buildoptions = {		
+        uDef.buildoptions = {
             [1] = "coracsub",
             [2] = "corcrus",
             [3] = "corshark",
@@ -707,7 +707,7 @@ local function techsplitTweaks(name, uDef)
             [11] = "cormh",
             [12] = "corsjam",
         }
-    
+
 
     -- Sea Cons
 
@@ -851,7 +851,7 @@ local function techsplitTweaks(name, uDef)
         uDef.featuredefs.armshlt_dead.collisionvolumescales = "155 95 180"
         uDef.customparams.buildinggrounddecalsizex = 18
         uDef.customparams.buildinggrounddecalsizez = 18
-    end 
+    end
 
     if name == "corgant" then
         uDef.footprintx = 15
@@ -919,7 +919,7 @@ local function techsplitTweaks(name, uDef)
         uDef.metalcost = uDef.metalcost - 1300
         uDef.energycost = uDef.energycost - 5000
         uDef.buildtime = math.ceil(uDef.buildtime * 0.015) * 100
-    
+
     -- T2 cons are priced as t1.5
     elseif name == "armack" or name == "armacv" or name == "armaca" or name == "armacsub"
     or name == "corack" or name == "coracv" or name == "coraca" or name == "coracsub"
@@ -928,7 +928,7 @@ local function techsplitTweaks(name, uDef)
         uDef.metalcost = uDef.metalcost - 200
         uDef.energycost = uDef.energycost - 2000
         uDef.buildtime = math.ceil(uDef.buildtime * 0.008) * 100
-    
+
     -- Hover cons are priced as t2
     elseif name == "armch" or name == "corch" or name == "legch"
     then
@@ -949,7 +949,7 @@ local function techsplitTweaks(name, uDef)
         uDef.energyupkeep = 40
     end
 
-    
+
 
     -------------------------------
     -- T3 mobile jammers have radar
@@ -989,7 +989,7 @@ local function techsplitTweaks(name, uDef)
         uDef.sightdistance = 1200
         uDef.radardistancejam = 900
     end
-    
+
     -----------------------------
     -- Correct Tier for Announcer
 
@@ -999,7 +999,7 @@ local function techsplitTweaks(name, uDef)
     or name == "corcsa" or name == "corcut" or name == "corsb" or name == "corseap" or name == "corsfig" or name == "corhunt" or name == "corhvytrans"
     then
         uDef.customparams.techlevel = 2
-    
+
     elseif name == "armsnipe" or name == "armfboy" or name == "armaser" or name == "armdecom" or name == "armscab"
     or name == "armbull" or name == "armmerl" or name == "armmanni" or name == "armyork" or name == "armjam"
     or name == "armserp" or name == "armbats" or name == "armepoch" or name == "armantiship" or name == "armaas"
@@ -1010,7 +1010,7 @@ local function techsplitTweaks(name, uDef)
     or name == "corape" or name == "corhurc" or name == "cortitan" or name == "corvamp" or name == "corseah" or name == "corawac" or name == "corcrwh"
     then
         uDef.customparams.techlevel = 3
-    end		
+    end
 
 
     -----------------------------------------
@@ -1094,12 +1094,12 @@ local function techsplitTweaks(name, uDef)
             [33] = "corfmd",
         }
     end
-    -- Seaplane Platforms removed, become T2 air labs. 
+    -- Seaplane Platforms removed, become T2 air labs.
     -- T2 air labs have sea variants
-    -- Made by hover cons and enhanced ship cons 
+    -- Made by hover cons and enhanced ship cons
     -- Enhanced ships given seaplanes instead of static AA
     -- Tech Split Balance
-	if name == "corthud" then 
+	if name == "corthud" then
 		uDef.speed = 54
 		uDef.weapondefs.arm_ham.range = 300
 		uDef.weapondefs.arm_ham.predictboost = 0.8
@@ -1378,9 +1378,9 @@ local function techsplitTweaks(name, uDef)
 	end
 
     --Tech Split Hotfixes 3
-    
+
     if name == "armhack" or name == "armhacv" or name == "armhaca" then
-        uDef.buildoptions[40] = "armnanotc" 
+        uDef.buildoptions[40] = "armnanotc"
     end
 
     if name == "armhacs" then
@@ -1429,7 +1429,7 @@ local function techsplitTweaks(name, uDef)
 		uDef.weapondefs.corsumo_weapon.reloadtime = 1
 	end
 
-	if name == "corgol" then 
+	if name == "corgol" then
 		uDef.speed = 37
 		uDef.weapondefs.cor_gol.damage = {
 			default = 1600,
@@ -1440,7 +1440,7 @@ local function techsplitTweaks(name, uDef)
 		uDef.weapondefs.cor_gol.range = 700
 	end
 
-	if name == "armguard" then 
+	if name == "armguard" then
 		uDef.health = 6000
 		uDef.metalcost = 800
 		uDef.energycost = 8000
@@ -1448,7 +1448,7 @@ local function techsplitTweaks(name, uDef)
 		uDef.weapondefs.plasma.areaofeffect = 150
 		uDef.weapondefs.plasma.range = 1000
 		uDef.weapondefs.plasma.reloadtime = 2.3
-		uDef.weapondefs.plasma.weaponvelocity = 550 
+		uDef.weapondefs.plasma.weaponvelocity = 550
 		uDef.weapondefs.plasma.damage = {
 			default = 140,
 			subs = 70,
@@ -1682,7 +1682,7 @@ if name == "legcv" then
     }
 end
 
-if name == "legotter" then 
+if name == "legotter" then
     uDef.buildoptions = {
         [1]  = "legsolar",
         [2]  = "legwin",
@@ -1713,7 +1713,7 @@ if name == "legotter" then
         [28] = "leghive",
         [29] = "legtide",
         [30] = "legtl",
-        [31] = "legfrad", 
+        [31] = "legfrad",
         [32] = "corasy",
         [33] = "legjuno",
     }
@@ -1721,7 +1721,7 @@ end
 --------------------------
 -- Legion Air Placeholders
 
-if name == "legch" then 
+if name == "legch" then
     uDef.buildoptions = {
         [1] = "legadvsol",
         [2] = "legmoho",
@@ -1828,7 +1828,7 @@ if name == "legack" then
     }
 end
 
-if name == "legaca" then 
+if name == "legaca" then
     uDef.buildpic = "CORCSA.DDS"
     uDef.objectname = "Units/CORCSA.s3o"
     uDef.script = "Units/CORCSA.cob"
@@ -1864,7 +1864,7 @@ if name == "legaca" then
         [30] = "legabm",
         [31] = "legctl",
     }
-end 
+end
 
 -- Legion Unit Tweaks
 

@@ -5,7 +5,7 @@ local shaderTemplate = {
 
 	vertex = vssrc,
 
-	fragment = fssrc, 
+	fragment = fssrc,
 
 	uniformInt = {
 		texture1 	 = 0,

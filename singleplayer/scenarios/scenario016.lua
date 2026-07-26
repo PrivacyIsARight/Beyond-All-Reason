@@ -8,21 +8,21 @@ local scenariodata = {
 	imagepath		= "scenario016.jpg", -- placed next to lua file, should be 3:1 ratio banner style
 	imageflavor		= "Neurope has experienced quite the geological shift", -- This text will be drawn over image
     summary         = [[Multiple allegiances have formed around continental Neurope, and you must retake the entire continental area from the northwest island]],
-	briefing 		= [[One large alliance of three commanders controls the center of the continent, the other is formed between the east, southeast and southwest. The northern and central territories have attempted to remain neutral, but are gearing up for battle. 
- 
-You will start on the northwestern large island, and the northern resource rich island is still unclaimed according to our scouting reports. 
- 
+	briefing 		= [[One large alliance of three commanders controls the center of the continent, the other is formed between the east, southeast and southwest. The northern and central territories have attempted to remain neutral, but are gearing up for battle.
+
+You will start on the northwestern large island, and the northern resource rich island is still unclaimed according to our scouting reports.
+
 Tips:
  - The northwest sea contains abundant metal, and tidal forces are strong for generating energy.
- - The northern island should be occupied as soon as possible, start off with a Vehicle or Bot factory to secure your starting island, then make and Aircraft plant and use transports to ferry constructors to the island. 
- - Initially, the warring factions will be occupied with each other, but may send early aircraft and hovercraft scouts to your location. 
+ - The northern island should be occupied as soon as possible, start off with a Vehicle or Bot factory to secure your starting island, then make and Aircraft plant and use transports to ferry constructors to the island.
+ - Initially, the warring factions will be occupied with each other, but may send early aircraft and hovercraft scouts to your location.
  - Aircraft carriers offer protection from nuclear warheads.
- 
- 
+
+
 Scoring:
  - Time taken to complete the scenario
  - Resources spent to destroy all enemy units.
- 
+
 The difficulty modifier will change the amount of resources you and the enemy receive from metal and energy structures:
  - Beginner: You +50%, enemy -50%
  - Novice: You +25%, enemy -25%
@@ -36,7 +36,7 @@ The difficulty modifier will change the amount of resources you and the enemy re
 	playerstarty	= "10%", -- Y position of where player comm icon should be drawn, from top left of the map
 	partime 		= 3000, -- par time in seconds
 	parresources	= 10000000, -- par resource amount
-	difficulty		= 5, -- Percieved difficulty at 'normal' level: integer 1-10
+	difficulty		= 5, -- Perceived difficulty at 'normal' level: integer 1-10
     defaultdifficulty = "Normal", -- an entry of the difficulty table
     difficulties    = { -- Array for sortedness, Keys are text that appears in selector (as well as in scoring!), values are handicap levels
         {name = "Beginner", playerhandicap = 50 , enemyhandicap = -50},
@@ -273,7 +273,7 @@ The difficulty modifier will change the amount of resources you and the enemy re
 		Team = 0;
 		rank = 0;
 	}
-	
+
 	[modoptions]
 	{
         scenariooptions = __SCENARIOOPTIONS__;

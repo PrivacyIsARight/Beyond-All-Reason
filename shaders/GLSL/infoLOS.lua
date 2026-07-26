@@ -41,7 +41,7 @@ return {
 			vec4 c = vec4(0.0);
 			for (int i = 0; i<4; i++) {
 				// previously, offset was identical for all pixels, resulting in little gain from multisampling, makes offsets random for each texel fetch
-				vec2 off = vec2(time + float(i) * 0.234567); 
+				vec2 off = vec2(time + float(i) * 0.234567);
 				off = (vec2(rand(p.st + off.st), rand(p.ts - off.ts)) * 2.0 - 1.0) / texSize;
 				c += texture2D(tex, p + off);
 			}
@@ -89,7 +89,7 @@ return {
 			float radar = tex2Texel.r;
 			gl_FragColor = max(gl_FragColor, radarColor2 * radar);
 
-			// Line of sight (LOS), the higest level of intel
+			// Line of sight (LOS), the highest level of intel
 			// losColor is the color of ground covered by direct vison (LOS).
 			// Often airlos is greater than groundlos.
 			float groundlos = getTexel(tex0, texCoord).r;

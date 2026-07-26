@@ -38,25 +38,25 @@ if gadgetHandler:IsSyncedCode() then
 	local pairs = pairs
 	local pieceIndexStr = {}
 	for i = 0, 99 do pieceIndexStr[i] = tostring(i) end
-	
-	local unitDefMidAndAimPos = {} -- this is a table read from customparams mapping unitDefID to 
-	local featureDefMidAndAimPos = {} -- this is a table read from customparams mapping unitDefID to 
+
+	local unitDefMidAndAimPos = {} -- this is a table read from customparams mapping unitDefID to
+	local featureDefMidAndAimPos = {} -- this is a table read from customparams mapping unitDefID to
 		-- {unitDefID  = {aimx, aimz, aimy, midx, midy, midz}}
 	local function parseMidAndAimPos(defID, def, midAimPosTable, prefix)
 		if def.customParams then
-			if def.customParams['unit'..prefix..'pos'] then 
-				if midAimPosTable[defID] == nil then 
+			if def.customParams['unit'..prefix..'pos'] then
+				if midAimPosTable[defID] == nil then
 					midAimPosTable[defID] = {}
-				end 
+				end
 				local midaimpossplit = string.split(def.customParams['unit'..prefix..'pos'], " ")
-				if midaimpossplit[1] and tonumber(midaimpossplit[1]) then midAimPosTable[defID][prefix..'x'] = tonumber(midaimpossplit[1]) end 
-				if midaimpossplit[2] and tonumber(midaimpossplit[2]) then midAimPosTable[defID][prefix..'y'] = tonumber(midaimpossplit[2]) end 
-				if midaimpossplit[3] and tonumber(midaimpossplit[3]) then midAimPosTable[defID][prefix..'z'] = tonumber(midaimpossplit[3]) end 
+				if midaimpossplit[1] and tonumber(midaimpossplit[1]) then midAimPosTable[defID][prefix..'x'] = tonumber(midaimpossplit[1]) end
+				if midaimpossplit[2] and tonumber(midaimpossplit[2]) then midAimPosTable[defID][prefix..'y'] = tonumber(midaimpossplit[2]) end
+				if midaimpossplit[3] and tonumber(midaimpossplit[3]) then midAimPosTable[defID][prefix..'z'] = tonumber(midaimpossplit[3]) end
 				--Spring.Echo("Setting", 'unit'..prefix..'pos','to', midaimpossplit[1],midaimpossplit[2],midaimpossplit[3])
 			end
 		end
 	end
-	
+
 	local is3doFeature = {}
 	for featureDefID, def in pairs(FeatureDefs) do
 		parseMidAndAimPos(featureDefID, def, featureDefMidAndAimPos, 'aim')
@@ -125,9 +125,9 @@ if gadgetHandler:IsSyncedCode() then
 	--also handles per piece collision volume definitions
 	--also makes sure subs are underwater
 	function gadget:UnitCreated(unitID, unitDefID, unitTeam)
-		if unitDefMidAndAimPos[unitDefID] then 
+		if unitDefMidAndAimPos[unitDefID] then
 			local midAndAimPos = unitDefMidAndAimPos[unitDefID]
-			Spring.SetUnitMidAndAimPos(unitID, 
+			Spring.SetUnitMidAndAimPos(unitID,
 				midAndAimPos['midx'] or 0,
 				midAndAimPos['midy'] or 0,
 				midAndAimPos['midz'] or 0,
@@ -209,7 +209,7 @@ if gadgetHandler:IsSyncedCode() then
 				end
 			end
 		end
-		
+
 		-- Check if a unit is pop-up type (the list must be entered manually)
 		-- If a building was constructed add it to the list for later radius and height scaling
 		-- Changed from UnitFinished to UnitCreated
@@ -226,10 +226,10 @@ if gadgetHandler:IsSyncedCode() then
 
 	-- Same as for 3DO units, but for features
 	function gadget:FeatureCreated(featureID, allyTeam)
-		if featureDefMidAndAimPos[featureDefID] then 
+		if featureDefMidAndAimPos[featureDefID] then
 			--Spring.SetFeatureMidAndAimPos ( number featureID, number mpX, number mpY, number mpZ, number apX, number apY, number apZ [, bool relative )
 			local midAndAimPos = featureDefMidAndAimPos[featureDefID]
-			Spring.SetFeatureMidAndAimPos(featureID, 
+			Spring.SetFeatureMidAndAimPos(featureID,
 				midAndAimPos['midx'] or 0,
 				midAndAimPos['midy'] or 0,
 				midAndAimPos['midz'] or 0,
@@ -252,7 +252,7 @@ if gadgetHandler:IsSyncedCode() then
 			spSetFeatureRadiusAndHeight(featureID, spGetFeatureRadius(featureID)*rs, spGetFeatureHeight(featureID)*hs)
 		end
 	end
-	
+
 	--check if a pop-up type unit was destroyed
 	function gadget:UnitDestroyed(unitID, unitDefID, unitTeam, attackerID, attackerDefID, attackerTeam, weaponDefID)
 		if popupUnits[unitID] then

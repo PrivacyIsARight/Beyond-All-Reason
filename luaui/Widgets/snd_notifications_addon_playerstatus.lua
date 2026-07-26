@@ -134,7 +134,7 @@ function widget:PlayerChanged(playerID)
                 end
             end
         end
-        
+
         UpdatePlayerData(playerID)
     end
 end

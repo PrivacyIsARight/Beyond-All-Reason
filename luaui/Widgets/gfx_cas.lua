@@ -108,18 +108,18 @@ vec3 CASPass(ivec2 tc) {
 	//  g h i			 h
 	// These are 2.0x bigger (factored out the extra multiply).
 	vec3 mnRGB = min(min(min(d, e), min(f, b)), h);
-	
+
 
 	vec3 mxRGB = max(max(max(d, e), max(f, b)), h);
 	#if (SAMPLES == 9)
 		vec3 mnRGB2 = min(mnRGB, min(min(a, c), min(g, i)));
 		mnRGB += mnRGB2;
-		vec3 mxRGB2 = max(mxRGB, max(max(a, c), max(g, i))); 
+		vec3 mxRGB2 = max(mxRGB, max(max(a, c), max(g, i)));
 		mxRGB += mxRGB2;
 	#else
 		mxRGB *= 2.0;
-		mnRGB *= 2.0; 
-	#endif 
+		mnRGB *= 2.0;
+	#endif
 
 	// Smooth minimum distance to signal limit divided by smooth max.
 	vec3 rcpMRGB = vec3(1.0) / mxRGB;

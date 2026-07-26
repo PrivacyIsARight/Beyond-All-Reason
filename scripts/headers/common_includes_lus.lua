@@ -3,15 +3,15 @@ common = {
 	CustomEmitter = function (pieceName, effectName)
 		--Spring.Echo(pieceName, effectName)
 		local x,y,z,dx,dy,dz	= Spring.GetUnitPiecePosDir(unitID,pieceName)
-				
+
 		Spring.SpawnCEG(effectName, x,y,z, dx, dy, dz)
 	end,
-	
+
 	HbotLift = function ()
 		Move(base, y_axis, 20, 200)
 		--Spring.Echo("Bruh I lift")
 	end,
-	
+
     setSFXoccupy = function (setSFXoccupy_argument)
 		--Spring.Echo(type(setSFXoccupy_argument))
 		--Spring.Echo("common.setSFXoccupy is being called", setSFXoccupy_argument)
@@ -26,14 +26,14 @@ common = {
 				--Spring.Echo("Setting Upright: 0")
 			end
     end,
-	
+
 	DirtTrail = function ()
 		while isMoving do
 			common.CustomEmitter(dirt, "dirt") -- Second argument is the piece name, third argument needs to be a string because it will be the name of the CEG effect used
 			Sleep(400)
 		end
 	end,
-	
+
 	SmokeUnit = function (smokePieces)
 		local n = #smokePieces
 		while (GetUnitValue(COB.BUILD_PERCENT_LEFT) ~= 0) do

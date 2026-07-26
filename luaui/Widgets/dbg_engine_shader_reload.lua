@@ -31,7 +31,7 @@ function widget:Update()
     local changed = false
 
     local filename, oldContents = next(updateQueue)
-    if filename then 
+    if filename then
         local startTime = Spring.GetTimer()
         while (Spring.DiffTimers(Spring.GetTimer() , startTime, true) < 1) and filename do
             local newContents = VFS.LoadFile(filename)

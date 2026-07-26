@@ -173,8 +173,8 @@ return {
 					droneammo = 3,
 				}
 			},
-			
-			
+
+
 			trident_depthcharge = {
 				avoidfeature = false,
 				avoidfriendly = false,

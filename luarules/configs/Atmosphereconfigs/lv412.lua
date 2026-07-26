@@ -27,15 +27,15 @@ function gadget:GameFrame(n)
 -- SND hive airbursts
     if n%860 == 450 then
 		SpawnCEGInAreaGround("ventairburst", 1814, 0, 5628, 75, _, _, _, "ventair", 0.45)
-	end	
+	end
 
 	if n%880 == 100 then
 		SpawnCEGInAreaGround("ventairburst", 3229, 0, 6260, 60, _, _, _, "ventair", 0.46)
-	end	
+	end
 
 	if n%900 == 690 then
 		SpawnCEGInAreaGround("ventairburst", 2327, 0, 2510, 80, _, _, _, "ventair", 0.47)
-	end	
+	end
 
 	if n%890 == 785 then
 		SpawnCEGInAreaGround("ventairburst", 4083, 0, 6433, 100, _, _, _, "ventair", 0.46)
@@ -43,15 +43,15 @@ function gadget:GameFrame(n)
 
 	if n%870 == 235 then
 		SpawnCEGInAreaGround("ventairburst", 4176, 0, 2049, 225, _, _, _, "ventair", 0.45)
-	end	
+	end
 
 	if n%1010 == 500 then
 		SpawnCEGInAreaGround("ventairburst", 5786, 0, 5602, 75, _, _, _, "ventair", 0.46)
-	end	
+	end
 
 	if n%820 == 810 then
 		SpawnCEGInAreaGround("ventairburst", 5869, 0, 6072, 125, _, _, _, "ventair", 0.47)
-	end		
+	end
 
 -- SND windy locations
 	if n%1160 == 0 then
@@ -78,7 +78,7 @@ if n%2000 == 0 then
 		SpawnCEGInRandomMapPosBelowY("noceg", 800, 400, _, _, _, "distantthunder", 0.62)
 	end
 
--- fireflies	
+-- fireflies
 	if n%200 == 0 then
 		SpawnCEGInRandomMapPosBelowY("firefliespurple", 32, 200)
 	end
@@ -91,7 +91,7 @@ if n%2000 == 0 then
 		SpawnCEGInRandomMapPosBelowY("firefliespurple", 32, 130)
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	if n%750 == 0 then
 		SpawnCEGInPositionGround("mistycloudpurplemist", 4120, 64, 6410)
 	end
@@ -121,5 +121,5 @@ if n%2000 == 0 then
 	if n%1800 == 1500 then
 		SpawnCEGInPositionGround("mistycloudpurplemistxl", 1599, 10, 4985)
 	end
-		
+
 end

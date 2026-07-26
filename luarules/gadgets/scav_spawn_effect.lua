@@ -12,7 +12,7 @@ function gadget:GetInfo()
     }
 end
 
-if gadgetHandler:IsSyncedCode() then -- Synced 
+if gadgetHandler:IsSyncedCode() then -- Synced
     local function getUnitSize(unitDefID)
         if UnitDefs[unitDefID] then
             local size = math.ceil((UnitDefs[unitDefID].xsize / 2 + UnitDefs[unitDefID].zsize / 2) / 2)

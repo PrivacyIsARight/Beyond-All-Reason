@@ -2,16 +2,16 @@
 EventName = {
 	Regular stuff:
 		delay = integrer - Minimum seconds that have to pass to play this notification again.
-		stackedDelay = bool - Reset the delay even when attempted to play the notif under cooldown. 
+		stackedDelay = bool - Reset the delay even when attempted to play the notif under cooldown.
 								Useful for stuff you want to be able to hear often, but not repeatedly if the condition didn't change.
-		resetOtherEventDelay = table of strings - Names of other events that will get it's delay reset. 
+		resetOtherEventDelay = table of strings - Names of other events that will get it's delay reset.
 								For example, UnitLost, is a general notif for losing units, but we have MetalExtractorLost, or RadarLost. I want those to reset UnitLost as well.
 		soundEffect = string - Sound Effect to play alongside the notification, located in 'sounds/voice-soundeffects'
 		notext = bool - hide the text part of the notification
 		notifText = string - This is intended for custom widgets that cannot write I18N directly, overrides the I18N visible text.
 		tutorial = bool - Sound effect used for the tutorial messages, there's a whole different handling of those. (WIP)
 
-	Conditional Rules: 
+	Conditional Rules:
 		rulesEnable = table of strings - List of rules this notif will enable
 		rulesDisable = table of strings - List of rules this notif will disable
 		rulesPlayOnlyIfEnabled = table of strings - List of rules that are required to be enabled for this notification to work

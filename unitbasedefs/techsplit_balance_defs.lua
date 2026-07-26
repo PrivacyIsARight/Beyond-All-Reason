@@ -1,5 +1,5 @@
 local function techsplit_balanceTweaks(name, uDef)
-	if name == "corthud" then 
+	if name == "corthud" then
 		uDef.speed = 54
 		uDef.weapondefs.arm_ham.range = 300
 		uDef.weapondefs.arm_ham.predictboost = 0.8
@@ -225,7 +225,7 @@ local function techsplit_balanceTweaks(name, uDef)
 		}
 	end
 
-	if name == "correap" then 
+	if name == "correap" then
 		uDef.speed = 76
 		uDef.turnrate = 250
 		uDef.weapondefs.cor_reap.areaofeffect = 92
@@ -258,7 +258,7 @@ local function techsplit_balanceTweaks(name, uDef)
 		uDef.weapondefs.corsumo_weapon.reloadtime = 1
 	end
 
-	if name == "corgol" then 
+	if name == "corgol" then
 		uDef.speed = 37
 		uDef.weapondefs.cor_gol.damage = {
 			default = 1600,
@@ -269,7 +269,7 @@ local function techsplit_balanceTweaks(name, uDef)
 		uDef.weapondefs.cor_gol.range = 700
 	end
 
-		if name == "armguard" then 
+		if name == "armguard" then
 		uDef.health = 6000
 		uDef.metalcost = 800
 		uDef.energycost = 8000
@@ -277,7 +277,7 @@ local function techsplit_balanceTweaks(name, uDef)
 		uDef.weapondefs.plasma.areaofeffect = 150
 		uDef.weapondefs.plasma.range = 1000
 		uDef.weapondefs.plasma.reloadtime = 2.3
-		uDef.weapondefs.plasma.weaponvelocity = 550 
+		uDef.weapondefs.plasma.weaponvelocity = 550
 		uDef.weapondefs.plasma.damage = {
 			default = 140,
 			subs = 70,

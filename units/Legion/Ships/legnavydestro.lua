@@ -215,7 +215,7 @@ return {
 				fastautoretargeting = true,
 				burstControlWhenOutOfArc = 2,
 			},
-		
+
 			[2] = {
 				badtargetcategory = "VTOL",
 				def = "drone_control_matrix",

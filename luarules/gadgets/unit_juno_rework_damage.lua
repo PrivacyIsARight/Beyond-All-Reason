@@ -78,7 +78,7 @@ local toStunUnitsNames = {--this could maybe use customparams later, at least in
 		['cormine1'] = true,
 		['cormine2'] = true,
 		['cormine3'] = true,
-		['armfmine3'] = true,		
+		['armfmine3'] = true,
 		['corfmine3'] = true,
 		['legmine1'] = true,
 		['legmine2'] = true,
@@ -206,7 +206,7 @@ local todenyUnitsNames = {
 
 	function gadget:UnitDamaged(uID, uDefID, uTeam, damage, paralyzer, weaponID, projID, aID, aDefID, aTeam)
 
-		
+
 		--[[
 		if junoWeapons[weaponID] and toTarpitUnits[uDefID] and aID~=99 then
 			if uID and SpValidUnitID(uID) then
@@ -214,7 +214,7 @@ local todenyUnitsNames = {
 				if px then
 					Spring.SpawnCEG("juno-damage", px, py + 8, pz, 0, 1, 0)
 				end
-				
+
 				local health, maxHealth, paralyzeDamage, capture, build = Spring.GetUnitHealth(uID)
 				Spring.AddUnitDamage (uID, maxHealth/2, 5, 99, aDefID)
 			end
@@ -226,14 +226,14 @@ local todenyUnitsNames = {
 				if px then
 					Spring.SpawnCEG("juno-damage", px, py + 8, pz, 0, 1, 0)
 				end
-				
+
 				local health, maxHealth, paralyzeDamage, capture, build = Spring.GetUnitHealth(uID)
 				Spring.AddUnitDamage (uID, maxHealth*3, stunDuration, 99, weaponID)--no weapon ID, no stun. with weapon ID, infinite loops, even with the 99 exclusion. -1 does not work.
 				--aID check removed as -probably- only useful for kill crediting?
 
 			end
 		end
-	
+
 		if junoWeapons[weaponID] and tokillUnits[uDefID] then
 			if uID and SpValidUnitID(uID) then
 				local px, py, pz = Spring.GetUnitPosition(uID)
@@ -314,7 +314,7 @@ local todenyUnitsNames = {
 							end
 						end
 
-						
+
 						if toStunUnits[unitDefID] then
 							local px, py, pz = Spring.GetUnitPosition(unitID)
 							local dx = expl.x - px
@@ -325,11 +325,11 @@ local todenyUnitsNames = {
 								-- linear and not O(n^2)
 								local health, maxHealth, paralyzeDamage, capture, build = Spring.GetUnitHealth(unitID)
 								--Spring.Echo(paralyzeDamage, maxHealth*1.2)
-								if (paralyzeDamage < maxHealth*1.2) then--try to prevent excessive stun times, also needless restuns 
+								if (paralyzeDamage < maxHealth*1.2) then--try to prevent excessive stun times, also needless restuns
 									Spring.AddUnitDamage (unitID, maxHealth*2, 5, 99, WeaponDefNames["corjuno_juno_pulse_ghost"].id)---...close enough?
 									Spring.SpawnCEG("juno-damage", px, py + 8, pz, 0, 1, 0)
 								end
-	
+
 								--SpDestroyUnit(unitID, true, false)
 							end
 						end

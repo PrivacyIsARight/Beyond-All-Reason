@@ -1465,7 +1465,7 @@ local definitions = {
                 texture            = [[groundflashwhite]],
                 alwaysvisible      = true,
             },
-        },    
+        },
   },
 
   ["splash-nuke"] = {
@@ -1793,7 +1793,7 @@ local definitions = {
                 texture            = [[groundflashwhite]],
                 alwaysvisible      = true,
             },
-        },    
+        },
   },
   ["splash-nukexl"] = {
     waterring = {
@@ -2117,7 +2117,7 @@ local definitions = {
                 texture            = [[groundflashwhite]],
                 alwaysvisible      = true,
             },
-        },    
+        },
   },
 }
 

@@ -833,8 +833,8 @@ return {
                     drawOrder          = 1,
                     castShadow         = true,
                 },
-            },    
-            
+            },
+
         },
-       
+
 }

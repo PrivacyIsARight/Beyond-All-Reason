@@ -17,7 +17,7 @@ end
 -- synced only
 if not gadgetHandler:IsSyncedCode() then return false end
 
--- workertimeboost = number -- in the unitdefs of the builder. This is the mulitplier by which workertime is boosted.
+-- workertimeboost = number -- in the unitdefs of the builder. This is the multiplier by which workertime is boosted.
 -- wtboostunittype = "MOBILE TURRET" defined in unitdef of builder which defines what units trigger workertime boost for that builder.
 
 local spGetUnitIsBuilding = Spring.GetUnitIsBuilding
@@ -26,7 +26,7 @@ local spSetUnitRulesParam = Spring.SetUnitRulesParam
 local boostableUnits = {}
 local builderWatchDefs = {}
 local builderWatch = {}
-	
+
 for id, def in pairs(UnitDefs) do
 	if def.buildSpeed then
 		if def.customParams.workertimeboost and def.customParams.wtboostunittype then

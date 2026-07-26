@@ -8,7 +8,7 @@ local SIDES_ENUM = VFS.Include("gamedata/sides_enum.lua")
 if not SIDES_ENUM then
     error("[BlueprintDefinitions] CRITICAL: Failed to load sides_enum.lua!")
     -- Return an empty or minimal table if sides are critical and missing
-    return DefinitionsModule 
+    return DefinitionsModule
 end
 DefinitionsModule.SIDES = SIDES_ENUM
 
@@ -25,9 +25,9 @@ local function DefCat(enumKey, unitTable) -- Made local to definitions.lua
         local errorMsg = string.format("[BlueprintDefinitions ERROR] Duplicate category key definition attempted: '%s'. The previous definition will be overwritten.", enumKey)
         Spring.Log("BlueprintDefs", LOG.ERROR, errorMsg)
     end
-    
-    DefinitionsModule.UNIT_CATEGORIES[enumKey] = enumKey 
-    DefinitionsModule.categoryUnits[enumKey] = unitTable 
+
+    DefinitionsModule.UNIT_CATEGORIES[enumKey] = enumKey
+    DefinitionsModule.categoryUnits[enumKey] = unitTable
 
     for _, unitName in pairs(unitTable) do -- side variable isn't used here
         if unitName then

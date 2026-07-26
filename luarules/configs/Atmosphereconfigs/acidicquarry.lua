@@ -23,10 +23,10 @@ function gadget:GameFrame(n)
 
 
 
--- common foggy cliffs	
+-- common foggy cliffs
 	if n%360 == 0 then
 		SpawnCEGInPositionGround("fogdirty-green", 1900, 32, 1257)
-		SpawnCEGInPositionGround("fogdirty-green", 757, 32, 1554)		
+		SpawnCEGInPositionGround("fogdirty-green", 757, 32, 1554)
 		SpawnCEGInPositionGround("fogdirty-green", 4608, 32, 1413)
 		SpawnCEGInPositionGround("fogdirty-green", 5459, 32, 1650)
 		SpawnCEGInPositionGround("fogdirty-green", 4536, 32, 4716)
@@ -42,7 +42,7 @@ function gadget:GameFrame(n)
 		SpawnCEGInPositionGround("fogdirty-green", 478, 32, 4262)
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	if n%700 == 0 then
 		SpawnCEGInPositionGround("fogdirty-green", 3038, 32, 3031)
 		SpawnCEGInPositionGround("fogdirty-green", 1487, 32, 3747)
@@ -83,6 +83,6 @@ function gadget:GameFrame(n)
 -- 	if n%7000 == 600 then
 -- 		SpawnCEGInRandomMapPos("lightningstormgreen", 0, _, _, _, "distantthunder", 0.85)
 -- 	end
-	
-	
+
+
 end

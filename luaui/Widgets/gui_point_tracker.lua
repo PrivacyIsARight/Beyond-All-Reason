@@ -58,7 +58,7 @@ local function GetPlayerColor(playerID)
 end
 
 -- GL4 Notes --
--- We arent going to use triangles to point, nor are we going to apply names to points
+-- We aren't going to use triangles to point, nor are we going to apply names to points
 -- but what we are going to do, is clamp the center of the crosshair to screen space
 -- and clamp the size of it to always be screensized
 -- GL4 Stuff --
@@ -112,18 +112,18 @@ void main()
   if (isMiniMap > 0.5) {
     // Check if PIP mode (visible area not default)
     bool isPip = (pipVisibleArea.x != 0.0 || pipVisibleArea.y != 1.0 || pipVisibleArea.z != 0.0 || pipVisibleArea.w != 1.0);
-    
+
     if (isPip) {
       // For PIP: calculate screen position based on visible area
       // Convert world position to normalized [0,1] map coords
       vec2 normPos = worldposradius.xz / mapSize.xy;
-      
+
       // Map from world [0,1] to screen position based on visible area
       vec2 screenPos;
       screenPos.x = (normPos.x - pipVisibleArea.x) / (pipVisibleArea.y - pipVisibleArea.x);
       // Flip Y: world Z in [visB, visT] -> screen Y flipped
       screenPos.y = 1.0 - (normPos.y - pipVisibleArea.z) / (pipVisibleArea.w - pipVisibleArea.z);
-      
+
       // Apply rotation
       if (mapRotation == 0) {
         screenPos.y = 1.0 - screenPos.y;
@@ -138,7 +138,7 @@ void main()
         screenPos.xy = vec2(1.0) - screenPos.yx;
         viewratio = mapSize.y / mapSize.x;
       }
-      
+
       // Convert to NDC [-1,1]
       worldPosInCamSpace = vec4(screenPos * 2.0 - 1.0, 0.0, 1.0);
     } else {
@@ -281,7 +281,7 @@ function DrawMapMarksWorld(isMiniMap)
 		mapMarkShader:Activate()
 		mapMarkShader:SetUniform("isMiniMap",isMiniMap)
 		mapMarkShader:SetUniform("mapRotation", getCurrentMiniMapRotationOption() or 0)
-		
+
 		-- Pass PIP visible area if drawing in PIP minimap
 		if isMiniMap > 0 and WG['minimap'] and WG['minimap'].isDrawingInPip and WG['minimap'].getNormalizedVisibleArea then
 			local left, right, bottom, top = WG['minimap'].getNormalizedVisibleArea()
@@ -344,7 +344,7 @@ function widget:MapDrawCmd(playerID, cmdType, px, py, pz, label)
 				r, g, b, gf
 			},
       instanceIDgen, -- key, generate me one if nil
-      true -- update exisiting
+      true -- update existing
 		)
   if mapPoints[gf] then
     mapPoints[gf][#mapPoints[gf] + 1]= instanceIDgen

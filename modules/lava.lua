@@ -31,7 +31,7 @@ local losDarkness = 0.5 -- how much to darken the out-of-los areas of the lava p
 local swirlFreq = 0.025 -- How fast the main lava texture swirls around default 0.025
 local swirlAmp = 0.003 -- How much the main lava texture is swirled around default 0.003
 local specularExp = 64.0 -- the specular exponent of the lava plane
-local shadowStrength = 0.4 -- how much light a shadowed fragment can recieve
+local shadowStrength = 0.4 -- how much light a shadowed fragment can receive
 local coastWidth = 25.0 -- how wide the coast of the lava should be
 local coastColor = "vec3(2.0, 0.5, 0.0)" -- the color of the lava coast
 local coastLightBoost = 0.6 -- how much extra brightness should coastal areas get
@@ -171,7 +171,7 @@ local function validateTideRhythm(modoptionDataRaw)
 			if not tonumber(value) then
 				Spring.Echo("Lava Advanced Tide Rhythm data is not valid, non-number value: ", value)
 				return false
-			else 
+			else
 			table.insert(partRhythm, tonumber(value))
 			end
 		end
@@ -194,20 +194,20 @@ end
 
 local function lavaModGen(modOptions)
 	local tweakLavaRaw = modOptions.map_tweaklava
-	if tweakLavaRaw ~= "" and tweakLavaRaw ~= "0" then 
+	if tweakLavaRaw ~= "" and tweakLavaRaw ~= "0" then
 		local advancedRhythm = validateTideRhythm(tweakLavaRaw)
-		if advancedRhythm then 
+		if advancedRhythm then
 			tideRhythm = advancedRhythm
 			level = tideRhythm[1][1] + 1
 			grow = tideRhythm[1][2]
-		else 
+		else
 			Spring.Echo("Lava Advanced Tide Rhythm data is not valid, using default values")
-			if next(tideRhythm) == nil then 
+			if next(tideRhythm) == nil then
 				level = defaultTide[1]
 				tideRhythm = { defaultTide }
 			end
 		end
-	else 
+	else
 		local lowRhythm = {modOptions.map_lavalowlevel, 7.5, modOptions.map_lavalowdwell} --Falls faster: 450 elmo/min
 		local highRhythm = {modOptions.map_lavahighlevel, 4.5, modOptions.map_lavahighdwell} --Rises slower: 270 elmo/min
 		if modOptions.map_lavatidemode == "lavastartlow" then
@@ -232,8 +232,8 @@ if mapLavaConfig and (not voidWaterMap) then
 		lavaModGen(Spring.GetModOptions())
 	elseif modTideRhythm == "disabled" then
 		tideRhythm = {tideRhythm[1]} -- only the first (starting) tide level is used
-		tideRhythm[1][3] = 5*6000 -- extend the first tide 
-		level = tideRhythm[1][1] 
+		tideRhythm[1][3] = 5*6000 -- extend the first tide
+		level = tideRhythm[1][1]
 		grow = tideRhythm[1][2]
 	end
 

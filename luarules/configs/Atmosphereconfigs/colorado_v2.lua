@@ -22,7 +22,7 @@ function gadget:GameFrame(n)
 		SpawnCEGInPositionGround("noceg", 3000, 600, 5400, _, _, _, "windy_mountains", 0.15)
 	end
 
--- SND water ocean 
+-- SND water ocean
 	-- if n%960 == 20 then
 	-- 	SpawnCEGInPositionGround("noceg", 2200, 0, 6000, _, _, _, "oceangentlesurf", 0.3)
 	-- end
@@ -56,33 +56,33 @@ function gadget:GameFrame(n)
 	-- 	SpawnCEGInPositionGround("noceg", 8460, 200, 2012, _, _, _, "geoventshort", 0.15)
 	-- end
 
--- common foggy canyon	
+-- common foggy canyon
 	if n%700 == 0 then
 		SpawnCEGInPositionGround("mistycloud", 4286, 300, 3100)
 		SpawnCEGInPositionGround("mistycloud", 5083, 200, 4419)
 		--SpawnCEGInPositionGround("fogdirty", 240, 100, 3655)
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	if n%440 == 150 then
 		SpawnCEGInPositionGround("mistycloud", 5550, 200, 1237)
 		SpawnCEGInPositionGround("mistycloud", 2561, 220, 5925)
 		--SpawnCEGInPositionGround("fogdirty", 7940, 100, 3538)
 	end
 
--- alternate rare foggy cliffs	
+-- alternate rare foggy cliffs
 	if n%620 == 300 then
 		--SpawnCEGInPositionGround("fogdirty", 6983, 0, 2452)
 		--SpawnCEGInPositionGround("fogdirty", 1580, 0, 1888)
 	end
 
--- super rare foggy cliffs	
+-- super rare foggy cliffs
 	if n%1000 == 400 then
 		--SpawnCEGInPositionGround("fogdirty", 6060, 400, 141)
 		--SpawnCEGInPositionGround("fogdirty", 2142, 400, 6910)
 	end
 
--- mistyclouds	
+-- mistyclouds
 	if n%1000 == 400 then
 		--SpawnCEGInPositionGround("mistycloud", 5836, 500, 5343)
 	end
@@ -95,5 +95,5 @@ function gadget:GameFrame(n)
 	if n%600 == 0 then
 		SpawnCEGInRandomMapPos("dustparticles", 50)
 	end
-		
+
 end

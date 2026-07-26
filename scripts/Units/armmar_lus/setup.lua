@@ -25,8 +25,8 @@ pelvis = piece 'pelvis'
 		lleg = piece 'lleg'
 			lfoot = piece 'lfoot'
 currentSpeed = 100
-			
-			
+
+
 function InitialPiecesSetup()
 
 end

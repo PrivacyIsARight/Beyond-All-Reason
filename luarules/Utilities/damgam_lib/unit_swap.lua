@@ -14,7 +14,7 @@ local function SwapUnit(unitID, newUnitName)
     if newUnitID then
         Spring.DestroyUnit(unitID, false, true)
         GG.ScavengersSpawnEffectUnitID(newUnitID)
-        
+
         -- Apply stats of old unit to new one
         Spring.SetUnitExperience(newUnitID, unitExperience)
         local newUnitMaxHealth = select(2, Spring.GetUnitHealth(newUnitID))

@@ -161,7 +161,7 @@ function widget:DrawScreen()
 			RectRound(mathFloor((wPos.x * vsx) + 0.5), mathFloor((wPos.y * vsy) + 0.5), mathFloor(((wPos.x + bWidth) * vsx) + 0.5),  mathFloor(((wPos.y + dy) * vsy) + 0.5), elementCorner, 0, 1, 1, 0)
 		end)
 	end
-	
+
 	if WG['guishader'] and isActive and prevIsActive ~= isActive then
 		WG['guishader'].InsertDlist(backgroundGuishader, 'replaybuttons')
 	end

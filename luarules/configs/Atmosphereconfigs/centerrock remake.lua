@@ -18,7 +18,7 @@ local lightningsounds = {
 	"thunder4",
 	"thunder5",
 	"thunder6",
-	}  
+	}
 
 -- ## Atmosphere Functions
 -- SpawnCEGInPosition (cegname, posx, posy, posz, damage, paralyzedamage, damageradius, sound, soundvolume)
@@ -31,7 +31,7 @@ local lightningsounds = {
 
 -- Use _ for damage, paralyzedamage, damageradius if you want to disable
 
--- common foggy canyon	
+-- common foggy canyon
 	-- if n%20 == 0 then
 	-- 	SpawnCEGInRandomMapPosBelowY("fogdirty-brown-brown", 16, 100)
 	-- end
@@ -56,7 +56,7 @@ local lightningsounds = {
 		SpawnCEGInRandomMapPosPresetY("thickcloud", 2650)
 	end
 
--- common foggy cliffs	
+-- common foggy cliffs
 	if n%360 == 0 then
 		--SpawnCEGInPosition("fogdirty-brown", 5437, 212, 3089)
 		SpawnCEGInPosition("fogdirty", 3658, 179, 4861)
@@ -66,7 +66,7 @@ local lightningsounds = {
 		--SpawnCEGInPosition("fogdirty-brown", 3034, 32, 3736)
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	if n%700 == 0 then
 		SpawnCEGInPosition("fogdirty-brown", 2861, 407, 659)
 		SpawnCEGInPosition("fogdirty-brown", 3687, 383, 4067)
@@ -75,7 +75,7 @@ local lightningsounds = {
 		SpawnCEGInPosition("fogdirty-brown", 1050, 450, 2410)
 	end
 
--- super rare foggy cliffs	
+-- super rare foggy cliffs
 	--if n%1100 == 0 then
 	--	SpawnCEGInPosition("fogdirty-brown", 4026, 672, 4667)
 	--	SpawnCEGInPosition("fogdirty-brown", 7104, 569, 2290)
@@ -126,7 +126,7 @@ local lightningsounds = {
 	            local posz = math.random(thunderstormzmin, thunderstormzmax)
 	            SpawnCEGInPositionGround("lightningstrike", posx, 0, posz, _, _, _, lightningsounds[math.random(1,#lightningsounds)], 1)
 	       end
-	    end 
+	    end
 	end
 
 
@@ -136,5 +136,5 @@ local lightningsounds = {
 	-- 	SpawnCEGInAreaGround("sandcloud", 610, 0, 470, 200)
 	-- 	SpawnCEGInAreaGround("sandcloud", 7400, 0, 7400, 200)
 	-- end
-		
+
 end

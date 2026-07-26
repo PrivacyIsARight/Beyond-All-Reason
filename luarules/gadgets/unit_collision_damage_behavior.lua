@@ -113,7 +113,7 @@ for weaponDefID, wDef in ipairs(WeaponDefs) do
 		end
 		return damage
 	end
-	
+
 	--generate list of exempted weapons to improve performance
 	if wDef.damages and wDef.damages.impulseFactor == 0 or
 		(wDef.damages.impulseFactor < minImpulseFactor and wDef.damages.impulseBoost < maxDamage(wDef.damages) * minImpulseToDamageRatio) then

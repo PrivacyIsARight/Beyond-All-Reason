@@ -87,6 +87,6 @@ function gadget:AllowUnitCreation(unitDefID, _, teamID, x, _, z)
 	if not closestSpot then
 		return false
 	end
-	
+
 	return not mexExists(closestSpot, spGetTeamAllyTeamID(teamID), x, z)
 end

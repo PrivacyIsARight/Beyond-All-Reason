@@ -9,27 +9,27 @@ local scenariodata = {
 	imageflavor		= "River Assault", -- This text will be drawn over image
     summary         = [[After a ferocious battle, Cortex Commander decided to join Armada forces. Unfortunately, other Cortex commanders discovered the intent of the treacherous plan and sent a mighty force to prevent it.]],
 	briefing 		= [[You will start with some Lazarus (Resurrection and Repair Bots), that can resurrect units from their wrecks. Your Only hope is to hide your position and build mighty army to crush all opposing forces.
-       
+
 	!!! DO NOT UNDERESTIMATE YOUR ENEMY !!!
-      
-  While you will be fighting for life , don't forget to fortify your Ally too, since WE can't lose Cortex Command Tower. 
-  
+
+  While you will be fighting for life , don't forget to fortify your Ally too, since WE can't lose Cortex Command Tower.
+
 Reinforcements:
- - You and Your Ally will receive first contingency around 9th minute from the begin of mission 
- - Enemy will be getting Reinforcements every 8 and 20 minutes 
-    
+ - You and Your Ally will receive first contingency around 9th minute from the begin of mission
+ - Enemy will be getting Reinforcements every 8 and 20 minutes
+
 Tips:
  - Sharing is Caring! When you share limited units & buildings with your Ally this will strengthens economy and combat capabilities of both.
- - To gain access to Ally units, build Decoy Commander and capture one of your Ally Constructor unit. 
+ - To gain access to Ally units, build Decoy Commander and capture one of your Ally Constructor unit.
  - Use Radar Jamming units to hide your presence from enemy Radar.
  - Resurrection bots will use Energy to resurrect units, at a flat cost of 75e per second while resurrecting.
  - You can issue Area-Resurrect and Area-Reclaim commands by right-click dragging
  - Repairing units does not cost any resources.
-     
+
 Scoring:
  - Time taken to finish the scenario
  - Resources spent to complete victory condition.
-     
+
 											     IMPORTANT CHANGE!!
 	Beginner: Your Resources = +50%, Enemy Resources = -20%
 	Novice:   Your Resources  = +25%, Enemy Resources= -10%
@@ -43,7 +43,7 @@ Scoring:
 	playerstarty	= "26%", -- Y position of where player comm icon should be drawn, from top left of the map
 	partime 		= 5400, -- par time in seconds (time a mission is expected to take on average)
 	parresources	= 1500000, -- par resource amount (amount of metal one is expected to spend on mission)
-	difficulty		= 10, -- Percieved difficulty at 'normal' level: integer 1-10
+	difficulty		= 10, -- Perceived difficulty at 'normal' level: integer 1-10
     defaultdifficulty = "Normal", -- an entry of the difficulty table
     difficulties    = { -- Array for sortedness, Keys are text that appears in selector (as well as in scoring!), values are handicap levels
     -- handicap values range [-100 - +100], with 0 being regular resources
@@ -480,7 +480,7 @@ Scoring:
 		{
 			numallies = 0;
 		}
-	
+
 		[ai3]
 		{
 			Host = 0;
@@ -533,7 +533,7 @@ Scoring:
 			Team = 2;
 			Version = stable;
 		}
-	
+
 		[team1]
 		{
 			Side = Cortex;
@@ -544,17 +544,17 @@ Scoring:
 			StartPosX = 4888;
 			StartPosZ = 3712;
 		}
-	
+
 		[allyTeam2]
 		{
 			numallies = 0;
 		}
-	
+
 		[allyTeam1]
 		{
 			numallies = 0;
 		}
-	
+
 		[team3]
 		{
 			Side = Cortex;
@@ -565,7 +565,7 @@ Scoring:
 			StartPosX = 846;
 			StartPosZ = 4430;
 		}
-	
+
 		[team0]
 		{
 			Side = __PLAYERSIDE__;
@@ -576,7 +576,7 @@ Scoring:
 			StartPosX = 1176;
 			StartPosZ = 1414;
 		}
-	
+
 		[team2]
 		{
 			Side = Cortex;
@@ -587,7 +587,7 @@ Scoring:
 			StartPosX = 5164;
 			StartPosZ = 615;
 		}
-	
+
 		[modoptions]
 		{
 			deathmode = builders;
@@ -597,7 +597,7 @@ Scoring:
 			startmetal = 500;
 			scenariooptions = __SCENARIOOPTIONS__;
 		}
-	
+
 		[ai2]
 		{
 			Host = 0;
@@ -607,7 +607,7 @@ Scoring:
 			Team = 3;
 			Version = stable;
 		}
-	
+
 		[ai0]
 		{
 			Host = 0;
@@ -617,7 +617,7 @@ Scoring:
 			Team = 1;
 			Version = stable;
 		}
-	
+
 		[player0]
 		{
 			IsFromDemo = 0;
@@ -625,14 +625,14 @@ Scoring:
 			Team = 0;
 			rank = 0;
 		}
-	
+
 		NumRestrictions=__NUMRESTRICTIONS__;
-	
+
 		[RESTRICT]
 		{
 			__RESTRICTEDUNITS__
 		}
-	
+
 		hostip = 127.0.0.1;
 		hostport = 0;
 		numplayers = 1;

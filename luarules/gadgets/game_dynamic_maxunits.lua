@@ -214,7 +214,7 @@ function gadget:Initialize()
 
 	-- Calculate remaining units for regular teams
 	local remainingMaxUnits = totalMaxUnits - scavRaptorAllocation
-	
+
 	-- Cap the remaining pool based on the modoption maxunits limit
 	-- This ensures we don't distribute more than intended per team
 	local cappedRemainingMaxUnits = mathMin(remainingMaxUnits, totalRegularTeams * maxunits)
@@ -472,7 +472,7 @@ end
 
 function gadget:TeamChanged(teamID)
 	local gaiaTeamID = Spring.GetGaiaTeamID()
-	
+
 	-- Don't handle Gaia or Scavenger/Raptor teams
 	if teamID == gaiaTeamID or isScavengerOrRaptor(teamID) then
 		return
@@ -485,7 +485,7 @@ function gadget:TeamChanged(teamID)
 	local hasActivePlayer = teamHasActivePlayer(teamID)
 	local hadActivePlayer = teamHadActivePlayer[teamID]
 	teamHadActivePlayer[teamID] = hasActivePlayer
-	
+
 	-- Rebalance when a team becomes alive again OR when an active player rejoins that team.
 	if (hadBeenDead and not isDead) or (hadActivePlayer == false and hasActivePlayer) then
 		local allyID = select(6, Spring.GetTeamInfo(teamID, false))

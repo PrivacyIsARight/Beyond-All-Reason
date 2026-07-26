@@ -60,11 +60,11 @@ function gadget:UnitDestroyed(unitID, unitDefID, unitTeam, attackerID, attackerD
 	local queuedUnitDefID = queuedData.unitDefID
 
 	factoryQueue[unitID] = nil
-	if weaponDefID ~= reclaimedWeaponDefID then 
+	if weaponDefID ~= reclaimedWeaponDefID then
 		return
 	end
 
-	if not attackerTeam or not spAreTeamsAllied(unitTeam, attackerTeam) then 
+	if not attackerTeam or not spAreTeamsAllied(unitTeam, attackerTeam) then
 		return
 	end
 

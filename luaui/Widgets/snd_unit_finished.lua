@@ -35,6 +35,6 @@ function widget:UnitFinished(unitID, unitDefID, unitTeam)
     PlaySoundFile(activateSounds[unitDefID],volume,x,y,z, 'sfx')
   end
 end
-  
+
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

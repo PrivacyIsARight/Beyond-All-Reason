@@ -174,7 +174,7 @@ return {
 					droneammo = 3,
 				}
 			},
-			
+
 			sentinel_depthcharge = {
 				avoidfeature = false,
 				avoidfriendly = false,
@@ -211,8 +211,8 @@ return {
 					default = 255,
 					-- subs = 300,
 				},
-			},			
-			
+			},
+
 		},
 		weapons = {
 			[1] = {

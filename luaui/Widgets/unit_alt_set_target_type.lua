@@ -100,7 +100,7 @@ local function distance(point1, point2)
 	if not point1 or not point2 then
 		return -1
 	end
-	
+
 	return math.diag(point1[1] - point2[1],
 	                 point1[2] - point2[2],
 	                 point1[3] - point2[3])
@@ -261,7 +261,7 @@ function widget:CommandNotify(cmdID, cmdParams, cmdOpts)
 	if #cmdParams == 4 and not shouldCleanupTargeting then
 		local mx, my = spGetMouseState()
 		local _, worldPos = spTraceScreenRay(mx, my, true)
-		
+
 		if worldPos and worldPos[1] then
 			local myTeam = spGetMyTeamID()
 			-- Blocked on https://github.com/beyond-all-reason/RecoilEngine/issues/2793

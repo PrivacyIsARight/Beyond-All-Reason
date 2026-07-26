@@ -256,7 +256,7 @@ local function SimpleBuildOrder(cUnitID, building)
 	if not cunitposx then
 		return
 	end
-	
+
 	local team = spGetUnitTeam(cUnitID)
 	--Spring.Echo("SBO", cUnitID,"Start")
 	for b2 = 1,20 do
@@ -489,7 +489,7 @@ if gadgetHandler:IsSyncedCode() then
 					local _, _, _, _, _, allyTeamID = spGetTeamInfo(teamID)
 					local mcurrent, mstorage = spGetTeamResources(teamID, "metal")
 					local ecurrent, estorage = spGetTeamResources(teamID, "energy")
-					
+
 					-- resource boost (teamID is always in SimpleAITeamIDs)
 					if mcurrent < mstorage * 0.20 then
 						spSetTeamResource(teamID, "m", mstorage * 0.25)
@@ -510,7 +510,7 @@ if gadgetHandler:IsSyncedCode() then
 									local unitHealth, unitMaxHealth = spGetUnitHealth(unitID)
 									local unitCommandCount = spGetUnitCommandCount(unitID)
 									local unitposx, unitposy, unitposz = spGetUnitPosition(unitID)
-									
+
 									if unitposx then
 										--Spring.Echo(UnitDefs[unitDefID].name, "has commands:",unitCommandCount, SimpleConstructorDefs[unitDefID] , SimpleCommanderDefs[unitDefID], SimpleFactoriesDefs[unitDefID] ,SimpleUndefinedUnitDefs[unitDefID] )
 										-- Commanders

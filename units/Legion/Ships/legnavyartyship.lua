@@ -160,7 +160,7 @@ return {
 					subs = 50,
 					vtol = 50,
 				},
-			}, 
+			},
 			cluster_munition = {
 				areaofeffect = 115,
 				avoidfeature = false,
@@ -202,7 +202,7 @@ return {
 				-- maxangledif = 310,
 				onlytargetcategory = "SURFACE",
 			},
-	
+
 		},
 	},
 }

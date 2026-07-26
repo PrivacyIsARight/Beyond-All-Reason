@@ -58,19 +58,19 @@ function REPORTS.generateMappingReport()
     -- Add Header
     table.insert(reportLines, table.concat({
         "Category", "DescName",
-        "Side", "Tier", "Building", "Name", 
-        "MetalCost", "EnergyCost", "BuildTime", "Health", "Speed", "HasWeapons", "HasBuildOptions", "ExtractsMetal", "EnergyMake", "RadarDist", "SonarDist", "SightDist", "CanFly", "Tooltip", 
+        "Side", "Tier", "Building", "Name",
+        "MetalCost", "EnergyCost", "BuildTime", "Health", "Speed", "HasWeapons", "HasBuildOptions", "ExtractsMetal", "EnergyMake", "RadarDist", "SonarDist", "SightDist", "CanFly", "Tooltip",
         "Equiv_ARM", "Equiv_COR", "Equiv_LEG"
     }, ","))
 
-    sideTotals = { [SIDES.ARMADA]=0, [SIDES.CORTEX]=0, [SIDES.LEGION]=0 } 
+    sideTotals = { [SIDES.ARMADA]=0, [SIDES.CORTEX]=0, [SIDES.LEGION]=0 }
     sideComplete = { [SIDES.ARMADA]=0, [SIDES.CORTEX]=0, [SIDES.LEGION]=0 }
-    uncategorizedUnits = { [SIDES.ARMADA]={}, [SIDES.CORTEX]={}, [SIDES.LEGION]={}, ["UNKNOWN"]={} } 
+    uncategorizedUnits = { [SIDES.ARMADA]={}, [SIDES.CORTEX]={}, [SIDES.LEGION]={}, ["UNKNOWN"]={} }
 
     -- Iterate the minimal data, but fetch details from UnitDefs
     for unitNameLower, buildingCoreData in pairs(masterBuildingDataMinimal) do
         local unitDef = UnitDefs[buildingCoreData.unitDefID]
-        if unitDef then 
+        if unitDef then
             -- Extract core data provided by logic.lua
             local categoryName = buildingCoreData.categoryName
             local translatedHumanName = buildingCoreData.translatedHumanName
@@ -91,7 +91,7 @@ function REPORTS.generateMappingReport()
             local speed = 0 -- Buildings don't move
             local hasWeapons = (unitDef.weapons and #unitDef.weapons > 0) and "Yes" or "No"
             local hasBuildOptions = (unitDef.buildOptions and #unitDef.buildOptions > 0) and "Yes" or "No"
-            local extractsMetal = unitDef.extractsMetal or 0 
+            local extractsMetal = unitDef.extractsMetal or 0
             local energyMake = unitDef.energyMake or 0
             local radarDist = unitDef.radarDistance or 0
             local sonarDist = unitDef.sonarDistance or 0
@@ -103,17 +103,17 @@ function REPORTS.generateMappingReport()
             local equivLeg = equivalents[SIDES.LEGION] or ""
 
             local reportLine = table.concat({
-                escapeCsvField(categoryName), escapeCsvField(translatedHumanName), 
+                escapeCsvField(categoryName), escapeCsvField(translatedHumanName),
                 escapeCsvField(side or "???"), escapeCsvField(tier), escapeCsvField(isBuilding),
-                escapeCsvField(name), 
-                metalCost, energyCost, buildTime, 
-                health, speed, escapeCsvField(hasWeapons), 
+                escapeCsvField(name),
+                metalCost, energyCost, buildTime,
+                health, speed, escapeCsvField(hasWeapons),
                 escapeCsvField(hasBuildOptions), extractsMetal, energyMake,
-                radarDist, sonarDist, sightDist, escapeCsvField(canFly), 
+                radarDist, sonarDist, sightDist, escapeCsvField(canFly),
                 escapeCsvField(tooltip),
                 escapeCsvField(equivArm), escapeCsvField(equivCor), escapeCsvField(equivLeg)
             }, ",")
-            
+
             -- Add line to table instead of echoing
             table.insert(reportLines, reportLine)
 
@@ -123,10 +123,10 @@ function REPORTS.generateMappingReport()
                 if categoryName ~= "Misc" then
                     sideComplete[side] = (sideComplete[side] or 0) + 1
                 else
-                    table.insert(uncategorizedUnits[side], reportLine) 
+                    table.insert(uncategorizedUnits[side], reportLine)
                 end
             else
-                table.insert(uncategorizedUnits["UNKNOWN"], reportLine) 
+                table.insert(uncategorizedUnits["UNKNOWN"], reportLine)
             end
         else
             Spring.Log("BlueprintReports", "warning", "[Mapping Report] Could not find UnitDef for ID: " .. tostring(buildingCoreData.unitDefID) .. " Name: " .. unitNameLower);

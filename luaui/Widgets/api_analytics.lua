@@ -47,7 +47,7 @@ local function analyticsCoroutine(eventType, eventData)
 
 	local jsonstr = Json.encode(jsondict)
 	coroutine.yield()
-	
+
 	local b64str = string.base64Encode(jsonstr)
 	coroutine.yield()
 

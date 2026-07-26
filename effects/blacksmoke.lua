@@ -28,7 +28,7 @@ return {
         useairlos          = false,
       },
     },
-	
+
     bubblesuw = {
       air                = false,
       class              = [[CSimpleParticleSystem]],

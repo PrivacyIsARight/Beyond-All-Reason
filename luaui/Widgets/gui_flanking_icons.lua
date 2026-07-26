@@ -49,7 +49,7 @@ local spIsUnitAllied = Spring.IsUnitAllied
 local instanceCache = {0,0,0,2,-- length,width,cornersize (0), extraheight
 					   0,4, -- teamID, vertices
 					   0,0,0,0, -- the gameFrame (for fading), the direction to rotate the circle, 0,0
-					   0,1,0,1,  -- These are our default UV atlas tranformations
+					   0,1,0,1,  -- These are our default UV atlas transformations
 					   0,0,0,0} -- these are just padding zeros, that will get filled in
 
 local function AddPrimitiveAtUnit(unitID, gameframe, noupload) -- since the icon fades, gameframe specifies last update
@@ -64,12 +64,12 @@ local function AddPrimitiveAtUnit(unitID, gameframe, noupload) -- since the icon
 	--Spring.Echo(math.deg(flankingangle), "Flank angle = ", unitID, flankingangle, dirX, dirZ)
 	instanceCache[1] = radius
 	instanceCache[2] = radius
-	instanceCache[7] = gameframe	
+	instanceCache[7] = gameframe
 	instanceCache[8] = flankingangle
 
 	pushElementInstance(
 		flankingVBO, -- push into this Instance VBO Table
-		instanceCache, -- used the cached instance 
+		instanceCache, -- used the cached instance
 		unitID, -- this is the key inside the VBO TAble, should be unique per unit
 		true, -- update existing element
 		noupload, -- noupload, dont use unless you know what you are doing
@@ -100,10 +100,10 @@ function widget:DrawWorldPreUnit()
 end
 
 function widget:VisibleUnitAdded(unitID, unitDefID, unitTeam, noupload)
-	if not spec and fullview then 
+	if not spec and fullview then
 		if not spIsUnitAllied(unitID) then return end
 	end
-	if udefHasFlankingIcon[unitDefID] then 
+	if udefHasFlankingIcon[unitDefID] then
 		AddPrimitiveAtUnit(unitID, -300, noupload)
 	end
 end

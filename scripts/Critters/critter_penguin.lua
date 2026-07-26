@@ -26,17 +26,17 @@ function walk()
 		Turn (body, bodyWiggleAxis, -ta/4, tspeed)
 		WaitForTurn (foot2, x_axis)
 		WaitForTurn (foot2, x_axis)
-		
+
 		Turn (foot1, x_axis, -ta, tspeed)
 		Turn (foot2, x_axis, ta, tspeed)
 		Turn (body, bodyWiggleAxis, ta/4, tspeed)
 		WaitForTurn (foot2, x_axis)
 		WaitForTurn (foot2, x_axis)
 		Sleep (10)
-		
+
 		WaitForTurn (wing1, z_axis, math.rad(math.random(-20,20)), tspeed)
-		WaitForTurn (wing2, z_axis, math.rad(math.random(-20,20)), tspeed)		
-	end	
+		WaitForTurn (wing2, z_axis, math.rad(math.random(-20,20)), tspeed)
+	end
 end
 
 function stopwalk()
@@ -51,10 +51,10 @@ function script.StartMoving()
 	--Turn (body, x_axis, math.rad (10), math.rad (45))
 	StartThread(walk)
 end
-	
+
 function script.StopMoving()
 	StartThread(stopwalk)
-	
+
 	Turn (body, z_axis, 0, tspeed*2)
 	Turn (body, y_axis, 0, tspeed*2)
 end

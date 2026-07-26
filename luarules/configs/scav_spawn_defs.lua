@@ -189,7 +189,7 @@ local difficultyParameters = {
 	Now that we talked about tiers, let's talk about roles.
 	There will be 3 of these for Land and Sea, and only one for Air because there we don't really introduce any behaviours. They're just sent to enemy on fight command.
 
-	Raid - Quick and harrassing, these have no behaviours attached, they just rush in and act as cannon fodder and distraction.
+	Raid - Quick and harassing, these have no behaviours attached, they just rush in and act as cannon fodder and distraction.
 	Assault - Main combat force. These will focus on attacking what attacks them, pushing in and taking damage
 	Support - Long range units dealing damage or utility roles from afar. These will run away from you when they take damage.
 	MAKE SURE NOT TO PUT THE SAME UNIT IN 2 TABLES.
@@ -1046,7 +1046,7 @@ local AirUnitsList = {
 			["corawac_scav"] = 2,
 			--Legion
 			["legwhisper_scav"] = 2,
-			
+
 		},
 		[5] = {
 			--Armada
@@ -1145,7 +1145,7 @@ local AirUnitsList = {
 			["corseap_scav"] = 2,
 			["corcut_scav"] = 2,
 			["cortitan_scav"] = 2,
-			
+
 			["legatorpbomber"] = 2,
 		},
 		[6] = {
@@ -1161,7 +1161,7 @@ local AirUnitsList = {
 			["corseap_scav"] = 2,
 			["corcut_scav"] = 2,
 			["cortitan_scav"] = 2,
-			
+
 			["legatorpbomber"] = 2,
 		},
 		[7] = {
@@ -1511,7 +1511,7 @@ scavBehaviours = {
 		[UnitDefNames["squadcorakt4_scav"].id] = { distance = 500, chance = 0.001 },
 		[UnitDefNames["squadarmsptkt4_scav"].id] = { distance = 500, chance = 0.001 },
 		[UnitDefNames["squadcorkarganetht4_scav"].id] = { distance = 500, chance = 0.001 },
-		
+
 	},
 	COWARD = { -- Run away from target after getting hit by enemy
 		[UnitDefNames["legcom_scav"].id] = { distance = 100, chance = 0.1, teleport = true, teleportcooldown = 60, },
@@ -1832,7 +1832,7 @@ local squadSpawnOptionsTable = {
 	--	{ name = "cordronecarry_scav",        minAnger = fBusterConfig[2].minAnger, maxAnger = fBusterConfig[2].maxAnger, squadSize = 1, maxAlive = 1, surface = "sea" },
 	--	{ name = "cormship_scav",        minAnger = fBusterConfig[2].minAnger, maxAnger = fBusterConfig[2].maxAnger, squadSize = 1, maxAlive = 1, surface = "sea" },
 --
-	--	
+	--
 --
 	--	----Tier 2, [3]----
 	--	--land
@@ -1878,7 +1878,7 @@ local squadSpawnOptionsTable = {
 	--	{ name = "armdecadet3",        minAnger = fBusterConfig[5].minAnger, maxAnger = fBusterConfig[5].maxAnger, squadSize = 1, maxAlive = 1, surface = "sea" },
 	--	{ name = "corslrpc",        minAnger = fBusterConfig[5].minAnger, maxAnger = fBusterConfig[5].maxAnger, squadSize = 1, maxAlive = 1, surface = "sea" },
 	--	{ name = "armpshipt3",        minAnger = fBusterConfig[5].minAnger, maxAnger = fBusterConfig[5].maxAnger, squadSize = 1, maxAlive = 1, surface = "sea" },
-	--	
+	--
 --
 	--	----Tier 3.5 [6]----
 	--	--land
@@ -1960,7 +1960,7 @@ for tier, _ in pairs(LandUnitsList.Assault) do
 			if not scavBehaviours.BERSERK[UnitDefNames[unitName].id] then
 				scavBehaviours.BERSERK[UnitDefNames[unitName].id] = {distance = 2000, chance = 0.01}
 			end
-			addNewSquad({ 
+			addNewSquad({
 				type = "basicLand",
 				weight = unitWeight,
 				maxAnger = tierConfiguration[tier].maxAnger,
@@ -2240,7 +2240,7 @@ addNewSquad({
 --Land
 addNewSquad({
 	type = "specialLand",
-	weight = 6, 
+	weight = 6,
 	maxAnger = tierConfiguration[2].maxAnger,
 	minAnger = tierConfiguration[2].minAnger,
 	units = {
@@ -2325,7 +2325,7 @@ addNewSquad({
 	weight = 4,
 	maxAnger = 1000,
 	minAnger = tierConfiguration[3].minAnger,
-	units = 
+	units =
 	{
 		{count = 20, unit = "armfig_scav"},
 		{count = 20, unit = "corveng_scav"}
@@ -2678,10 +2678,10 @@ addNewSquad({
 }) --Cortex Flying Flagships
 
 --[[
-	Custom Squads Support 
-	This down here is meant for TweakDefs modders to allow them to add their custom modified Scav units to the spawn rosters easily'ish.	
+	Custom Squads Support
+	This down here is meant for TweakDefs modders to allow them to add their custom modified Scav units to the spawn rosters easily'ish.
 
-	Documentation WiP	
+	Documentation WiP
 
 	Available CustomParameters:
 
@@ -2760,7 +2760,7 @@ for name, unitDef in pairs(UnitDefNames) do
 				if unitDef.customParams.scavsquadbehavior == "artillery" then
 					if not scavBehaviours.SKIRMISH[unitDef.id] then
 						scavBehaviours.SKIRMISH[unitDef.id] = {
-							chance = tonumber(unitDef.customParams.scavsquadbehaviorchance) or 0.5, 
+							chance = tonumber(unitDef.customParams.scavsquadbehaviorchance) or 0.5,
 							distance = tonumber(unitDef.customParams.scavsquadbehaviordistance) or 500
 						}
 					end
@@ -2790,7 +2790,7 @@ for name, unitDef in pairs(UnitDefNames) do
 
 
 			if not customSquadTable.type then
-				
+
 				if (not unitDef.customParams.scavsquadsurface) or unitDef.customParams.scavsquadsurface == "land" or unitDef.customParams.scavsquadsurface == "mixed" then
 					if unitDef.customParams.scavsquadbehavior and unitDef.customParams.scavsquadbehavior == "healer" then
 						customSquadTable.type = "healerLand"

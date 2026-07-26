@@ -56,7 +56,7 @@ local function setup(addResources)
         -- If coopmode is enabled, multiplier depending on player count.
         local multiplier = 1
         if GG.coopMode then
-            multiplier = teamPlayerCounts[teamID] or 1 -- Gaia has no players	
+            multiplier = teamPlayerCounts[teamID] or 1 -- Gaia has no players
         end
 
         --If starting bonus multiplication is enabled, multiply it.

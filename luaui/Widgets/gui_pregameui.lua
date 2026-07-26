@@ -92,7 +92,7 @@ local UiElement, UiButton, elementPadding, uiPadding
 local enableSubbing = false
 local eligibleAsSub = false
 local offeredAsSub = false
---local allowUnready = false	-- not enabled cause unreadying doesnt work, have to do workaroud
+--local allowUnready = false	-- not enabled cause unreadying doesn't work, have to do workaround
 local showLockButton = true
 
 local numPlayers = Spring.Utilities.GetPlayerCount()
@@ -331,7 +331,7 @@ function widget:Initialize()
 
 	widget:ViewResize(vsx, vsy)
 	checkStartPointChosen()
-	
+
 	WG['pregameui'] = {}
 	WG['pregameui'].addReadyCondition = function(conditionKey, description)
 		if conditionKey and description then
@@ -430,7 +430,7 @@ function widget:DrawScreen()
 		if x > buttonRect[1] and x < buttonRect[3] and y > buttonRect[2] and y < buttonRect[4] then
 			gl.CallList(buttonHoverList)
 			colorString = "\255\210\210\210"
-			
+
 			if isReadyBlocked and WG['tooltip'] then
 				WG['tooltip'].ShowTooltip('pregameui', cachedTooltipText)
 			end

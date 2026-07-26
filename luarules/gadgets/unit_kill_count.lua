@@ -16,7 +16,7 @@ if gadgetHandler:IsSyncedCode() then
 
 	local GetUnitRulesParam = Spring.GetUnitRulesParam
 	local SetUnitRulesParam = Spring.SetUnitRulesParam
-	
+
 	local teamAllyteam = {}
 	local teamList = Spring.GetTeamList()
 	for i = 1, #teamList do

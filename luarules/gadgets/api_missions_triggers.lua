@@ -54,7 +54,7 @@ end
 
 local function populateTriggerLists()
 	for triggerId, trigger in pairs(triggers) do
-		
+
 	end
 end
 ]]

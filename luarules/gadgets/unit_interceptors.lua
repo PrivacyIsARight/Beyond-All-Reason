@@ -29,7 +29,7 @@ local groundTargetType = string.byte('g')
 local projectileTargetType = string.byte('p')
 
 -- Hashes (100000 * interceptorweaponID + unitDefID) to coveragesquared. This, along with other above optimizations make this significantly (100x) faster
-local interceptorUnitDefWeapCovSqr = {} 
+local interceptorUnitDefWeapCovSqr = {}
 
 function gadget:AllowWeaponInterceptTarget(interceptorUnitID, interceptorWeaponID, targetProjectileID)
 	--interceptorWeaponID is actually weaponNum, e.g.: gadget:AllowWeaponInterceptTarget( 24871, 1, 6540)
@@ -41,7 +41,7 @@ function gadget:AllowWeaponInterceptTarget(interceptorUnitID, interceptorWeaponI
     if targetType then
 		local unitDefID = spGetUnitDefID(interceptorUnitID)
 		local covSquared = interceptorUnitDefWeapCovSqr[100000 * interceptorWeaponID + unitDefID]
-		
+
 		local ox, _, oz = spGetUnitPosition(interceptorUnitID)
 		local tx, ty, tz
         if targetType == unitTargetType then -- unit
@@ -64,7 +64,7 @@ function gadget:Initialize()
 		for weaponNum = 1, #weapons do
 			local WeaponDefID = weapons[weaponNum].weaponDef
 			local WeaponDef = WeaponDefs[WeaponDefID]
-			if WeaponDef.coverageRange and WeaponDef.coverageRange > 0 then 
+			if WeaponDef.coverageRange and WeaponDef.coverageRange > 0 then
 				interceptorUnitDefWeapCovSqr[100000 * weaponNum + unitDefID] = WeaponDef.coverageRange * WeaponDef.coverageRange
 			end
 			if WeaponDef.interceptor > 0 and WeaponDef.coverageRange then

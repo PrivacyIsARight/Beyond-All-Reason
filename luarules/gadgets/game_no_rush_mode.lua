@@ -161,7 +161,7 @@ if gadgetHandler:IsSyncedCode() then
 
 		return allowed
 	end
-	
+
 	function gadget:UnitPreDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weaponID, projectileID, attackerID,
 								   attackerDefID, attackerTeam)
 		if not isNoRushRestricted() then

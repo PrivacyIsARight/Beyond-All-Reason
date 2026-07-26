@@ -143,7 +143,7 @@ function widget:MouseWheel(up, value)
 			py = absCameraY + cameraYDelta
 		}
 
-        Spring.SetCameraState(newCameraState, 0)		
+        Spring.SetCameraState(newCameraState, 0)
         return true
     end
 

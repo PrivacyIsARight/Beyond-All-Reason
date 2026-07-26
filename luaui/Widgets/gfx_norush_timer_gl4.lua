@@ -23,7 +23,7 @@ local pveAllyTeamID = Spring.Utilities.GetScavAllyTeamID() or Spring.Utilities.G
 ---- Config stuff ------------------
 local autoReload = false -- refresh shader code every second (disable in production!)
 
-local StartBoxes = {} -- list of xXyY 
+local StartBoxes = {} -- list of xXyY
 local noRushTime = Spring.GetModOptions().norushtimer*60*30
 if noRushTime == 0 then return end
 
@@ -49,7 +49,7 @@ local shaderSourceCache = {
 			MAXY = maxY,
 		}
 	}
-	
+
 local fullScreenRectVAO
 local norushTimerShader
 -- Locals for speedups
@@ -75,7 +75,7 @@ function widget:DrawWorldPreUnit()
 
 	local _, advMapShading = Spring.HaveAdvShading()
 
-	if advMapShading then 
+	if advMapShading then
 		gl.Texture(0, "$map_gbuffer_zvaltex")
 	else
 		if WG['screencopymanager'] and WG['screencopymanager'].GetDepthCopy() then
@@ -84,7 +84,7 @@ function widget:DrawWorldPreUnit()
 			return
 		end
 	end
-	
+
 	glCulling(true)
 	glDepthTest(false)
 	gl.DepthMask(false)
@@ -108,17 +108,17 @@ end
 
 function widget:Initialize()
 	local gaiaAllyTeamID
-	if Spring.GetGaiaTeamID() then 
+	if Spring.GetGaiaTeamID() then
 		gaiaAllyTeamID = select(6, Spring.GetTeamInfo(Spring.GetGaiaTeamID() , false))
 	end
 	for i, teamID in ipairs(Spring.GetAllyTeamList()) do
 		if teamID ~= gaiaAllyTeamID and teamID ~= pveAllyTeamID then
 			local xn, zn, xp, zp = Spring.GetAllyTeamStartBox(teamID)
-			--spEcho("Allyteam",teamID,"startbox",xn, zn, xp, zp)	
+			--spEcho("Allyteam",teamID,"startbox",xn, zn, xp, zp)
 			StartBoxes[#StartBoxes+1] = {xn, zn, xp, zp}
 		end
 	end
-	
+
 	-- MANUAL OVERRIDE FOR DEBUGGING:
 	-- StartBoxes = { {100, 200, 2000, 3000} , {2200, 3300, 5000, 4000}}
 

@@ -34,7 +34,7 @@ end
 
 for featureDefID, fdefs in pairs(FeatureDefs) do
     local maxResource = mathMax(fdefs.metal, fdefs.energy)
-	
+
     if maxResource > 0 then
 		featureListMaxResource[featureDefID] = maxResource
 		featureListReclaimTime[featureDefID] = fdefs.reclaimTime
@@ -55,10 +55,10 @@ function gadget:AllowFeatureBuildStep(builderID, builderTeam, featureID, feature
         return true
     end
     local unitDefID = GetUnitDefID(builderID)
-	
+
 	local newstep = getStep(featureDefID, unitDefID)
 	if newstep == nil then return true end
-	
+
     local newpercent = select(5, GetFeatureResources(featureID)) - newstep
     SetFeatureReclaim(featureID, newpercent)
     return true
@@ -67,7 +67,7 @@ end
 
 -- when a wreck dies and becomes a heap, we need to set the reclaim % of the heap to be equal to its 'parent' wreck
 -- order of callins below: featurecreated (for heap), feature destroyed (for wreck), gameframe
--- two features should not be able to occupy the same pos on the same frame 
+-- two features should not be able to occupy the same pos on the same frame
 -- so; keep track of features created on that frame, then when a feature dies in coord matching the feature created, transfer reclaim % onto it
 -- no need to transfer rez % since heaps are not rezzable
 local featuresCreatedThisFrame = {}
@@ -85,20 +85,20 @@ function gadget:FeatureDestroyed(featureID, allyTeamID)
 
 	--seek out heap, if one exists
 	local replaceFID
-	for i=1,#featuresCreatedThisFrame do 
+	for i=1,#featuresCreatedThisFrame do
 		local nbpx, nbpy, nbpz = GetFeaturePosition(featuresCreatedThisFrame[i])
 		--Spring.Echo("possible", featuresCreatedThisFrame[i], bpx,bpy,bpz,nbpx,nbpy,nbpz)
 		if bpx==nbpx and bpy==nbpy and bpz==nbpz then --floating point errors
 			replaceFID = featuresCreatedThisFrame[i]
 		end
 	end
-	
+
 	--set heap reclaim %
 	if replaceFID and reclaimLeft then
 		--Spring.Echo("set:", replaceFID, reclaimLeft)
 		SetFeatureReclaim(replaceFID, reclaimLeft)
 	end
-	
+
 end
 
 function gadget:GameFrame()

@@ -5,7 +5,7 @@ local gadget = gadget ---@type Gadget
 function gadget:GetInfo()
 	return {
 		name	= "AI namer",
-		desc	= "Assignes names to AI teams",
+		desc	= "Assigns names to AI teams",
 		author	= "Floris",
 		date	= "May 2018",
 		license = "GNU GPL, v2 or later",
@@ -19,7 +19,7 @@ end
 if gadgetHandler:IsSyncedCode() then
 	local cachedGameID
 	-- gameID seems to be the only fucking thing that is truly random in this space? but it's a random garbage of numbers and letters, and we need to filter it out
-	function gadget:GameID(gameID) 
+	function gadget:GameID(gameID)
 		-- make sure gameID is a string because i'm not actually sure
 		cachedGameID = tostring(gameID)
 
@@ -28,7 +28,7 @@ if gadgetHandler:IsSyncedCode() then
 		-- because yes
 		for i = 1,1000 do
 			-- Check if the next character in the game ID is a number
-			if tonumber(string.sub(cachedGameID, i, i)) then 
+			if tonumber(string.sub(cachedGameID, i, i)) then
 				-- Make sure the number we are creating doesn't grow beyond the 32bit integrer limits
 				if (not tonumber(FakeRandomSeed)) or i <= 8 or (i > 8 and tonumber(FakeRandomSeed .. tonumber(string.sub(cachedGameID, i, i))) < 10) then
 					-- Add the next character that is for sure a number

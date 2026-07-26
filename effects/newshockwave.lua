@@ -840,10 +840,10 @@ return {
         --colormap           = [[0 0 0 0   1 0.95 0.8 0.25   0.9 0.8 0.70 0.3  0.8 0.65 0.4 0.15   0.6 0.6 0.6 0.012    0.09 0.09 0.09 0.006    0 0 0 0.01]],
         colormap           = [[0.95 0.95 0.95 0.9   1 0.95 0.8 0.20    0.8 0.6 0.3 0.010    0.4 0.3 0.2 0.008    0.3 0.2 0.1 0.008    0 0 0 0.01]],
         dir                = [[0, 1, 0]],
-        --gravity            = [[0.0, 0.2, 0.0]], 
+        --gravity            = [[0.0, 0.2, 0.0]],
         frontoffset        = -1,
         length             = [[500]],
-        fronttexture       = [[none]], 
+        fronttexture       = [[none]],
         sidetexture        = [[BARFlame02]],
         animParams         = [[16,6,60]], -- animated sidetexture params
         size               = [[380 r20]],
@@ -870,7 +870,7 @@ return {
 	        airdrag            = 0.90, -- higher is less drag
             colormap           = [[0 0 0 0   1 0.95 0.8 0.50   0.9 0.8 0.70 0.7  0.8 0.65 0.4 0.35   0.10 0.08 0.04 0.012    0.06 0.04 0.02 0.006    0 0 0 0]],
 	        dir                = [[-0.75 r1.5, 0.4 r0.55, -0.75 r1.5]],
-	        gravity            = [[0.0, 0.2, 0.0]], 
+	        gravity            = [[0.0, 0.2, 0.0]],
 	        frontoffset        = 0,
 	        fronttexture       = [[blastwave]], -- would love animated texture here
             frontanimParams    = [[16,6,50 r80]], -- animated texture params

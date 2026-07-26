@@ -42,15 +42,15 @@ else	-- UNSYNCED
 			mySpec, fullview = Spring.GetSpectatingState()
 		end
 	end
-	
+
 	local scriptUnitScriptDecal = Script.LuaUI.UnitScriptDecal
-	
+
 	local function UnitScriptDecal(_, unitID, unitDefID, lightIndex, posx,posz, heading)
 		if not fullview and not spIsUnitInLos(unitID, myAllyTeamID) then
 			return
 		end
 		--Spring.Echo("Unsynced UnitScriptDecal", unitID, unitDefID, lightIndex, posx,posz, heading)
-		if Script.LuaUI('UnitScriptDecal') then 
+		if Script.LuaUI('UnitScriptDecal') then
 			Script.LuaUI.UnitScriptDecal(unitID, unitDefID, lightIndex, posx,posz, heading)
 		end
 	end

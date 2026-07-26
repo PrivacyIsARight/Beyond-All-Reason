@@ -165,7 +165,7 @@ function widget:Initialize()
 	activeRepairs = table.ensureTable(WG, "InIdleWorkerTask")
 
 	for _, unitID in ipairs(spGetTeamUnits(myTeam)) do
-		local unitDefID = spGetUnitDefID(unitID) 
+		local unitDefID = spGetUnitDefID(unitID)
 		if isMobileBuilder[unitDefID] and spGetUnitCommandCount(unitID) == 0 then
 			local x, y, z = spGetUnitPosition(unitID)
 			idleBuilders[unitID] = { homeX = x, homeY = y, homeZ = z }
@@ -210,8 +210,8 @@ function widget:UnitIdle(unitID, unitDefID, unitTeam)
 	end
 
 	onReclaimerStopped(unitID)
-	if not isMobileBuilder[unitDefID] then 
-		return 
+	if not isMobileBuilder[unitDefID] then
+		return
 	end
 
 	local x, y, z = spGetUnitPosition(unitID)
@@ -309,7 +309,7 @@ function widget:GameFrame(frame)
 				-- Repair complete
 				sendHome(builderID, info)
 			else
-				local unitDefID = spGetUnitDefID(info.targetID) 
+				local unitDefID = spGetUnitDefID(info.targetID)
 				local unitDef = cachedUnitDefs[unitDefID]
 				-- Check if target has left leash radius
 				local tx, _, tz = spGetUnitPosition(info.targetID)

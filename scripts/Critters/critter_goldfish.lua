@@ -18,7 +18,7 @@ function flapFins()
 	while (true) do
 		for i=1,math.random (1,3) do
 			Turn (wingr, z_axis, -math.rad(60),flapSpeed)
-			Turn (wingl, z_axis, math.rad(60),flapSpeed)		
+			Turn (wingl, z_axis, math.rad(60),flapSpeed)
 			WaitForTurn (wingr,z_axis)
 			WaitForTurn (wingr,z_axis)
 			Sleep (100)
@@ -26,7 +26,7 @@ function flapFins()
 			Turn (wingl, z_axis, 0,flapSpeed)
 			WaitForTurn (wingr,z_axis)
 			WaitForTurn (wingr,z_axis)
-		end		
+		end
 		Sleep (math.random (200,1000))
 		for i=1,3,1 do
 			Turn (tail, x_axis, math.rad(30),flapSpeed)

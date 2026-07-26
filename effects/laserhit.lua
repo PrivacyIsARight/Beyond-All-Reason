@@ -1066,11 +1066,11 @@ local definitions = {
         pos                = [[-4 r8, 1, -4 r8]],
       },
     },
-    
+
     sparks = {
       air                = true,
       class              = [[CSimpleParticleSystem]],
-      count              = 1,  
+      count              = 1,
       ground             = true,
       water              = true,
       underwater         = true,

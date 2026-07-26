@@ -3,7 +3,7 @@
 return {
   ["nukedatbewm-roost"] = {
     alwaysvisible      = true,
-    
+
     centerflare = {
             air                = true,
             class              = [[CHeatCloudProjectile]],
@@ -144,7 +144,7 @@ return {
         [3]  = 0.30000001192093,
       },
     },
-    
+
     poof02 = {
       air                = true,
       ground             = true,
@@ -177,7 +177,7 @@ return {
         drawOrder          = 1,
       },
     },
-    
+
     poof04 = {
       air                = true,
       ground             = true,
@@ -209,7 +209,7 @@ return {
         useairlos          = false,
       },
     },
-    
+
     pop1 = {
       air                = true,
       ground             = true,
@@ -230,7 +230,7 @@ return {
         texture            = [[bigexplosmoke-raptors]],
       },
     },
-    
+
     pop2 = {
       air                = true,
       ground             = true,
@@ -251,7 +251,7 @@ return {
         texture            = [[bigexplosmoke-raptors]],
       },
     },
-    
+
   },
 
 }

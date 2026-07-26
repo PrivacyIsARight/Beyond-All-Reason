@@ -13,7 +13,7 @@ timedMove = function(piece, axis, goal, amount, t)
 	local speed = amount/(t/1000)
 	Move(piece, axis, goal, speed)
 end
-	
+
 unitDefID = Spring.GetUnitDefID(unitID)
 defs = UnitDefs[unitDefID]
 unitName = UnitDefs[unitDefID].name
@@ -31,10 +31,10 @@ weapons = {}
 include("units/"..unitName.."_lus/setup.lua")
 include("units/"..unitName.."_lus/move.lua")
 include("units/"..unitName.."_lus/weaponsdata.lua")
-	
+
 isMoving, isAiming, isBuilding, counter, canAim, isInLoop, isUW = false, false, false, 0, false, false, false
 step = 1
-	
+
 function MotionControl()
 	local justmoved = true
 	while true do
@@ -74,7 +74,7 @@ function MotionControl()
 			justmoved = true
 		else
 			canAim = true
-			if justmoved then	
+			if justmoved then
 				StartThread(RestoreLegs)
 				if not aim then
 					StartThread(RestoreArms)
@@ -167,14 +167,14 @@ function WeaponControl()
 		Sleep(1)
 	end
 end
-	
+
 function script.StartMoving()
 	isMoving = true
 end
 
 function script.StopMoving()
 	isMoving = false
-end	
+end
 
 function script.Create()
 	InitialPiecesSetup()

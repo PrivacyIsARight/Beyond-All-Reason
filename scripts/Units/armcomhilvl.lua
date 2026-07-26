@@ -1024,7 +1024,7 @@ function script.AimWeapon(weapon, heading, pitch)
 		return true
     elseif weapons[weapon] == "tachcannon" then
         if reloadingFrameTach < GetGameFrame() then
-            isAimingTach = true 
+            isAimingTach = true
 		    Turn(aimy1, 2, heading, rad(360.0000)) -- Turn(torso, y-axis, heading, math.rad(300))
 		    Turn(biggun, 1, rad(-105), rad(900.0000)) -- Turn(rloarm, x-axis, math.rad(-55), math.rad(390))
 		    Turn(luparm, 1, rad(15)-pitch, rad(900.0000)) -- Turn(ruparm,	x-axis, math.rad(-55) - pitch, math.rad(390))

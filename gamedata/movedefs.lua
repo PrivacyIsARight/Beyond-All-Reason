@@ -36,7 +36,7 @@ local DEPTH = {
 	MAX_SHALLOW = 20, -- default maximum for land units
 	SUBMERGED	= 15, -- minimum depth for subs and huge ships
 	AMPHIBIOUS	= 5000,
-	MAXIMUM		= 9999, -- aribitrary limit
+	MAXIMUM		= 9999, -- arbitrary limit
 	DEFAULT		= 1000000,
 }
 
@@ -596,7 +596,7 @@ for moveName, moveData in pairs(moveDatas) do
 		overrideUnitWaterline  = moveData.overrideUnitWaterline,
 	}
 
-	
+
 
 	setMaxSlope(moveDef)
 

@@ -232,7 +232,7 @@ local function minefield3()
 		},
 	}
 end
-		
+
 local function randomNanoTowerDuo()
 	local unitID = getRandomNanoTowerID()
 
@@ -246,7 +246,7 @@ local function randomNanoTowerDuo()
 		},
 	}
 end
-		
+
 local function randomNanoTowerQuad()
 	local unitID = getRandomNanoTowerID()
 
@@ -262,7 +262,7 @@ local function randomNanoTowerQuad()
 		},
 	}
 end
-		
+
 local function t3Gantry1()
 	local buildings
 	local r = math.random(0,1)
@@ -297,7 +297,7 @@ local function t3Gantry1()
 end
 
 local function t3Gantry2()
-	local buildings	
+	local buildings
 	local r = math.random(0,1)
 	if r == 0 then
 		buildings = {
@@ -354,7 +354,7 @@ local function t2HeavyFirebase1()
 		tiers = { tiers.T2, tiers.T3, tiers.T4 },
 		radius = 134,
 		buildings = {
-			{ unitDefID = UDN.armminivulc_scav.id, xOffset =  -14,  zOffset =   13, direction = 0 },		
+			{ unitDefID = UDN.armminivulc_scav.id, xOffset =  -14,  zOffset =   13, direction = 0 },
 			{ unitDefID = BPWallOrPopup('scav', 1, "land"),   xOffset =   26,  zOffset =  -91, direction = 2 },
 			{ unitDefID = BPWallOrPopup('scav', 1, "land"),   xOffset =   90,  zOffset =  -59, direction = 2 },
 			{ unitDefID = BPWallOrPopup('scav', 1, "land"),   xOffset =   26,  zOffset =  101, direction = 2 },

@@ -2,7 +2,7 @@
 return {
 
   ["meteortrail"] = {
-    
+
     fireglow = {
       air                = true,
       class              = [[CSimpleParticleSystem]],
@@ -32,7 +32,7 @@ return {
         useairlos          = true,
       },
     },
-    
+
     smoke = {
 			class = [[CSimpleParticleSystem]],
 			air = 1,

@@ -3,7 +3,7 @@ sleeptime = 3800*2
 --Weapon 1
 	local headSpeed = math.rad(tonumber(defs.customParams["wpn"..(tostring(1)).."turrety"]))/30
 	local pitchSpeed = math.rad(tonumber(defs.customParams["wpn"..(tostring(1)).."turretx"]))/30
-	weapons[1] = { 
+	weapons[1] = {
 		curHead = 0, curPitch = 0, wtdHead = 0, wtdPitch = 0, -- Default position
 		wpnReady = false, -- Default state (== drawn or hidden)
 		headSpeed = headSpeed, -- Aimspeeds
@@ -19,7 +19,7 @@ sleeptime = 3800*2
 		kickback = true,
 		-- subcounter = 1,
 	}
-	weapons[2] = { 
+	weapons[2] = {
 		curHead = 0, curPitch = 0, wtdHead = 0, wtdPitch = 0, -- Default position
 		wpnReady = false, -- Default state (== drawn or hidden)
 		headSpeed = headSpeed, -- Aimspeeds
@@ -85,5 +85,5 @@ function GetAimFromPiece(weaponID)
 end
 
 function GetQueryPiece(weaponID)
-	return weapons[weaponID].flare[weapons[weaponID].counter]		
+	return weapons[weaponID].flare[weapons[weaponID].counter]
 end

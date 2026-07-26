@@ -52,7 +52,7 @@ local function updateAllowedSpeed(transportId)
 	if units then
 		for _,tUnitId in pairs(units) do
 			tunitdefid = spGetUnitDefID(tUnitId)
-			tunitdefcustom = UnitDefs[tunitdefid].customParams		
+			tunitdefcustom = UnitDefs[tunitdefid].customParams
 			if tunitdefcustom and tunitdefcustom.iscommander == '1' then
 				iscom = true
 			end
@@ -82,12 +82,12 @@ end
 	if units then
 			for _,tUnitId in pairs(units) do
 				tunitdefid = spGetUnitDefID(tUnitId)
-				tunitdefcustom = UnitDefs[tunitdefid].customParams		
+				tunitdefcustom = UnitDefs[tunitdefid].customParams
 				if (tunitdefcustom ~=nil) then
 					transportspeedmult = tunitdefcustom.transportspeedmult ~=nil and tunitdefcustom.transportspeedmult or transportspeedmult--use custom if present (can be tweaked)
 					iscom = tunitdefcustom.iscommander=='1'
 				end
-				
+
 				currentMassUsage = currentMassUsage + unitMass[tunitdefid]
 			end
 			massUsageFraction = (currentMassUsage / unitTransportMass[uDefID])

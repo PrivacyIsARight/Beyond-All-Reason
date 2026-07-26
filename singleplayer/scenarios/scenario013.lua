@@ -8,25 +8,25 @@ local scenariodata = {
 	imageflavor		= "Shipyards can be assisted by all constructors", -- This text will be drawn over image
     summary         = [[Test your skill in naval and aircraft warfare on one of the widest maps. You must defeat a single enemy, who like you, is still quite new to naval combat..]],
 	briefing 		= [[Naval battles in BAR are focused on the interaction between ships, submarines, hovercraft, aircraft and occasionally, amphibious units.
- 
- 
+
+
 Tips:
- 
+
  ‣  The Cortex Duck (Tier 2 Bot) amphibous bot armed with a short-range laser, and a torpedo launcher. It is the only amphibous unit capable of firing while underwater.
- 
+
  ‣  The Armada Platypus (Tier 2 Bot) has a short range laser, and an Anti-Aircraft missile, and can provide excellent raiding and support while swimming above the water.
- 
+
  ‣  Some Experimental Gantry (Tier 3) units are amphibious, and some stand tall enough to fire their weapons at surface targets while in water.
- 
+
  ‣  Large maps provide great incentives to use Nuclear Missiles, so take care to defend yourself with either: Land nuclear missile defence or a mobile form of it.
- 
+
  ‣  Aircraft carriers can repair aircraft while at sea, and even have an anti-nuclear missile.
- 
+
  ‣  Flagships offer the highest concentration of ranged firepower possible.
- 
+
  ‣  Torpedo bombers can quickly dispose of any fleet without sufficient anti-air cover.
- 
- 
+
+
 Scoring:
 
  ‣  Time taken to destroy all enemy units
@@ -39,7 +39,7 @@ Scoring:
 	playerstarty	= "50%", -- Y position of where player comm icon should be drawn, from top left of the map
 	partime 		= 1800, -- par time in seconds
 	parresources	= 1000000, -- par resource amount
-	difficulty		= 1, -- Percieved difficulty at 'normal' level: integer 1-10
+	difficulty		= 1, -- Perceived difficulty at 'normal' level: integer 1-10
     defaultdifficulty = "Normal", -- an entry of the difficulty table
     difficulties    = { -- Array for sortedness, Keys are text that appears in selector (as well as in scoring!), values are handicap levels
         {name = "Beginner", playerhandicap = 50 , enemyhandicap = 0},

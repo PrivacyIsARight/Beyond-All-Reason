@@ -120,24 +120,24 @@ void main() {
 	startFrame = captureParameters.z;
 	captureTimestamp = captureParameters.w;
 	currentGameFrame = timeInfo.x;
-	
+
 	textureCoordinate = vertexPosition.xy * 0.5 + 0.5;
-	
+
 	vec3 cameraPosition = cameraViewInv[3].xyz;
 	cameraDistance = cameraPosition.y;
-	
+
 	// Handle two different coordinate systems: minimap 2D vs world 3D
 	if (isMinimapRendering == 1) {
 		// Convert world coordinates to minimap UV coordinates (0-1 range)
 		vec2 minimapPosition = (instancePositionScale.xz / vec2(mapSizeXAxis, mapSizeZAxis));
 		vec2 squareSize = vec2(instancePositionScale.w / mapSizeXAxis, instancePositionScale.w / mapSizeZAxis) * 0.5;
-		
+
 		vec2 vertexPositionMinimap = vertexPosition.xy * squareSize + minimapPosition;
-		
+
 		if (flipMinimap == 0) {
 			vertexPositionMinimap.y = 1.0 - vertexPositionMinimap.y;
 		}
-		
+
 		// Convert from UV (0-1) to NDC (-1 to 1) for final positioning
 		gl_Position = vec4(vertexPositionMinimap.x * 2.0 - 1.0, vertexPositionMinimap.y * 2.0 - 1.0, 0.0, 1.0);
 		isInMinimap = 1.0;
@@ -145,12 +145,12 @@ void main() {
 		// Position square in 3D world space, conforming to terrain height
 		vec4 worldPosition = vec4(vertexPosition.x * instancePositionScale.w * 0.5, 0.0, vertexPosition.y * instancePositionScale.w * 0.5, 1.0);
 		worldPosition.xz += instancePositionScale.xz;
-		
+
 		vec2 heightmapUV = heightmapUVatWorldPos(worldPosition.xz);
 		float terrainHeight = textureLod(heightmapTexture, heightmapUV, 0.0).x;
-		
+
 		worldPosition.y = terrainHeight + instancePositionScale.y;
-		
+
 		gl_Position = cameraViewProj * worldPosition;
 		isInMinimap = 0.0;
 	}
@@ -189,40 +189,40 @@ void main() {
 	vec2 centerPoint = vec2(0.5);
 	vec2 distanceToEdges = min(textureCoordinate, 1.0 - textureCoordinate);
 	float distanceToEdge = min(distanceToEdges.x, distanceToEdges.y);
-	
+
 	float borderOpacity = 0.0;
-	
+
 	// Only render borders in main view, not minimap
 	if (isInMinimap < 0.5) {
 		float borderFadeDistance = 0.005;
 		borderOpacity = smoothstep(borderFadeDistance, 0.0, distanceToEdge);
 	}
-	
+
 	// Create animated progress circle that grows from center to corners
 	float distanceToCorner = 1.4142135623730951; // sqrt(2) diagonal distance
 	float distanceToCenter = length(textureCoordinate - centerPoint) * 2.0;
 	float animatedProgress = (progressValue + progressSpeed * (currentGameFrame - startFrame)) * distanceToCorner;
 	float circleSoftness = 0.05;
-	
+
 	float circleFillAmount = 1.0 - clamp((distanceToCenter - animatedProgress) / circleSoftness, 0.0, 1.0);
 	circleFillAmount = step(0.0, circleFillAmount) * circleFillAmount;
-	
+
 	vec4 modifiedColor = color;
-	
+
 	float adjustedCameraHeight = cameraDistance / pow(cameraHeightMultiplier, 2.0);
-	
+
 	// Fade territory visibility based on camera height
 	float fillFadeAlpha = 1.0;
 	if (isInMinimap < 0.5) {
 		float fadeRange = maxCameraDrawHeight - minCameraDrawHeight;
 		fillFadeAlpha = clamp((adjustedCameraHeight - minCameraDrawHeight) / fadeRange, 0.0, 1.0);
-		
+
 		// Add pulsing effect for recently captured territories
 		if (captureTimestamp > 0.0) {
 			float timeSinceCapture = currentGameFrame - captureTimestamp;
 			float pulseFrequency = 0.05;
 			float pulseDuration = 120.0;
-			
+
 			if (timeSinceCapture < pulseDuration) {
 				float pulseIntensity = (1.0 - timeSinceCapture / pulseDuration) * 0.8;
 				float pulse = sin(timeSinceCapture * pulseFrequency) * 0.5 + 0.5;
@@ -231,48 +231,48 @@ void main() {
 			}
 		}
 	}
-	
+
 	vec4 fillColor = vec4(modifiedColor.rgb, modifiedColor.a * circleFillAmount * fillFadeAlpha);
-	
+
 	vec4 borderColor = vec4(1.0, 1.0, 1.0, 0.8);
-	
+
 	float borderAlpha = borderOpacity;
-	
+
 	// Complex border visibility: show full borders at high camera, only corners at low camera
 	if (isInMinimap < 0.5) {
 		float heightRatio = clamp((adjustedCameraHeight - minCameraDrawHeight) / (maxCameraDrawHeight - minCameraDrawHeight), 0.0, 1.0);
-		
+
 		// At low camera: hide interior borders, only show corners
 		float innerFadeRadius = mix(1.41, 0.0, heightRatio);
-		
+
 		float baseWidth = 0.5;
 		float maxWidthMultiplier = 1.0;
 		float dynamicBorderWidth = baseWidth * (1.0 + (maxWidthMultiplier - 1.0) * heightRatio);
-		
+
 		if (distanceToCenter < innerFadeRadius - dynamicBorderWidth) {
 			borderAlpha = 0.0;
 		} else if (distanceToCenter < innerFadeRadius) {
 			borderAlpha *= smoothstep(innerFadeRadius - dynamicBorderWidth, innerFadeRadius, distanceToCenter);
 		}
-		
+
 		// Thicker borders at higher camera positions for better visibility
 		float minBorderThickness = 0.005;
 		float maxBorderThickness = 0.009;
 		float borderThickness = mix(minBorderThickness, maxBorderThickness, heightRatio);
-		
+
 		float edgeDistance = distanceToEdge / borderThickness;
 		if (edgeDistance < 1.0) {
 			borderAlpha = max(borderAlpha, (1.0 - smoothstep(0.0, 1.0, edgeDistance)) * heightRatio);
 		}
-		
+
 		borderAlpha *= mix(0.66, 0.85, heightRatio);
 	}
-	
+
 	vec4 finalColor = fillColor;
 	if (borderAlpha > 0.01) {
 		finalColor = mix(fillColor, borderColor, borderAlpha);
 	}
-	
+
 	fragmentColor = finalColor;
 }
 ]]
@@ -448,7 +448,7 @@ function gadget:Initialize()
 	amSpectating = Spring.GetSpectatingState()
 	myAllyID = Spring.GetMyAllyTeamID()
 	initializeAllyColors()
-	
+
 	cameraHeightUpdateNeeded = true
 end
 
@@ -612,7 +612,7 @@ end
 
 local function updateIsMinimapRenderingUniform(isMinimapRendering)
 	if not squareShader then return end
-	
+
 	if cachedIsMinimapRendering ~= isMinimapRendering then
 		cachedIsMinimapRendering = isMinimapRendering
 		squareShader:SetUniformInt("isMinimapRendering", isMinimapRendering)
@@ -621,9 +621,9 @@ end
 
 local function updateCameraHeightUniforms()
 	if not squareShader then return end
-	
+
 	if not cameraHeightUpdateNeeded then return end
-	
+
 	local minCameraHeight, maxCameraHeight = getMaxCameraHeight()
 	if cachedCameraHeights.min ~= minCameraHeight or cachedCameraHeights.max ~= maxCameraHeight then
 		cachedCameraHeights.min = minCameraHeight
@@ -631,7 +631,7 @@ local function updateCameraHeightUniforms()
 		squareShader:SetUniformFloat("minCameraDrawHeight", minCameraHeight)
 		squareShader:SetUniformFloat("maxCameraDrawHeight", maxCameraHeight)
 	end
-	
+
 	cameraHeightUpdateNeeded = false
 end
 
@@ -647,7 +647,7 @@ end
 
 local function updateHeightmapTextureUniform()
 	if not squareShader then return end
-	
+
 	if cachedHeightmapTexture == nil then
 		cachedHeightmapTexture = 0
 		squareShader:SetUniformInt("heightmapTexture", 0)

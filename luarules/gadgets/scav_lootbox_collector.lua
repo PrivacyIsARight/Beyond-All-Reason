@@ -30,7 +30,7 @@ end
 local transportsList = {}
 
 for unitDefName, tier in pairs({armatlas_scav = 1, corvalk_scav = 1, legatrans_scav = 1, armdfly_scav = 2, corseah_scav = 2, legstronghold_scav = 2}) do
-	if UnitDefNames[unitDefName] then 
+	if UnitDefNames[unitDefName] then
 		transportsList[UnitDefNames[unitDefName].id] = tier
 	end
 end
@@ -39,13 +39,13 @@ end
 local lootboxList = {}
 
 for unitDefName, tier in pairs({lootboxbronze_scav = 1, lootboxsilver_scav  = 1, lootboxgold_scav = 2, lootboxplatinum_scav = 2}) do
-	if UnitDefNames[unitDefName] then 
+	if UnitDefNames[unitDefName] then
 		lootboxList[UnitDefNames[unitDefName].id] = tier
 	end
 end
 
 local spawnerList = {}
-if UnitDefNames["scavbeacon_t1_scav"] then 
+if UnitDefNames["scavbeacon_t1_scav"] then
 	spawnerList[UnitDefNames["scavbeacon_t1_scav"].id] = true
     spawnerList[UnitDefNames["scavbeacon_t2_scav"].id] = true
     spawnerList[UnitDefNames["scavbeacon_t3_scav"].id] = true

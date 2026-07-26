@@ -478,7 +478,7 @@ return {
       },
     },
   },
-    
+
     ["gausscannonprojectilexl"] = {
         groundflash_small = {
       class              = [[CSimpleGroundFlash]],

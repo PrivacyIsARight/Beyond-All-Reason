@@ -373,11 +373,11 @@ else	-- UNSYNCED
 	local benchMarkFrames = 0
 
 	-- Exponential histogram (idea taken from Prometheus/OTel native histograms)
-	-- Record in a large number of histogram bucckets, 
+	-- Record in a large number of histogram bucckets,
 	--   then reduce until <= maxBuckets non-empty buckets or we hit ~20 buckets
 	-- Returns table of {[bucketMin] = count} pairs
 	local function buildExpHistogram(values, maxBuckets)
-		-- "schema" is the exponent of 2 that defines the bucket growth rate. 
+		-- "schema" is the exponent of 2 that defines the bucket growth rate.
 		--   Higher schema means more buckets but more precision.
 		local schema = 5
 		local scale = 2 ^ schema  -- 32

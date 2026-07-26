@@ -39,7 +39,7 @@ local spGetSelectedUnitsSorted = Spring.GetSelectedUnitsSorted
 --1.2:
 --added: "Repeat"-State gets saved. Repeating queues show up as green preset number labels, non-repeated in gray as usual
 --added: Queues can be loaded by left-clicking on the preset box
---added: Queues get saved for each mod seperately
+--added: Queues get saved for each mod separately
 
 
 local vsx, vsy = spGetViewGeometry()
@@ -365,7 +365,7 @@ end
 
 function loadQueue(unitId, unitDef, groupNo)
 	if savedQueues[curModId][unitDef.id] == nil then
-		--there are no queus for this factory type
+		--there are no queues for this factory type
 		return
 	end
 
@@ -405,7 +405,7 @@ function loadQueue(unitId, unitDef, groupNo)
 					spGiveOrderToUnit(unitId, cmd.id, cmd.params, opts)
 				end
 			end
-		end 	
+		end
 
 	end
 end
@@ -577,7 +577,7 @@ function DrawBoxGroup(x, y, yOffset, unitDef, selUnit, alpha, groupNo, queue)
 	elseif queue[facRepeatIdx] == true then
 		for k, unitCounts in pairs(units) do
 			local altCount = unitCounts.alt
-			if altCount ~= 0 then 
+			if altCount ~= 0 then
 				if x + boxHeight + boxIconBorder + xOff + boxHeight + unitIconSpacing > x + boxWidth then
 					font:SetTextColor(1, 1, 1, alpha)
 					font:Print("...", x + xOff + unitCountXOff, y - boxHeight + unitCountYOff, fontSizeUnitCount, "nd")
@@ -600,7 +600,7 @@ function DrawBoxGroup(x, y, yOffset, unitDef, selUnit, alpha, groupNo, queue)
 		end
 		for k, unitCounts in pairs(units) do
 			local normalCount = unitCounts.normal
-			if normalCount ~= 0 then 
+			if normalCount ~= 0 then
 				if x + boxHeight + boxIconBorder + xOff + boxHeight + unitIconSpacing > x + boxWidth then
 					font:SetTextColor(1, 1, 1, alpha)
 					font:Print("...", x + xOff + unitCountXOff, y - boxHeight + unitCountYOff, fontSizeUnitCount, "nd")

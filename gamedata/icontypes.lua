@@ -396,11 +396,11 @@ local icontypes = {
 		size = 1.15499997
 	},
 	armfatf = {
-		bitmap = "icons/targetting.png",
+		bitmap = "icons/targeting.png",
 		size = 1.36499989
 	},
 	leganavalpinpointer = {
-		bitmap = "icons/targetting.png",
+		bitmap = "icons/targeting.png",
 		size = 1.36499989
 	},
 	armfav = {
@@ -1069,11 +1069,11 @@ local icontypes = {
 		size = 1.52250004
 	},
 	armtarg = {
-		bitmap = "icons/targetting.png",
+		bitmap = "icons/targeting.png",
 		size = 1.36499989
 	},
 	legtarg = {
-		bitmap = "icons/targetting.png",
+		bitmap = "icons/targeting.png",
 		size = 1.36499989
 	},
 	armthor = {
@@ -1589,7 +1589,7 @@ local icontypes = {
 		size = 1.16999996
 	},
 	corfatf = {
-		bitmap = "icons/targetting.png",
+		bitmap = "icons/targeting.png",
 		size = 1.36499989
 	},
 	corfav = {
@@ -2233,7 +2233,7 @@ local icontypes = {
 		size = 1.52250004
 	},
 	cortarg = {
-		bitmap = "icons/targetting.png",
+		bitmap = "icons/targeting.png",
 		size = 1.36499989
 	},
 	cortdrone = {
@@ -3944,7 +3944,7 @@ local icontypes = {
 		size = 2.6
 	},
 
-	
+
 	corhaap = {
 		bitmap = "icons/factory_air_t2.png",
 		size = 2.6
@@ -3954,7 +3954,7 @@ local icontypes = {
 		bitmap = "icons/factory_air_t2.png",
 		size = 2.6
 	},
-	
+
 	corhalab = {
 		bitmap = "icons/factory_bot_t2.png",
 		size = 2.6
@@ -3984,7 +3984,7 @@ local icontypes = {
 		bitmap = "icons/factory_vehicle_t2.png",
 		size = 2.6
 	},
-	
+
 
 	blank = {
 		bitmap = "icons/blank.png",

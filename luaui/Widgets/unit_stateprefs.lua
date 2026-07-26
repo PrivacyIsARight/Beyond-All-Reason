@@ -29,7 +29,7 @@ stateprefs_record 		will save the preferred state for the selected unit/units fo
 stateprefs_clear 		will clears the preferred state for the selected unit/units for the selected command.
 stateprefs_clearunit 	will clears all saved states for the selected unit/units for all commands.
 
-e.g. 
+e.g.
 bind alt 	stateprefs_clear
 bind ctrl 	stateprefs_record
 bind sc_\ 	stateprefs_clearunit
@@ -57,7 +57,7 @@ local function pruneAllUnitPrefs()
 	end
 end
 
--- The config was previously using a seperate file, but after a bug with this file
+-- The config was previously using a separate file, but after a bug with this file
 -- it was decided to simply use the widgetHandler shared config instead.
 local function migrateOldConfig()
 	local oldConfigPath = "LuaUI/config/StatesPrefs.lua"
@@ -203,8 +203,8 @@ function doClearUnit()
 end
 
 function widget:CommandNotify(cmdID, cmdParams, cmdOpts)
-	if not isRecordPressed and not isClearPressed then 
-		return false 
+	if not isRecordPressed and not isClearPressed then
+		return false
 	end
 
 	local index = Spring.GetCmdDescIndex(cmdID)
@@ -220,7 +220,7 @@ function widget:CommandNotify(cmdID, cmdParams, cmdOpts)
 		local unitDefID = spGetUnitDefID(unitID)
 		local name = unitName[unitDefID]
 		local prefs = unitSet[name]
-		
+
 		if #cmdParams == 1 and isClearPressed then
 			if prefs and prefs[cmdID] ~= nil then
 				prefs[cmdID] = nil

@@ -229,7 +229,7 @@ function gadget:UnitFinished(unitID, unitDefID, unitTeam)
 			return
 		end
 		Spring.UnitAttach(unitID, nanoID, 3)
-		-- makes the attached con turret as non-interacting as possible 
+		-- makes the attached con turret as non-interacting as possible
 		Spring.SetUnitBlocking(nanoID, false, false, false)
         Spring.SetUnitNoSelect(nanoID, false)
 		attached_builders[nanoID] = unitID
@@ -242,7 +242,7 @@ function gadget:GameFrame(gameFrame)
 
 	if gameFrame % 15 == 0 then
 	    -- go on a slowupdate cycle
-		for nanoID, baseUnitID in pairs(attached_builders) do	
+		for nanoID, baseUnitID in pairs(attached_builders) do
 			auto_repair_routine(nanoID, attached_builder_def[nanoID], baseUnitID)
 		end
 	end

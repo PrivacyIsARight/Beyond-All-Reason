@@ -175,7 +175,7 @@ return {
 		IsFFA          = function () return getSettings().isFFA          end,
 		---@return boolean
 		IsSandbox      = function () return getSettings().isSandbox      end,
-		---@return table? isHoliday Currently running holiday events. 
+		---@return table? isHoliday Currently running holiday events.
 		---See common/holidays.lua for more information.
 		GetCurrentHolidays = function () return getSettings().isHoliday end,
 	},

@@ -338,7 +338,7 @@ if gadgetHandler:IsSyncedCode() then
 		if not anchors or #anchors == 0 then return end
 		cat.anchorCounter = cat.anchorCounter + 1
 		local anchor = anchors[((cat.anchorCounter - 1) % #anchors) + 1]
-		
+
 		-- make sure we spawn for both teams
 		spawnBurstForCategoryAtAnchor(cat, 0, cat.t1id, anchor)
 		spawnBurstForCategoryAtAnchor(cat, 1, cat.t2id, anchor)

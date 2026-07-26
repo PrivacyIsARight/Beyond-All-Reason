@@ -10,16 +10,16 @@ end
 
 function smoke_unit(emit_piece)
 	while still_building() do Sleep(400); end
-	
+
 	while (true) do
 		local health_percent = get_health_percent();
-		
+
 		if (health_percent < 66) then
 			local smoketype = 258;
 			if (math.random(1, 66) < health_percent) then smoketype = 257; end
 			Spring.UnitScript.EmitSfx(emit_piece, smoketype);
 		end
-		
+
 		local sleep_time = health_percent * 50;
 		if (sleep_time < 200) then sleep_time = 200; end
 		Sleep(sleep_time);

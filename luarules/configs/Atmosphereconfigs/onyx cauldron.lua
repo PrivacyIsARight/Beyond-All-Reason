@@ -73,7 +73,7 @@ function gadget:GameFrame(n)
 		SpawnCEGInRandomMapPosBelowY("fogdirty", 40, 500)
 		SpawnCEGInRandomMapPosBelowY("fogdirty", 50, 500)
 		SpawnCEGInRandomMapPosBelowY("fogdirty", 60, 500)
-	end	
+	end
 
 -- random rain
 	-- if n%3400 == 1600 then

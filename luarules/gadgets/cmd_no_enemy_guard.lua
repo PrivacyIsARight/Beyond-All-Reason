@@ -22,7 +22,7 @@ if not gadgetHandler:IsSyncedCode() then
 end
 
 function gadget:Initialize()
-   gadgetHandler:RegisterAllowCommand(CMD_GUARD) 
+   gadgetHandler:RegisterAllowCommand(CMD_GUARD)
 end
 
 function gadget:AllowCommand(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdOptions)

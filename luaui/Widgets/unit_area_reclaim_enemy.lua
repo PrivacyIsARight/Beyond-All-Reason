@@ -57,7 +57,7 @@ function widget:CommandNotify(id, params, options)
 	if id ~= CMD_RECLAIM or #params ~= 4 or not options.meta then
 		return
 	end
-	
+
 	local cx, cy, cz, cr = unpack(params)
 
 	local mx,my,mz = spWorldToScreenCoords(cx, cy, cz)

@@ -20,7 +20,7 @@ local LuaShader = gl.LuaShader
 
 local cmpShader
 
--- The compute shader is reponsible for updating the position, velocity, and color of each particle 
+-- The compute shader is responsible for updating the position, velocity, and color of each particle
 local cmpSrc = [[
 #version 430 core
 
@@ -80,8 +80,8 @@ function widget:Initialize()
 	}
 	)
 	pcache = {}
-	
-	for i = 0,  (numEntries * structSize -1) do 
+
+	for i = 0,  (numEntries * structSize -1) do
 		pcache[i+1] = 0
 	end
 	UniformsBufferCopy:Upload(pcache)
@@ -96,16 +96,16 @@ function widget:Initialize()
 			frameTime = 0.016,
 		}
 	}, "cmpShader")
-	
+
 	shaderCompiled = cmpShader:Initialize()
 	spEcho("cmpShader ", shaderCompiled)
 	if not shaderCompiled then widgetHandler:RemoveWidget() end
 
 	spEcho("Hello")
 	WG['api_unitbufferuniform_copy'] = {}
-	WG['api_unitbufferuniform_copy'].GetUnitUniformBufferCopy = function() 
+	WG['api_unitbufferuniform_copy'].GetUnitUniformBufferCopy = function()
 		copyRequested = true
-		return UniformsBufferCopy 	
+		return UniformsBufferCopy
 	end
 	widgetHandler:RegisterGlobal('GetUnitUniformBufferCopy', WG['api_unitbufferuniform_copy'].GetUnitUniformBufferCopy)
 end

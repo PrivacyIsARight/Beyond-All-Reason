@@ -6,7 +6,7 @@
         local rod1 = piece "rod1"
         local rod2 = piece "rod2"
         local rod3 = piece "rod3"
-	
+
         local smokespot = piece "smokespot"
 	local dmgPieces = { piece "base" }
 
@@ -48,7 +48,7 @@ function rods()
 		Move(rod3, y_axis, 0, 2)
 	end
 end
-        
+
 function script.Killed(recentDamage, maxHealth)
 	local severity = recentDamage / maxHealth
 

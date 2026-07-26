@@ -21,13 +21,13 @@ function gadget:GameFrame(n)
 		SpawnCEGInRandomMapPosBelowY("noceg", 300, 75, _, _, _, "windy", 0.27)
 	end
 
--- low middle foggy cliffs	
+-- low middle foggy cliffs
 	if n%420 == 0 then
 		-- SpawnCEGInPositionGround("fogdirty-brown", 4090, 100, 3116)
 		SpawnCEGInAreaGround("fogdirty-brown", 4118, 100, 3150, 300)
 	end
 
--- canyon middle foggy cliffs	
+-- canyon middle foggy cliffs
 	if n%380 == 150 then
 		SpawnCEGInPositionGround("fogdirty-brown", 3553, 0, 3428)
 	end
@@ -36,7 +36,7 @@ function gadget:GameFrame(n)
 		SpawnCEGInPositionGround("fogdirty-brown", 4551, 0, 2788)
 	end
 
--- -- mistyclouds	
+-- -- mistyclouds
 	if n%21 == 0 then
 		--SpawnCEGInRandomMapPosBelowY("mistycloudbrownmistxl", 145, 50)
 		SpawnCEGInRandomMapPosPresetY("mistycloudbrownmistxl", 145)
@@ -57,14 +57,14 @@ local windgustsounds = {
 		end
 	end
 
--- alternate rare foggy cliffs	
+-- alternate rare foggy cliffs
 	-- if n%620 == 300 then
 	-- 	SpawnCEGInPositionGround("fogdirty", 9585, 0, 304)
 	-- 	SpawnCEGInPositionGround("fogdirty", 275, 0, 6675)
 	-- 	SpawnCEGInPositionGround("fogdirty", 10163, 0, 1763)
 	-- end
 
--- super rare foggy cliffs	
+-- super rare foggy cliffs
 	if n%1440 == 0 then
 		SpawnCEGInAreaGround("firefliespurple", 3262, 20, 2400, 75, _, _, _, "magicalhum", 0.26)
 	end
@@ -124,6 +124,6 @@ local windgustsounds = {
 -- SND hive airbursts
  --    if n%15 == 5 then
 	-- 	SpawnCEGInRandomMapPosBelowY("ventairburst", 400, -50, _, _, _, "ventair", 0.45)
-	-- end	
-		
+	-- end
+
 end

@@ -37,7 +37,7 @@ Spring.SetUnitPieceCollisionVolumeData ( number unitID, number pieceIndex, boole
 		    0,1,0[,    -- vType, tType, axis [,  -- Optional
 			0,0,0]}    -- Aimpoint X offset, Aimpoint Y offset, Aimpoint Z offset]},
 		off={32,48,32,0,-10,0,0,1,0},
-	}                  -- Aimpoint offsets are relative to unit's base position (aka unit coordiante space)
+	}                  -- Aimpoint offsets are relative to unit's base position (aka unit coordinate space)
 	pieceCollisionVolume["arm_big_bertha"] = {
 		["0"]={true,       -- [pieceIndexNumber]={enabled,
 			   48,74,48,   --            Volume X scale, Volume Y scale, Volume Z scale,
@@ -46,8 +46,8 @@ Spring.SetUnitPieceCollisionVolumeData ( number unitID, number pieceIndex, boole
 		....               -- All undefined pieces will be treated as disabled for collision detection
 	}
 	dynamicPieceCollisionVolume["cor_viper"] = {	--same as with pieceCollisionVolume only uses "on" and "off" tables
-	
-	Warning 
+
+	Warning
 	Ensure that buildings/units do not have a unitdeff hitbox defined
 	It will break certain units being able to damage the relevant building/unit
 	this is possibly a bug but not sure
@@ -77,7 +77,7 @@ Spring.SetUnitPieceCollisionVolumeData ( number unitID, number pieceIndex, boole
 	   unit's on/off status, unarmored for on and armored for off
 ]]--
 
---Collision volume definitions, ones entered here are for TA, for other mods modify apropriatly 
+--Collision volume definitions, ones entered here are for TA, for other mods modify apropriatly
 local unitCollisionVolume = {}			--dynamic collision volume definitions
 local pieceCollisionVolume = {}			--per piece collision volume definitions
 local dynamicPieceCollisionVolume = {}	--dynamic per piece collision volume definitions
@@ -263,7 +263,7 @@ pieceCollisionVolume['legaheattank'] = {
 	['2']={20,20,27, 0,0,0, 2,1},
 }
 pieceCollisionVolume['legerailtank'] = {
-	['0']={65,20,75, 0,-4,0, 2,1}, 
+	['0']={65,20,75, 0,-4,0, 2,1},
 	['4']={31,21,36, 0,0,0, 2,1},
 	--['10']={50,50,50,0,0,0,2,1},
 }
@@ -471,7 +471,7 @@ end
 dynamicPieceCollisionVolume['corvipe'] = {
 	on = {
 		['0']={38,26,38,0,0,0,2,0},
-		['5']={25,45,25,0,25,0,1,1}, -- changed to [1] so the cylinder collision is attached to the turret and not a door 
+		['5']={25,45,25,0,25,0,1,1}, -- changed to [1] so the cylinder collision is attached to the turret and not a door
 		['offsets']={0,23,0},
 	},
 	off = {

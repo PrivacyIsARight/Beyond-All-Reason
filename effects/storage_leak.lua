@@ -12,7 +12,7 @@ return {
         explosiongenerator = [[custom:energy_leak]],
         pos                = [[0, 0, 0]],
       },
-    }, 
+    },
   },
     ["energy_leak"] = {
      unit_sparkles = {
@@ -58,7 +58,7 @@ return {
         pos                = [[-15 r30, 0, -15 r30]],
 
       },
-    }, 
+    },
   },
     ["metal_storage"] = {
      smokecloud = {
@@ -102,7 +102,7 @@ return {
         explosiongenerator = [[custom:metal_leak]],
         pos                = [[0, 0, 0]],
       },
-    }, 
+    },
       explosionball = {
       air                = true,
       class              = [[CSimpleParticleSystem]],

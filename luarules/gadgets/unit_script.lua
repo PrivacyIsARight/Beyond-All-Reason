@@ -706,7 +706,7 @@ local function ScriptInclude(filename)
 end
 
 
--- memoize it so we don't need to decompress and parse the .lua file everytime..
+-- memoize it so we don't need to decompress and parse the .lua file every time..
 local function MemoizedInclude(filename, env)
 	local chunk = include_cache[filename] or ScriptInclude(filename)
 	if chunk then
@@ -812,7 +812,7 @@ function gadget:UnitCreated(unitID, unitDefID)
 	Wrap_AimShield(unitID, callins)
 	Wrap_Killed(unitID, callins)
 
-	-- Wrap everything so activeUnit get's set properly.
+	-- Wrap everything so activeUnit gets set properly.
 	for k,v in pairs(callins) do
 		local fun = v
 

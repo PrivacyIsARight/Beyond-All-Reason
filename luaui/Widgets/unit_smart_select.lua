@@ -213,7 +213,7 @@ function widget:SelectionChanged(sel)
 	selectedUnits = sel
 end
 
--- function mousePress is called after all widgets have had their chance with widget:MousePress. 
+-- function mousePress is called after all widgets have had their chance with widget:MousePress.
 -- If any of those widgets change the selection on mouse press, referenceSelection will not only become stale, it will be stale inconsistently because widget:SelectionChanged is deferred.
 -- So we make a snapshot of the selection before any widget has had a chance to change it (layer -999999), and use that as the reference for the selection box.
 -- This produces a consistent behavior for Ctrl+drag deselect, even if other widgets select on mouse press (e.g. Squad Selection on ctrl+left click).
@@ -284,7 +284,7 @@ function widget:Update(dt)
 	end
 
 	-- limit updaterate  (cause Spring.GetUnitsIn.... expensive mem alloc wise)
-	if (not selRectChanged and sec < 1/30) -- limit to 30 updates per sec when selection rectangle didnt change
+	if (not selRectChanged and sec < 1/30) -- limit to 30 updates per sec when selection rectangle didn't change
 		or selRectChanged and  sec < 1/60	-- limit to 60 updates per sec
 	then
 		return
@@ -523,7 +523,7 @@ function widget:Initialize()
 			externalSelectionReference[current[i]] = true
 		end
 	end
-	
+
 	-- Function to clear the reference selection
 	WG.SmartSelect_ClearReference = function()
 		externalSelectionReference = {}
@@ -534,9 +534,9 @@ function widget:Initialize()
 		-- Apply smart select filtering to the provided units
 		local mouseSelection = units
 		local uid, udid
-		
+
 		local included = {}
-		
+
 		-- Filter unselectable units and ignored units (always apply this basic filter)
 		local isGodMode = spIsGodModeEnabled()
 		for i = 1, #mouseSelection do
@@ -547,10 +547,10 @@ function widget:Initialize()
 			end
 		end
 		mouseSelection = included
-		
+
 		-- Check modifiers to determine mode
 		local _, ctrl, _, shift = spGetModKeyState()
-		
+
 		-- Ctrl mode: deselect units in mouseSelection from current selection
 		-- Use RAW mouseSelection (no filters) for deselect to match engine behavior
 		if ctrl then
@@ -560,13 +560,13 @@ function widget:Initialize()
 				spSelectUnitArray(selectedUnits)
 				return
 			end
-			
+
 			-- Build set of units to deselect (use RAW list, no filters)
 			local unitsToDeselect = {}
 			for i = 1, #mouseSelection do
 				unitsToDeselect[mouseSelection[i]] = true
 			end
-			
+
 			-- Keep units from reference that are not in the deselect set
 			local newSelection = {}
 			for unitID, _ in pairs(externalSelectionReference) do
@@ -574,14 +574,14 @@ function widget:Initialize()
 					newSelection[#newSelection + 1] = unitID
 				end
 			end
-			
+
 			selectedUnits = newSelection
 			spSelectUnitArray(selectedUnits)
 			return
 		end
-		
+
 		-- For non-deselect modes, apply smart select filters
-		
+
 		-- Apply custom filter if set
 		if next(customFilter) ~= nil then
 			included = {}
@@ -595,7 +595,7 @@ function widget:Initialize()
 				mouseSelection = included
 			end
 		end
-		
+
 		-- Apply idle filter if active
 		if mods.idle then
 			included = {}
@@ -607,7 +607,7 @@ function widget:Initialize()
 			end
 			mouseSelection = included
 		end
-		
+
 		-- Apply same-type filter if active
 		if mods.same and next(referenceSelectionTypes) ~= nil then
 			included = {}
@@ -619,7 +619,7 @@ function widget:Initialize()
 			end
 			mouseSelection = included
 		end
-		
+
 		-- Apply mobile filter if active
 		if mods.mobile then
 			included = {}
@@ -640,7 +640,7 @@ function widget:Initialize()
 					break
 				end
 			end
-			
+
 			if mobiles then
 				included = {}
 				local excluded = {}
@@ -661,19 +661,19 @@ function widget:Initialize()
 				mouseSelection = included
 			end
 		end
-		
+
 		-- Shift mode: append units to reference selection
 		if shift and next(externalSelectionReference) ~= nil then
 			-- Append mode with reference - start with reference units, then add/keep box units
 			local combined = {}
 			local unitSet = {}
-			
+
 			-- Add reference selection (units selected before box drag started)
 			for unitID, _ in pairs(externalSelectionReference) do
 				unitSet[unitID] = true
 				combined[#combined + 1] = unitID
 			end
-			
+
 			-- Add new units from box selection
 			for i = 1, #mouseSelection do
 				if not unitSet[mouseSelection[i]] then
@@ -681,7 +681,7 @@ function widget:Initialize()
 					combined[#combined + 1] = mouseSelection[i]
 				end
 			end
-			
+
 			selectedUnits = combined
 			spSelectUnitArray(selectedUnits)
 		else

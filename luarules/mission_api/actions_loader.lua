@@ -34,7 +34,7 @@ local function prevalidateActions()
 end
 
 local function preprocessRawActions(rawActions)
-	for actionId, rawAction in pairs(rawActions) do	
+	for actionId, rawAction in pairs(rawActions) do
 		actions[actionId] = table.copy(rawAction)
 	end
 

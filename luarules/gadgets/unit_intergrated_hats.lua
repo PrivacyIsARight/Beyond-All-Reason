@@ -2,7 +2,7 @@ local gadget = gadget ---@type Gadget
 
 function gadget:GetInfo()
 	return {
-		name		= "Intergrated Hats",
+		name		= "Integrated Hats",
 		desc		= "Hides hats used for april and alike events, hats get baked into models swapped in in alldefs post",
 		author		= "",
 		date		= "1st Of April",
@@ -13,12 +13,12 @@ function gadget:GetInfo()
 end
 --	Authors:
 --		robert the pie; scripts, hats:
---			baseball cap, football helmet, mini rocket pod, shoulder spikes, mahwak, pool floaty, 
+--			baseball cap, football helmet, mini rocket pod, shoulder spikes, mahwak, pool floaty,
 --			mini pawn head, chess pawn, party hat, fedora, tophat, weird arms, UNICORN CATHAT
 --		the silver hornet; hats:
---			hard hat, construction cone, jester, proppeler hat, sunhat(unused), 
+--			hard hat, construction cone, jester, proppeler hat, sunhat(unused),
 
--- synced space only, the hats arent part of the modified models, hiding them is a synced animation action
+-- synced space only, the hats aren't part of the modified models, hiding them is a synced animation action
 if not gadgetHandler:IsSyncedCode() then
 	return false
 end
@@ -90,7 +90,7 @@ function gadget:UnitCreated(unitID, unitDefID, teamID, builderID)
 	-- we increment every time a unit is made, makes for a good rng in our case
 	unitCount = unitCount + 1
 
-	-- hide all but the choosen hat
+	-- hide all but the chosen hat
 	local numberOfHats = hatCounts[unitDefID]
 	if numberOfHats then
 		local unitPieceList = Spring.GetUnitPieceMap(unitID)

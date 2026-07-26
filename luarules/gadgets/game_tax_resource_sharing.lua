@@ -59,7 +59,7 @@ end
 function gadget:AllowResourceTransfer(senderTeamId, receiverTeamId, resourceType, amount)
 
 	-- Spring uses 'm' and 'e' instead of the full names that we need, so we need to convert the resourceType
-	-- We also check for 'metal' or 'energy' incase Spring decides to use those in a later version
+	-- We also check for 'metal' or 'energy' in case Spring decides to use those in a later version
 	local resourceName
 	if (resourceType == 'm') or (resourceType == 'metal') then
 		resourceName = 'metal'
@@ -76,7 +76,7 @@ function gadget:AllowResourceTransfer(senderTeamId, receiverTeamId, resourceType
 
 	-- rShare is the share slider setting, don't exceed their share slider max when sharing
 	local maxShare = rStor * rShare - rCur
-	
+
 	if amount <= 0 or maxShare <= 0 then
 		return false
 	end
@@ -149,7 +149,7 @@ function gadget:GameFrame(f)
 					local otherTeamEnergyCurrentLevel, otherTeamEnergyStorage,_,_,_, otherTeamEnergyShare = spGetTeamResources(otherTeamID, "energy")
 					local edif = math_max(0.0, math_min(((otherTeamEnergyStorage * math_min(0.99, otherTeamEnergyShare)) - otherTeamEnergyCurrentLevel) * de, teamEnergyCurrentLevel))
 					local mdif = math_max(0.0, math_min(((otherTeamMetalStorage * math_min(0.99, otherTeamMetalShare)) - otherTeamMetalCurrentLevel) * dm, teamMetalCurrentLevel))
-					
+
 					-- Tax the resources here. These count as used resources for in statistics, not sure what they should count as.
 					spUseTeamResource(teamID, "energy", edif * sharingTax)
 					spUseTeamResource(teamID, "metal", mdif * sharingTax)
@@ -190,7 +190,7 @@ function gadget:GameFrame(f)
 					local otherTeamEnergyCurrentLevel, otherTeamEnergyStorage,_,_,_, otherTeamEnergyShare = spGetTeamResources(otherTeamID, "energy")
 					local edif = math_max(0.0, math_min(((otherTeamEnergyStorage * math_min(0.99, otherTeamEnergyShare)) - otherTeamEnergyCurrentLevel) * de, teamEnergyCurrentLevel))
 					local mdif = math_max(0.0, math_min(((otherTeamMetalStorage * math_min(0.99, otherTeamMetalShare)) - otherTeamMetalCurrentLevel) * dm, teamMetalCurrentLevel))
-					
+
 					-- These erroneously count as produced resources for allies in statistics. Not yet sure how to do this better, but this should be fine for modoption/testing at least.
 					spAddTeamResource(otherTeamID, "energy", edif)
 					spAddTeamResource(otherTeamID, "metal", mdif)

@@ -41,7 +41,7 @@ local mapz = Game.mapSizeZ
 local CMD_ATTACK = CMD.ATTACK
 local CMD_UNIT_SET_TARGET = GameCMD.UNIT_SET_TARGET
 local CMD_UNIT_SET_TARGET_NO_GROUND = GameCMD.UNIT_SET_TARGET_NO_GROUND
-local CMD_UNIT_SET_TARGET_RECTANGLE = GameCMD.UNIT_SET_TARGET_RECTANGLE 
+local CMD_UNIT_SET_TARGET_RECTANGLE = GameCMD.UNIT_SET_TARGET_RECTANGLE
 local CMDTYPE_ICON_MAP = CMDTYPE.ICON_MAP
 
 local success, mapinfo = pcall(VFS.Include,"mapinfo.lua") -- load mapinfo.lua confs
@@ -68,8 +68,8 @@ function gadget:UnitCreated(unitID, unitDefID, unitTeam)
             cmdDesc = spGetUnitCmdDescs(unitID, cmdIdx, cmdIdx)[1]
             if cmdDesc then
                 cmdDesc.type = CMDTYPE_ICON_MAP -- Forces attack commands to accept (x,y,z) spatial coordinates, and not allow unitIDs as valid parameters.
-				-- HOWEVER, this does not seem to propogate to default right click commands.
-				-- so the below AllowCommand function checks for any attacks just targeting a unitID and places the command on the floor.  
+				-- HOWEVER, this does not seem to propagate to default right click commands.
+				-- so the below AllowCommand function checks for any attacks just targeting a unitID and places the command on the floor.
                 spEditUnitCmdDesc(unitID, cmdIdx, cmdDesc)
             end
         end
@@ -108,18 +108,18 @@ function gadget:AllowCommand(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdO
 	-- usually from user side DefaultCommand widget function
 	if place_target_on_ground[unitDefID] then
 		-- no need to check cmdID due to RegisterAllowCommand above
-		if hasVoid and (#cmdParams == 3 or #cmdParams == 4) then 
+		if hasVoid and (#cmdParams == 3 or #cmdParams == 4) then
 			local x,y,z = cmdParams[1], cmdParams[2], cmdParams[3]
 			if x ~= nil and (y < 0) and ( x >= 0 and x <= mapx ) and (z >= 0 and z <= mapz) then
 				return false
 			end
-		elseif (#cmdParams == 1) then -- give an attack command at the ground, and deny the intial attack unit command
+		elseif (#cmdParams == 1) then -- give an attack command at the ground, and deny the initial attack unit command
 			local basePointX, basePointY, basePointZ = spGetUnitPosition(cmdParams[1])
 			if basePointX and basePointZ then
 				local yGround = spGetGroundHeight(basePointX, basePointZ)
 				if hasVoid and (yGround < 0) then
 					return false
-				end 
+				end
 				spGiveOrderToUnit(unitID, cmdID, {basePointX, yGround, basePointZ}, cmdOptions)
 				return false
 			end

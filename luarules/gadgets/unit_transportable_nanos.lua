@@ -52,7 +52,7 @@ function gadget:AllowCommand(unitID, unitDefID, teamID, cmdID, cmdParams, cmdOpt
 	if not UnitDefs[unitDefID].isTransport then
 		return false
 	end
-	
+
 	if cmdID == CMD_LOAD_UNITS then
 		if #cmdParams == 1 then -- if unit is target
 			local targetId = cmdParams[1]

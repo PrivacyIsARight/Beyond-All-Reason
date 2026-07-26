@@ -24,7 +24,7 @@ function gadget:GameFrame(n)
 
 -- Use _ for damage, paralyzedamage, damageradius if you want to disable
 
--- common foggy canyon	
+-- common foggy canyon
 	if n%20 == 0 then
 		SpawnCEGInRandomMapPosBelowY("fogdirty-brown", 16, 800)
 	end
@@ -48,7 +48,7 @@ function gadget:GameFrame(n)
 		end
 	end
 
--- common foggy cliffs	
+-- common foggy cliffs
 	if n%360 == 0 then
 		--SpawnCEGInPositionGround("fogdirty-brown", 5437, 0, 3089)
 		SpawnCEGInPositionGround("fogdirty-brown", 3400, 0, 4800)
@@ -58,7 +58,7 @@ function gadget:GameFrame(n)
 		--SpawnCEGInPositionGround("fogdirty-brown", 3034, 0, 3736)
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	if n%700 == 0 then
 		SpawnCEGInPositionGround("fogdirty-brown", 2861, 0, 659)
 		SpawnCEGInPositionGround("fogdirty-brown", 3687, 0, 4067)
@@ -67,7 +67,7 @@ function gadget:GameFrame(n)
 		SpawnCEGInPositionGround("fogdirty-brown", 1050, 0, 2410)
 	end
 
--- super rare foggy cliffs	
+-- super rare foggy cliffs
 	-- if n%1100 == 0 then
 	-- 	SpawnCEGInPositionGround("fogdirty-brown", 4026, 0, 4667)
 	-- 	SpawnCEGInPositionGround("fogdirty-brown", 7104, 0, 2290)
@@ -90,5 +90,5 @@ function gadget:GameFrame(n)
 	-- 	SpawnCEGInAreaGround("sandcloud", 610, 0, 470, 200)
 	-- 	SpawnCEGInAreaGround("sandcloud", 7400, 0, 7400, 200)
 	-- end
-		
+
 end

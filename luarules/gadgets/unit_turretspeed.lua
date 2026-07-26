@@ -23,20 +23,20 @@ end
  This gadget will only call the setting function if it finds both the wpnXturretx and wpnXturrety customParams, if the weapon doesn't use a rotation around x-axis in its aiming then just set it to 1 (not nil)
 
 For future notes, look for these in COB scripts
- Weapon1TurretX 
+ Weapon1TurretX
  Weapon1TurretY
- 
+
 Look for these in UnitDefs customparams:
  wpn1turretx
  wpn1turrety
 
-This, should entirely be removed anyway, along with the customparams. No unit uses them any more anyway. 
+This, should entirely be removed anyway, along with the customparams. No unit uses them any more anyway.
 Would otherwise require:
 
 include "weapon1control.h"
-  
-in bos. noone uses that.   
- 
+
+in bos. no one uses that.
+
  ]]
 
 -- finds fields weapon1turretx/weapon1turrety, up to 10.

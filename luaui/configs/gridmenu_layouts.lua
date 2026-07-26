@@ -150,7 +150,7 @@ local labGrids = {
 		"leganavyconsub", "leganavyengineer", "leganavycruiser", "leganavymissileship",              -- T2 con sub, naval engineer, cruiser, rocket ship
 		"leganavyantinukecarrier", "leganavyradjamship", "leganavybattleship", "leganavyflagship",            -- carrier, jammer, battleship, flagship
 		"leganavybattlesub", "leganavyheavysub", "leganavyaaship", "leganavyartyship",                         -- sub killer, battlesub, AA
-		
+
 		"leganavyantiswarm","","","",
 	},
 	-- amphibious labs
@@ -234,7 +234,7 @@ local labGrids = {
 	corhalab = {
 		"corhack", "cordecom", "corpyro", "corspec",
 		"", "corshiva", "corsumo", "corsktl",
-		"", "", "coraak", "", 
+		"", "", "coraak", "",
 	},
 
 	armhalab = {
@@ -272,7 +272,7 @@ local labGrids = {
 		"corhunt", "corhvytrans", "corseap", "",                      -- radar, torpedo, empty, empty
 		"", "", "", "",                                     -- empty rows
 	},
-	
+
 	leghaap = {
 		"legaca", "legafigdef", "legvenator", "legphoenix",					--T2 con, defensive fig, interceptor, phoenix
 		"legwhisper", "legstronghold", "legatorpbomber", "",			--radar, transport(gunship), torpedo,
@@ -280,15 +280,15 @@ local labGrids = {
 	},
 
 	armhasy = {
-		"armhacs", "", "armlship", "armantiship",              
-		"armmship", "armepoch", "armbats", "",              
-		"armserp", "armlun", "armaas", "",              
+		"armhacs", "", "armlship", "armantiship",
+		"armmship", "armepoch", "armbats", "",
+		"armserp", "armlun", "armaas", "",
 	},
 
 	corhasy = {
-		"corhacs", "", "corfship", "corantiship",              
-		"cormship", "corblackhy", "corbats", "",              
-		"corssub", "corsok", "corarch", "",              
+		"corhacs", "", "corfship", "corantiship",
+		"cormship", "corblackhy", "corbats", "",
+		"corssub", "corsok", "corarch", "",
 	},
 
 	armhavp = {
@@ -339,7 +339,7 @@ local unitGrids = {
 		{
 			{ "cormex", "corsolar", "corwin", },                -- mex, solar, wind
 			{ "cormakr", "", "coruwms", "cortide"},             -- T1 converter, uw m storage, tidal
-			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "corllt", "cortl", },                          -- LLT, offshore torp launcher
@@ -361,11 +361,11 @@ local unitGrids = {
 		{
 			{ "legmex", "legsolar", "legwin", },                -- mex, solar, wind
 			{ "legeconv", "", "leguwmstore", "legtide"},             -- T1.5 mex, uw m storage, tidal
-			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m storage, uw e storage, floating converter
 			{ "legeconv", "", "leguwmstore", "legtide"},             -- T1.5 mex, uw m storage, tidal
-			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m storage, uw e storage, floating converter
 			{ "legeconv", "", "leguwmstore", "legtide"},             -- T1.5 mex, uw m storage, tidal
-			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "leglht", "legtl", },                          -- LLT, offshore torp launcher
@@ -411,7 +411,7 @@ local unitGrids = {
 		{
 			{ "cormex", "corsolar", "corwin", },                -- mex, solar, wind
 			{ "cormakr", "", "coruwms", "cortide"},             -- T1 converter, uw m storage, tidal
-			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "corllt", "cortl", },                          -- LLT, offshore torp launcher
@@ -433,7 +433,7 @@ local unitGrids = {
 		{
 			{ "legmex", "legsolar", "legwin", },                -- mex, solar, wind
 			{ "legeconv", "", "leguwmstore", "legtide"},             -- T1.5 mex, uw m storage, tidal
-			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "leglht", "legtl", },                          -- LLT, offshore torp launcher
@@ -553,7 +553,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armeyes", "armfort", "armjamt" },     -- adv radar, camera, t2 wall, cloak jammer
-			{ "armfrad", "armfdrag", "armdrag", "" },    -- 
+			{ "armfrad", "armfdrag", "armdrag", "" },    --
 			{ "armjuno", "armmine1", "armmine2", "armmine3", },-- juno, Lmine, Mmine, Hmine
 		},
 		{
@@ -575,7 +575,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armeyes", "armfort", "armjamt" },     -- adv radar, camera, t2 wall, cloak jammer
-			{ "armfrad", "armfdrag", "armdrag", "" },    -- 
+			{ "armfrad", "armfdrag", "armdrag", "" },    --
 			{ "armjuno", "armmine1", "armmine2", "armmine3", },-- juno, Lmine, Mmine, Hmine
 		},
 		{
@@ -597,7 +597,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armeyes", "armfort", "armjamt" },     -- adv radar, camera, t2 wall, cloak jammer
-			{ "armfrad", "armfdrag", "armdrag", "" },    -- 
+			{ "armfrad", "armfdrag", "armdrag", "" },    --
 			{ "armjuno", "armmine1", "armmine2", "armmine3", },-- juno, Lmine, Mmine, Hmine
 		},
 		{
@@ -619,7 +619,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armeyes", "armfort", "armjamt" },     -- adv radar, camera, t2 wall, cloak jammer
-			{ "armfrad", "armfdrag", "armdrag", "" },    -- 
+			{ "armfrad", "armfdrag", "armdrag", "" },    --
 			{ "armjuno", "armmine1", "armmine2", "armmine3", },-- juno, Lmine, Mmine, Hmine
 		},
 		{
@@ -641,7 +641,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armeyes", "armfort", "armjamt" },     -- adv radar, camera, t2 wall, cloak jammer
-			{ "armfrad", "armfdrag", "armdrag", "" },    --  
+			{ "armfrad", "armfdrag", "armdrag", "" },    --
 			{ "armjuno", "armmine1", "armmine2", "armmine3", },-- juno, Lmine, Mmine, Hmine
 		},
 		{
@@ -663,7 +663,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armeyes", "armfort", "armjamt" },     -- adv radar, camera, t2 wall, cloak jammer
-			{ "armfrad", "armfdrag", "armdrag", "" },    -- 
+			{ "armfrad", "armfdrag", "armdrag", "" },    --
 			{ "armjuno", "armmine1", "armmine2", "armmine3", },-- juno, Lmine, Mmine, Hmine
 		},
 		{
@@ -676,7 +676,7 @@ local unitGrids = {
 		{
 			{ "cormex", "corsolar", "corwin", },                -- mex, solar, wind
 			{ "cormakr", "", "coruwms", "cortide"},             -- T1 converter, uw m storage, tidal
-			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "corllt", "cortl", },                          -- LLT, offshore torp launcher
@@ -698,7 +698,7 @@ local unitGrids = {
 		{
 			{ "cormex", "corsolar", "corwin", },                -- mex, solar, wind
 			{ "cormakr", "", "coruwms", "cortide"},             -- T1 converter, uw m storage, tidal
-			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "corestor", "cormstor", "coruwes", "corfmkr",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "corllt", "cortl", },                          -- LLT, offshore torp launcher
@@ -773,7 +773,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "coreyes", "corfort", "corshroud", },  -- adv radar, camera, t2wall, adv jammer
-			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth, 
+			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth,
 			{ "corjuno", },                                     -- juno
 		},
 		{
@@ -795,7 +795,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "coreyes", "corfort", "corshroud", },  -- adv radar, camera, t2wall, adv jammer
-			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth, 
+			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth,
 			{ "corjuno", },                                     -- juno
 		},
 		{
@@ -817,7 +817,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "coreyes", "corfort", "corshroud", },  -- adv radar, camera, t2wall, adv jammer
-			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth, 
+			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth,
 			{ "corjuno", },                                     -- juno
 		},
 		{
@@ -839,7 +839,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "coreyes", "corfort", "corshroud", },  -- adv radar, camera, t2wall, adv jammer
-			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth, 
+			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth,
 			{ "corjuno", },                                     -- juno
 		},
 		{
@@ -861,7 +861,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "coreyes", "corfort", "corshroud", },  -- adv radar, camera, t2wall, adv jammer
-			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth, 
+			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth,
 			{ "corjuno", },                                     -- juno
 		},
 		{
@@ -883,7 +883,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "coreyes", "corfort", "corshroud", },  -- adv radar, camera, t2wall, adv jammer
-			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth, 
+			{ "corfrad", "corfdrag", "cordrag", "" },     --floating radar, floating dragteeth, drag teeth,
 			{ "corjuno", },                                     -- juno
 		},
 		{
@@ -898,7 +898,7 @@ local unitGrids = {
 		{
 			{ "legmex", "legsolar", "legwin", },                -- mex, solar, wind
 			{ "legeconv", "", "leguwmstore", "legtide"},             -- T1.5 mex, uw m storage, tidal
-			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "leglht", "legtl", },                          -- LLT, offshore torp launcher
@@ -920,7 +920,7 @@ local unitGrids = {
 		{
 			{ "legmex", "legsolar", "legwin", },                -- mex, solar, wind
 			{ "legeconv", "", "leguwmstore", "legtide"},             -- T1.5 mex, uw m storage, tidal
-			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m sotrage, uw e storage, floating converter
+			{ "legestor", "legmstor", "leguwestore", "legfeconv",  }, -- e storage, m storage, uw e storage, floating converter
 		},
 		{
 			{ "leglht", "legtl", "leggob", "leglob",},       -- LLT, offshore torp launcher, goblin, lobber
@@ -973,7 +973,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legavjam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -995,7 +995,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legavjam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -1017,7 +1017,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legajam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -1039,7 +1039,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legavjam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -1061,7 +1061,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legavjam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -1083,7 +1083,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legavjam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -1105,7 +1105,7 @@ local unitGrids = {
 		},
 		{
 			{ "legavrad", "legeyes", "legforti", "legavjam", }, -- radar bot, perimeter camera, t2 wall, jammer bot
-			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth, 
+			{ "legfrad", "legfdrag", "legdrag", ""},    -- floating radar, sharks teeth, dragons teeth,
 			{ "legjuno", "legarad", "legstronghold"},         -- juno, radar, t2 transport
 		},
 		{
@@ -1173,7 +1173,7 @@ local unitGrids = {
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -1242,7 +1242,7 @@ local unitGrids = {
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -1265,7 +1265,7 @@ local unitGrids = {
 		},
 		{
 			{ "armrad", "armeyes", "armdrag", "armjamt", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "armjuno", }									  -- juno
 		},
 		{
@@ -1288,7 +1288,7 @@ local unitGrids = {
 		},
 		{
 			{ "corrad", "coreyes", "cordrag", "corjamt", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "corjuno", }									  -- juno
 		},
 		{
@@ -1310,7 +1310,7 @@ local unitGrids = {
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -1619,7 +1619,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armtarg", "armfort", "armveil" },     -- adv radar, targeting facility, wall, adv jammer
-			{ "armsd", "armdf", "" },                     -- intrusion counter, decoy fusion, 
+			{ "armsd", "armdf", "" },                     -- intrusion counter, decoy fusion,
 			{ "armgate", },                                     -- shield
 		},
 		{
@@ -1642,7 +1642,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "cortarg", "corfort", "corshroud", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "corsd", "", "" },                          -- intrusion counter, 
+			{ "corsd", "", "" },                          -- intrusion counter,
 			{ "corgate", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1665,7 +1665,7 @@ local unitGrids = {
 		},
 		{
 			{ "legarad", "legtarg", "legforti", "legajam", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "legsd", "", "", },               -- intrusion counter,  
+			{ "legsd", "", "", },               -- intrusion counter,
 			{ "legdeflector", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1689,7 +1689,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armtarg", "armfort", "armveil",  },   -- adv radar, targeting facility, wall, adv jammer
-			{ "armsd", "armdf", "" },                     -- intrusion counter, decoy fusion, 
+			{ "armsd", "armdf", "" },                     -- intrusion counter, decoy fusion,
 			{ "armgate", },                                     -- shield
 		},
 		{
@@ -1712,7 +1712,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "cortarg", "corfort", "corshroud", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "corsd", "", "" },                          -- intrusion counter, 
+			{ "corsd", "", "" },                          -- intrusion counter,
 			{ "corgate", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1735,7 +1735,7 @@ local unitGrids = {
 		},
 		{
 			{ "legarad", "legtarg", "legforti", "legajam", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "legsd", "", "", },               -- intrusion counter,  
+			{ "legsd", "", "", },               -- intrusion counter,
 			{ "legdeflector", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1759,7 +1759,7 @@ local unitGrids = {
 		},
 		{
 			{ "armarad", "armtarg", "armfort", "armveil",  },    -- adv radar, targeting facility, wall, adv jammer
-			{ "armsd", "armdf", "", "" },           -- intrusion counter, decoy fusion,  
+			{ "armsd", "armdf", "", "" },           -- intrusion counter, decoy fusion,
 			{ "armgate", },                                      -- shield
 		},
 		{
@@ -1782,7 +1782,7 @@ local unitGrids = {
 		},
 		{
 			{ "corarad", "cortarg", "corfort", "corshroud" },   -- adv radar, targeting facility, wall, adv jammer
-			{ "corsd", "", "", "" },               -- intrusion counter,  
+			{ "corsd", "", "", "" },               -- intrusion counter,
 			{ "corgate", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1804,7 +1804,7 @@ local unitGrids = {
 		},
 		{
 			{ "legarad", "legtarg", "legforti", "legajam", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "legsd", "", "", "", },               -- intrusion counter,  
+			{ "legsd", "", "", "", },               -- intrusion counter,
 			{ "legdeflector", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1828,7 +1828,7 @@ local unitGrids = {
 		},
 		{
 			{ "armason", "armfatf" },                		   -- adv sonar, floating targeting facility
-			{ "", "", "", "" },                         -- 
+			{ "", "", "", "" },                         --
 			{ },                                               --
 		},
 		{
@@ -1851,7 +1851,7 @@ local unitGrids = {
 		},
 		{
 			{ "corason", "corfatf",  },                         -- adv sonar, floating targeting facility
-			{ "", "", "", "" },                          -- 
+			{ "", "", "", "" },                          --
 		},
 		{
 			{ "corsy", },                                      -- T1 shipyard
@@ -1873,7 +1873,7 @@ local unitGrids = {
 		},
 		{
 			{ "leganavalsonarstation", "leganavalpinpointer",  },                         -- adv sonar, floating targeting facility
-			{ "", "", "", "" },                          -- 
+			{ "", "", "", "" },                          --
 		},
 		{
 			{ "legsy", },                                      -- T1 shipyard
@@ -1943,7 +1943,7 @@ local unitGrids = {
 		},
 		{
 			{ "legarad", "legtarg", "legforti", "legajam", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "legsd", "", "", },               -- intrusion counter,  
+			{ "legsd", "", "", },               -- intrusion counter,
 			{ "legdeflector", },                                     -- anti-nuke, shield
 		},
 		{
@@ -1952,7 +1952,7 @@ local unitGrids = {
 			{ "", "leghaap", "", "" },                                     -- seaplane lab (aircon only)
 		}
 	},
-	
+
 	armhack = {
 		{
 			{ "armmoho", "armfus", "armafus", "", },             -- moho, fusion, afus, safe geo
@@ -2012,7 +2012,7 @@ local unitGrids = {
 		},
 		{
 			{ "legarad", "legtarg", "legforti", "legajam", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "legsd", "", "", },               -- intrusion counter,  
+			{ "legsd", "", "", },               -- intrusion counter,
 			{ "legdeflector", },                                     -- anti-nuke, shield
 		},
 		{
@@ -2081,7 +2081,7 @@ local unitGrids = {
 		},
 		{
 			{ "legarad", "legtarg", "legforti", "legajam", },  -- adv radar, targeting facility, wall, adv jammer
-			{ "legsd", "", "", },               -- intrusion counter,  
+			{ "legsd", "", "", },               -- intrusion counter,
 			{ "legdeflector", },                                     -- anti-nuke, shield
 		},
 		{
@@ -2364,7 +2364,7 @@ local unitGrids = {
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -2534,7 +2534,7 @@ if Spring.GetModOptions().experimentalextraunits or Spring.GetModOptions().scavu
 	end
 	unitGrids["armacsub"][4][1][3] = "armnanotc2plat"
 	unitGrids["coracsub"][4][1][3] = "cornanotc2plat"
-	
+
 end
 
 if Spring.Utilities.Gametype.IsScavengers() or Spring.GetModOptions().forceallunits then
@@ -2631,7 +2631,7 @@ if Spring.GetModOptions().techsplit then
 			{ "", "", "", "", },         -- floating hover lab, amphibious lab, seaplane lab
 		}
 	}
-	
+
 	unitGrids["armcv"] = {
 		{
 			{ "armmex", "armsolar", "armwin", "", },  -- mex, solar, wind, adv. solar
@@ -2700,7 +2700,7 @@ if Spring.GetModOptions().techsplit then
 			{ "", "", },                                     -- hover lab, floating hover lab, amphibious lab, seaplane lab
 		}
 	}
-	
+
 	unitGrids["armack"] = {
 		{
 			{ "armmoho", "armfus", "", "armadvsol", },
@@ -3060,7 +3060,7 @@ if Spring.GetModOptions().techsplit then
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -3083,7 +3083,7 @@ if Spring.GetModOptions().techsplit then
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -3106,7 +3106,7 @@ if Spring.GetModOptions().techsplit then
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -3129,7 +3129,7 @@ if Spring.GetModOptions().techsplit then
 		},
 		{
 			{ "legrad", "legeyes", "legdrag", "legjam", },   -- radar, perimeter camera, dragon's teeth, jammer
-			{ "", "", "", "" },                  --  
+			{ "", "", "", "" },                  --
 			{ "legjuno", },                                   -- juno
 		},
 		{
@@ -3235,7 +3235,7 @@ if Spring.GetModOptions().techsplit then
 	labGrids["armlab"] = {
 		"armck", "armrectr", "armpw", "armflea",                -- T1 con, rez bot, peewee, flea
 		"armrock", "armwar", "armham", "",                     -- rocko, hammer, warrior
-		"", "", "armjeth",  
+		"", "", "armjeth",
 	}
 
 	labGrids["armvp"] = {
@@ -3322,7 +3322,7 @@ if Spring.GetModOptions().techsplit then
 		"", "", "", "",
 	}
 
-	
+
 end
 
 

@@ -25,7 +25,7 @@ if not shouldRunGadget then return false end
 local overridesEnabled = modOptions.enable_quickstart_overrides
 local overrideQuickStartBudget = overridesEnabled and tonumber(modOptions.override_quick_start_budget)
 
-local shouldApplyFactoryDiscount = modOptions.quick_start == "factory_discount" or 
+local shouldApplyFactoryDiscount = modOptions.quick_start == "factory_discount" or
 	modOptions.quick_start == "factory_discount_only" or
 	(modOptions.quick_start == "default" and (modOptions.temp_enable_territorial_domination or modOptions.deathmode == "territorial_domination"))
 
@@ -258,13 +258,13 @@ end
 local function calculateCheapestEconomicStructure()
 	local cheapestCost = math.huge
 	local uniqueUnitNames = {}
-	
+
 	for commanderName, nonLabOptions in pairs(commanderNonLabOptions) do
 		for optionName, unitName in pairs(nonLabOptions) do
 			uniqueUnitNames[unitName] = true
 		end
 	end
-	
+
 	for unitName, _ in pairs(uniqueUnitNames) do
 		if unitDefNames[unitName] then
 			local unitDefID = unitDefNames[unitName].id
@@ -274,7 +274,7 @@ local function calculateCheapestEconomicStructure()
 			end
 		end
 	end
-	
+
 	return cheapestCost == math.huge and 0 or cheapestCost
 end
 
@@ -352,28 +352,28 @@ local function getCommanderBuildQueue(commanderID)
 
 			if distance <= INSTANT_BUILD_RANGE and isTraversable and not isPastFriendlyLines then
 				local budgetCost = defMetergies[unitDefID] or 0
-				
+
 				local currentDiscount = 0
 				if shouldApplyFactoryDiscount and unitDef.isFactory and not discountUsedLocal then
 					currentDiscount = FACTORY_DISCOUNT
 				end
-				
+
 				budgetCost = max(budgetCost - currentDiscount, 0)
-				
+
 				if currentDiscount > 0 then
 					discountUsedLocal = true
 				end
 
 				table.insert(spawnQueue, spawnParams)
 				comData.hasBuildsIntercepted = true
-				
+
 				totalBudgetCost = totalBudgetCost + budgetCost
 				if totalBudgetCost > comData.budget then
 					Spring.Echo(string.format("  [%d] %s at (%.1f, %.1f, %.1f) facing: %d - REJECTED (Budget exceeded: %.1f > %.1f)", i, unitDefName, spawnParams.x, spawnParams.y, spawnParams.z, spawnParams.facing, totalBudgetCost, comData.budget))
 					comData.commandsToRemove = commandsToRemove
 					return spawnQueue
 				end
-				
+
 				if cmd.tag then
 					table.insert(commandsToRemove, cmd.tag)
 				end
@@ -437,7 +437,7 @@ local function getBuildSpace(commanderID, option)
 		while #gridList > 0 do
 			local candidate = gridList[1]
 			table.remove(gridList, 1)
-			
+
 			if candidate.x and candidate.y and candidate.z then
 				local unitDefID = comData.buildDefs[option]
 				if unitDefID then
@@ -451,14 +451,14 @@ local function getBuildSpace(commanderID, option)
 				end
 			end
 		end
-		
+
 		comData.gridLists[nodeType] = gridList
 		return nil, nil, nil
 	else
 		while comData.nearbyMexes and #comData.nearbyMexes > 0 do
 			local mexSpot = comData.nearbyMexes[1]
 			table.remove(comData.nearbyMexes, 1)
-			
+
 			if mexSpot.x and mexSpot.y and mexSpot.z then
 				local mexDefID = comData.buildDefs.mex
 				if mexDefID then
@@ -508,7 +508,7 @@ local function generateBaseNodesFromLocalGrid(commanderID, localGrid)
 	local spawnX, spawnZ = comData.spawnX, comData.spawnZ
 	local nodes = createBaseNodes(spawnX, spawnZ)
 	populateNodeGrids(nodes, localGrid)
-	
+
 	local minDistance = math.huge
 	local maxDistance = 0
 	for i = 1, #nodes do
@@ -516,7 +516,7 @@ local function generateBaseNodesFromLocalGrid(commanderID, localGrid)
 		minDistance = min(minDistance, node.distanceFromCenter)
 		maxDistance = max(maxDistance, node.distanceFromCenter)
 	end
-	
+
 	for i = 1, #nodes do
 		local node = nodes[i]
 		local MIN_CENTER_WEIGHT, MAX_CENTER_WEIGHT = 0.5, 1.0
@@ -530,7 +530,7 @@ local function generateBaseNodesFromLocalGrid(commanderID, localGrid)
 		end
 		node.resultantScore = centerWeight * averageDistance
 	end
-	
+
 	local selectedPair
 	local bestResultantScore = math.huge
 	for i = 1, BASE_NODE_COUNT do
@@ -559,7 +559,7 @@ local function generateBaseNodesFromLocalGrid(commanderID, localGrid)
 			converterKeys[p.x .. "_" .. p.z] = true
 		end
 	end
-	
+
 	local filteredOther = {}
 	for i = 1, #localGrid do
 		local p = localGrid[i]
@@ -567,7 +567,7 @@ local function generateBaseNodesFromLocalGrid(commanderID, localGrid)
 			table.insert(filteredOther, p)
 		end
 	end
-	
+
 	for i = 1, #filteredConverter do
 		filteredConverter[i].d = distance2d(filteredConverter[i].x, filteredConverter[i].z, converterNode.x, converterNode.z)
 	end

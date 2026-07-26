@@ -62,7 +62,7 @@ function widget:GetInfo()
 end
 
 local function UnitDamagedReplay(unitID, unitDefID, unitTeam, damage, paralyzer, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam)
-		
+
 	Spring.Echo("UnitDamagedInfo")
 	Spring.Echo(unitID)
 	Spring.Echo(unitDefID)
@@ -77,7 +77,7 @@ local function UnitDamagedReplay(unitID, unitDefID, unitTeam, damage, paralyzer,
 end
 
 function widget:Initialize()
-	
+
 	widgetHandler:RegisterGlobal("UnitDamagedReplay",UnitDamagedReplay)
 
 end

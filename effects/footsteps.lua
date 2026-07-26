@@ -68,7 +68,7 @@ return {
     --   class              = [[CSimpleParticleSystem]],
     --   count              = 0, -- 1
     --   ground             = true,
-    --   water              = true, 
+    --   water              = true,
     --   underwater         = true,
     --   properties = {
     --     airdrag            = 0.94,
@@ -160,7 +160,7 @@ return {
     --   class              = [[CSimpleParticleSystem]],
     --   count              = 0, -- 1
     --   ground             = true,
-    --   water              = true, 
+    --   water              = true,
     --   underwater         = true,
     --   properties = {
     --     airdrag            = 0.94,
@@ -278,7 +278,7 @@ return {
       class              = [[CSimpleParticleSystem]],
       count              = 0, -- 1
       ground             = true,
-      water              = true, 
+      water              = true,
       underwater         = true,
       properties = {
         airdrag            = 0.94,
@@ -397,7 +397,7 @@ return {
       class              = [[CSimpleParticleSystem]],
       count              = 1, -- 1
       ground             = true,
-      water              = true, 
+      water              = true,
       underwater         = true,
       properties = {
         airdrag            = 0.94,

@@ -64,7 +64,7 @@ layout (location = 2) in uvec4 instData;
 
 struct SUniformsBuffer {
     uint composite; //   u8 drawFlag; u8 unused1; u16 id;
-    
+
     uint unused2;
     uint unused3;
     uint unused4;
@@ -73,7 +73,7 @@ struct SUniformsBuffer {
     float health;
     float unused5;
     float unused6;
-    
+
     vec4 drawPos;
     vec4 speed;
     vec4[4] userDefined; //can't use float[16] because float in arrays occupies 4 * float space
@@ -81,7 +81,7 @@ struct SUniformsBuffer {
 
 layout(std140, binding=1) readonly buffer UniformsBuffer {
     SUniformsBuffer uni[];
-}; 
+};
 
 #line 10000
 
@@ -103,13 +103,13 @@ void main()
     // TODO: calculate radius in screen-space pixels
 
     // Make no primitives on stuff outside of screen
-    if (isSphereVisibleXY(vec4(uni[instData.y].drawPos.xyz, 1.0), addRadius + unitModelMaxXYZ.x + unitModelMaxXYZ.z)) 
-    v_unitModelMaxXYZ.w = 0.0; 
+    if (isSphereVisibleXY(vec4(uni[instData.y].drawPos.xyz, 1.0), addRadius + unitModelMaxXYZ.x + unitModelMaxXYZ.z))
+    v_unitModelMaxXYZ.w = 0.0;
 
-    // this checks the drawFlag of wether the unit is actually being drawn 
-    // (this is ==1 when then unit is both visible and drawn as a full model (not icon)) 
-    if ((uni[instData.y].composite & 0x00000003u) < 1u ) 
-    v_unitModelMaxXYZ.w = 0.0; 
+    // this checks the drawFlag of whether the unit is actually being drawn
+    // (this is ==1 when then unit is both visible and drawn as a full model (not icon))
+    if ((uni[instData.y].composite & 0x00000003u) < 1u )
+    v_unitModelMaxXYZ.w = 0.0;
 }
 ]]
 
@@ -167,7 +167,7 @@ void main(){
     offsetVertex4( Mins.x, Maxs.y,  Maxs.z);
     offsetVertex4( Maxs.x, Maxs.y,  Maxs.z);
     EndPrimitive();
-    
+
     float leftright = (dot(vec3(c, 0, -s), camDir) < 0) ? Mins.x : Maxs.x;
         offsetVertex4( leftright, Maxs.y,  Mins.z);
         offsetVertex4( leftright, Maxs.y,  Maxs.z);
@@ -175,13 +175,13 @@ void main(){
         offsetVertex4( leftright, Mins.y,  Maxs.z);
         EndPrimitive();
 
-        
+
     float frontback = (dot(vec3(s, 0, c), camDir) > 0) ? Maxs.z : Mins.z;
         offsetVertex4( Mins.x, Maxs.y,  frontback);
         offsetVertex4( Maxs.x, Maxs.y,  frontback);
         offsetVertex4( Mins.x, Mins.y,  frontback);
         offsetVertex4( Maxs.x, Mins.y,  frontback);
-    
+
     EndPrimitive();
 }
 ]]
@@ -300,7 +300,7 @@ local function goodbye(reason)
 	spEcho("Unit Stencil GL4 widget exiting with reason: "..reason)
 end
 local resolution = 4
-local vsx, vsy  
+local vsx, vsy
 function widget:ViewResize()
     local GL_R8 = 0x8229
     vsx, vsy = Spring.GetViewGeometry()
@@ -461,11 +461,11 @@ function widget:VisibleUnitAdded(unitID, unitDefID)
         --spEcho(dimsXYZ[1], dimsXYZ[2], dimsXYZ[3], dimsXYZ[4], dimsXYZ[5], dimsXYZ[6])
     end
     local dimsXYZ  = unitDimensionsXYZ[unitDefID]
-	
+
 	pushElementInstance(
 		unitStencilVBO, -- push into this Instance VBO Table
 		{
-            dimsXYZ[1], dimsXYZ[2], dimsXYZ[3], 0, 
+            dimsXYZ[1], dimsXYZ[2], dimsXYZ[3], 0,
             dimsXYZ[4], dimsXYZ[5], dimsXYZ[6], 0,
 			0, 0, 0, 0 -- these are just padding zeros, that will get filled in
 		},
@@ -494,7 +494,7 @@ function widget:FeatureCreated(featureID, allyTeam)
 
     if featureDimensionsXYZ[featureDefID] == nil then
         local featureDef = FeatureDefs[featureDefID]
-        if featureDef.model then 
+        if featureDef.model then
             local dimsXYZ = {
                 featureDef.model.minx,  featureDef.model.miny, featureDef.model.minz,
                 featureDef.model.maxx,  featureDef.model.maxy, featureDef.model.maxz,
@@ -511,7 +511,7 @@ function widget:FeatureCreated(featureID, allyTeam)
 	pushElementInstance(
 		featureStencilVBO, -- push into this Instance VBO Table
 		{
-            dimsXYZ[1], dimsXYZ[2], dimsXYZ[3], 0, 
+            dimsXYZ[1], dimsXYZ[2], dimsXYZ[3], 0,
             dimsXYZ[4], dimsXYZ[5], dimsXYZ[6], 0,
 			0, 0, 0, 0 -- these are just padding zeros, that will get filled in
 		},
@@ -539,7 +539,7 @@ local function DrawMe() -- about 0.025 ms
             unitStencilShader:SetUniform("stencilColor", 0.5)
             featureStencilVBO.VAO:DrawArrays(GL.POINTS, featureStencilVBO.usedElements)
         end
-        if unitStencilVBO.usedElements > 0 then 
+        if unitStencilVBO.usedElements > 0 then
             unitStencilShader:SetUniform("stencilColor", 1.0)
 	    	unitStencilVBO.VAO:DrawArrays(GL.POINTS, unitStencilVBO.usedElements)
         end
@@ -555,14 +555,14 @@ end
 local stencilRequested = false
 
 function widget:DrawWorld()
-    if stencilRequested then 
+    if stencilRequested then
         gl.RenderToTexture(unitFeatureStencilTex, DrawMe)
         stencilRequested = false
     end
 end
 
 -- This shows the debug stencil texture
---[[ 
+--[[
 function widget:DrawScreen()
     gl.Color(1,1,1,1)
     gl.Blending(GL.ONE, GL.ZERO)

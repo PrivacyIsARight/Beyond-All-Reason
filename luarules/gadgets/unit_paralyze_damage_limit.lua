@@ -147,7 +147,7 @@ for udid, ud in pairs(UnitDefs) do
 
 end
 
-	
+
 
 
 local spGetUnitHealth = Spring.GetUnitHealth
@@ -222,7 +222,7 @@ function gadget:UnitPreDamaged(uID, uDefID, uTeam, damage, paralyzer, weaponID, 
 			--Spring.Echo('h mh ph wpt old new',hp,maxHP, currentEmp, thismaxtime, damage, newdamage)
 
 			damage = newdamage
-			--damage = mh +6 
+			--damage = mh +6
 			--Spring.Echo('new',h,mh, ph, max_para_damage, max_para_time, damage)
 
 		end
@@ -234,7 +234,7 @@ end
 --
 -- Custom Stun Logic: Fixed_Stun_Duration - For specific weapon-unit combinations, apply a fixed stun duration, potentially exceeding the paralyzetime of the weapon by applying paralyzeDamage directly.
 --
--- Implementation Note: You can only exceed a weapon's paralyzetime by applying the paralyzedamage AFTER the ApplyDamage Spring Engine function (which 
+-- Implementation Note: You can only exceed a weapon's paralyzetime by applying the paralyzedamage AFTER the ApplyDamage Spring Engine function (which
 --	clamps the paralyzedamage to paralyzetime.) The UnitDamaged event handler happens right after ApplyDamage so we hook that for this feature.
 --	paralyzetime clamp: https://github.com/beyond-all-reason/spring/blob/95d591b7c91f26313b58187692bd4485b39cb050/rts/Sim/Units/Unit.cpp#L1257
 

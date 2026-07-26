@@ -293,7 +293,7 @@ local function scavUnitDef_Post(name, uDef)
 		if name == "corca_scav" or name == "corck_scav" or name == "corcv_scav" then
 			local numBuildoptions = #uDef.buildoptions
 		end
-	
+
 		-- Cortex T1 Sea Constructors
 		if name == "corcs_scav" or name == "corcsa_scav" then
 			local numBuildoptions = #uDef.buildoptions
@@ -301,7 +301,7 @@ local function scavUnitDef_Post(name, uDef)
 			uDef.buildoptions[numBuildoptions + 2] = "corfrock_scav" -- Janitor - Anti Air Missile Battery
 		end
 
-		-- Cortex T1 Bots Factory 
+		-- Cortex T1 Bots Factory
 		if name == "corlab_scav" then
 			local numBuildoptions = #uDef.buildoptions
 		end
@@ -322,7 +322,7 @@ local function scavUnitDef_Post(name, uDef)
 			uDef.buildoptions[numBuildoptions + 2] = "cornanotc2plat_scav" -- Floating T2 Constructor Turret
 		end
 
-		-- Cortex T2 Bots Factory 
+		-- Cortex T2 Bots Factory
 		if name == "coralab_scav" then
 			local numBuildoptions = #uDef.buildoptions
 			uDef.buildoptions[numBuildoptions+1] = "cordeadeye_scav"
@@ -453,7 +453,7 @@ local function scavUnitDef_Post(name, uDef)
 			uDef.buildoptions[numBuildoptions + 4] = "armvadert4_scav" -- Epic Tumbleweed - Nuclear Rolling Bomb
 		end
 
-		-- Cortex T1 Bots Factory 
+		-- Cortex T1 Bots Factory
 		if name == "corlab_scav" then
 			local numBuildoptions = #uDef.buildoptions
 			uDef.buildoptions[numBuildoptions+1] = "corkark_scav" -- Archaic Karkinos

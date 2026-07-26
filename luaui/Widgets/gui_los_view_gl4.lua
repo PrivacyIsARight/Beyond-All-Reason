@@ -8,7 +8,7 @@ function widget:GetInfo()
 		author = "Beherith",
 		date = "2024.11.19",
 		license = "GPL V2",
-		layer = -10000, -- lol this isnt even a number
+		layer = -10000, -- lol this isn't even a number
 		enabled = false
 	}
 end
@@ -22,10 +22,10 @@ local spEcho = Spring.Echo
 ---	- [ ] Customize grid
 --- - [ ] Ensure draw order is correct after decals_gl4
 --- - [ ] Mark los edge with white line
---- - [ ] Mark radar edge with stippled green line 
+--- - [ ] Mark radar edge with stippled green line
 --- - [ ] Find a nice noise approach
 --- - [ ] Implement desat-darken approach
---- - [ ] scanlines dont work underwater if drawn preunit :'( 
+--- - [ ] scanlines dont work underwater if drawn preunit :'(
 --- - [ ] If drawn postunit, then ghosts are shaded incorrectly
 ---
 ---
@@ -107,7 +107,7 @@ function widget:DrawPreDecals()
     if autoreload then
         losViewShader = LuaShader.CheckShaderUpdates(losViewShaderSourceCache) or losViewShader
     end
-    
+
     gl.CopyToTexture(ScreenCopyTexture, 0, 0, vpx, vpy, vsx, vsy)
     gl.Texture(0, "$map_gbuffer_zvaltex")
     gl.Texture(1, "$model_gbuffer_zvaltex")
@@ -126,7 +126,7 @@ function widget:DrawPreDecals()
     for i = 0,3 do gl.Texture(i, false) end
 end
 
-if autoreload then 
+if autoreload then
     function widget:DrawScreen()
         if losViewShader.DrawPrintf then losViewShader.DrawPrintf() end
     end

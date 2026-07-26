@@ -77,7 +77,7 @@ function BlueprintSubLogic.generateEquivalentUnits()
             for fromSide, fromUnit in pairs(sideUnits) do
                 if fromUnit then
                     local lowerFromUnit = fromUnit:lower()
-                    if not equivalentUnits[lowerFromUnit] then 
+                    if not equivalentUnits[lowerFromUnit] then
                         equivalentUnits[lowerFromUnit] = {}
                         mappingCount = mappingCount + 1
                     end
@@ -135,7 +135,7 @@ function BlueprintSubLogic.analyzeBlueprintSides(blueprint)
 
         if unitNameLower then
             local buildingData = BlueprintSubLogic.MasterBuildingData[unitNameLower]
-            
+
             if buildingData and buildingData.side then
                 buildingUnitCount = buildingUnitCount + 1
                 local side = buildingData.side
@@ -148,22 +148,22 @@ function BlueprintSubLogic.analyzeBlueprintSides(blueprint)
     local numSourceSides = 0
     local primarySourceSide = nil
     local maxCount = 0
-    if buildingUnitCount > 0 then 
-        for side, count in pairs(sideCounts) do 
-            if sourceSidesFound[side] then numSourceSides = numSourceSides + 1 end 
+    if buildingUnitCount > 0 then
+        for side, count in pairs(sideCounts) do
+            if sourceSidesFound[side] then numSourceSides = numSourceSides + 1 end
         if count > maxCount then
             primarySourceSide = side
             maxCount = count
             end
         end
     end
-    
+
     local sourceSideInfo = "Empty/No Relevant Buildings"
     if buildingUnitCount > 0 then
         if primarySourceSide then
             sourceSideInfo = primarySourceSide
             if numSourceSides > 1 then
-                sourceSideInfo = sourceSideInfo .. " (Mixed)" 
+                sourceSideInfo = sourceSideInfo .. " (Mixed)"
             end
         else
             sourceSideInfo = "Unknown Side Buildings"
@@ -278,15 +278,15 @@ local function _getBuildingSubstitutionOutcome(originalUnitName, buildingData, t
             end
         end
     end
-    
+
     return { newUnitName = newUnitName, status = status, equivalentUnitNameAttempted = equivalentUnitNameAttempted }
 end
 
 local function _generateSubstitutionSummary(aggregatedStats, itemTypeString, sourceSide, targetSide)
-    local stats = aggregatedStats 
+    local stats = aggregatedStats
     local substitutionActuallyFailed = (stats.failedNoMapping > 0 or stats.failedInvalidEquivalent > 0)
     local numFailedToMap = stats.failedNoMapping + stats.failedInvalidEquivalent
-    
+
     stats.totalConsidered = stats.totalConsidered or 0
     stats.substituted = stats.substituted or 0
     stats.unchangedSameSide = stats.unchangedSameSide or 0
@@ -296,7 +296,7 @@ local function _generateSubstitutionSummary(aggregatedStats, itemTypeString, sou
 
     local verboseMessage = string.format(
         "%s processed from %s to %s. Items considered (buildings): %d, Substituted: %d, Failed to map: %d, Skipped/Unchanged (buildings): %d, Not buildings/commands: %d.",
-        itemTypeString, sourceSide, targetSide, stats.totalConsidered, stats.substituted, 
+        itemTypeString, sourceSide, targetSide, stats.totalConsidered, stats.substituted,
         numFailedToMap, numSkippedOrUnchangedConsidered, stats.unchangedNotBuilding
     )
     if substitutionActuallyFailed then
@@ -308,7 +308,7 @@ local function _generateSubstitutionSummary(aggregatedStats, itemTypeString, sou
     else
         verboseMessage = verboseMessage .. string.format(" (No relevant %s items to process for substitution)", itemTypeString:lower())
     end
-    
+
     Spring.Log("BlueprintSubLogic", LOG.INFO, verboseMessage)
 
     local simpleMessage
@@ -328,7 +328,7 @@ local function _generateSubstitutionSummary(aggregatedStats, itemTypeString, sou
     else
         simpleMessage = string.format("%s from %s to %s: No relevant units to process.", itemTypeString, sourceSide, targetSide)
     end
-    
+
     if substitutionActuallyFailed then
         simpleMessage = simpleMessage .. " (FAIL)"
     elseif stats.substituted > 0 then
@@ -365,12 +365,12 @@ function BlueprintSubLogic.processBlueprintSubstitution(originalBlueprint, targe
 
     Spring.Log("BlueprintSubLogic", LOG.DEBUG, string.format("Processing blueprint substitution (in-place) from %s to %s for %d units.",
                                  tostring(sourceSide), tostring(targetSide), originalBlueprint and #originalBlueprint.units or 0))
-    
+
     local aggregatedStats = {
         totalConsidered = 0, substituted = 0, failedNoMapping = 0, failedInvalidEquivalent = 0,
         unchangedSameSide = 0, unchangedOther = 0, unchangedNotBuilding = 0
     }
-    
+
     for _, unit in ipairs(originalBlueprint.units) do
         local originalUnitName = unit.originalName
         if not originalUnitName then
@@ -383,21 +383,21 @@ function BlueprintSubLogic.processBlueprintSubstitution(originalBlueprint, targe
             else
                 local outcome = _getBuildingSubstitutionOutcome(originalUnitName, buildingData, targetSide, sourceSide)
                 unit.originalName = outcome.newUnitName
-                if outcome.status == "substituted" then 
+                if outcome.status == "substituted" then
                     aggregatedStats.substituted = aggregatedStats.substituted + 1
-                elseif outcome.status == "failed_no_mapping" then 
+                elseif outcome.status == "failed_no_mapping" then
                     aggregatedStats.failedNoMapping = aggregatedStats.failedNoMapping + 1
-                elseif outcome.status == "failed_invalid_equivalent" then 
+                elseif outcome.status == "failed_invalid_equivalent" then
                     aggregatedStats.failedInvalidEquivalent = aggregatedStats.failedInvalidEquivalent + 1
-                elseif outcome.status == "unchanged_same_side" then 
+                elseif outcome.status == "unchanged_same_side" then
                     aggregatedStats.unchangedSameSide = aggregatedStats.unchangedSameSide + 1
-                else 
+                else
                     aggregatedStats.unchangedOther = aggregatedStats.unchangedOther + 1
                 end
             end
         end
     end
-    
+
     local summaryMsg, subFailed = _generateSubstitutionSummary(aggregatedStats, "Blueprint", sourceSide, targetSide)
     return { stats = aggregatedStats, summaryMessage = summaryMsg, substitutionFailed = subFailed }
 end
@@ -411,7 +411,7 @@ function BlueprintSubLogic.processBuildQueueSubstitution(originalBuildQueue, sou
 
     Spring.Log("BlueprintSubLogic", LOG.DEBUG, string.format("Processing build queue substitution (in-place) from %s to %s for %d items.",
                                  sourceSide, targetSide, #originalBuildQueue))
-    
+
     local aggregatedStats = {
         totalConsidered = 0, substituted = 0, failedNoMapping = 0, failedInvalidEquivalent = 0,
         unchangedSameSide = 0, unchangedOther = 0, unchangedNotBuilding = 0
@@ -435,19 +435,19 @@ function BlueprintSubLogic.processBuildQueueSubstitution(originalBuildQueue, sou
                         elseif outcome.status == "failed_no_mapping" then aggregatedStats.failedNoMapping = aggregatedStats.failedNoMapping + 1
                         elseif outcome.status == "failed_invalid_equivalent" then aggregatedStats.failedInvalidEquivalent = aggregatedStats.failedInvalidEquivalent + 1
                         elseif outcome.status == "unchanged_same_side" then aggregatedStats.unchangedSameSide = aggregatedStats.unchangedSameSide + 1
-                        else 
+                        else
                             aggregatedStats.unchangedOther = aggregatedStats.unchangedOther + 1
                         end
-                    else 
+                    else
                         aggregatedStats.unchangedOther = aggregatedStats.unchangedOther + 1
                         Spring.Log("BlueprintSubLogic", LOG.DEBUG, string.format("processBuildQueueSubstitution: No MasterBuildingData for %s. Item not substituted.", originalUnitName:lower()))
                     end
                 end
-            else 
+            else
                 aggregatedStats.unchangedNotBuilding = aggregatedStats.unchangedNotBuilding + 1
             end
-        else 
-            aggregatedStats.unchangedNotBuilding = aggregatedStats.unchangedNotBuilding + 1 
+        else
+            aggregatedStats.unchangedNotBuilding = aggregatedStats.unchangedNotBuilding + 1
             Spring.Log("BlueprintSubLogic", LOG.WARNING, string.format("processBuildQueueSubstitution: Skipping malformed item: %s", tostring(bq_item)))
         end
     end
@@ -455,4 +455,4 @@ function BlueprintSubLogic.processBuildQueueSubstitution(originalBuildQueue, sou
     return { stats = aggregatedStats, summaryMessage = summaryMsg, substitutionFailed = subFailed }
 end
 
-return BlueprintSubLogic 
+return BlueprintSubLogic

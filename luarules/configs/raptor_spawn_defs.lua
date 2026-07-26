@@ -631,7 +631,7 @@ local raptorMinions = { -- Units spawning other units
 
 -- Basic Swarmer
 
-addNewSquad({ 
+addNewSquad({
 	type = "basic",
 	minAnger = 0,
 	maxAnger = 30,
@@ -1136,8 +1136,8 @@ addNewSquad({
 })
 addNewSquad({
 	type = "special",
-	minAnger = 0, 
-	maxAnger = 15, 
+	minAnger = 0,
+	maxAnger = 15,
 	units = { {count = 1, unit = "raptor_land_swarmer_basic_t2_v3"} }
 })
 addNewSquad({
@@ -1411,7 +1411,7 @@ addNewSquad({
 addNewSquad({
 	type = "special",
 	minAnger = 80,
-	maxAnger = 1000, 
+	maxAnger = 1000,
 	units = {
 		{count = 20, unit = "raptor_allterrain_swarmer_emp_t2_v1"}
 	}
@@ -1831,7 +1831,7 @@ addNewSquad({
 
 addNewSquad({
 	type = "special",
-	minAnger = 30, 
+	minAnger = 30,
 	weight = 3,
 	units = {
 		{count = 5, unit = "raptor_land_spiker_basic_t2_v1"}
@@ -2311,15 +2311,15 @@ addNewSquad({
 	}
 })
 
-addNewSquad({ 
+addNewSquad({
 	type = "special",
 	minAnger = 80,
-	units = { 
+	units = {
 		{count = 16, unit = "raptor_land_swarmer_brood_t2_v1"}
 	}
 })
 
-addNewSquad({ 
+addNewSquad({
 	type = "special",
 	minAnger = 100,
 	maxAnger = 1000,
@@ -2407,26 +2407,26 @@ addNewSquad({
 --Matriarchs------------------------------------------------------------------------------------------------------
 
 for j = 1, #miniBosses do
-	addNewSquad({ 
+	addNewSquad({
 		type = "special",
 		minAnger = 70,
-		units = { 
+		units = {
 			{count = 1, unit = miniBosses[j]}
 		},
 		maxAnger = 1000
 	})
-	addNewSquad({ 
+	addNewSquad({
 		type = "special",
 		minAnger = 85,
-		units = { 
+		units = {
 			{count = 1, unit = miniBosses[j]}
 		},
 		maxAnger = 1000
 	})
-	addNewSquad({ 
+	addNewSquad({
 		type = "special",
 		minAnger = 100,
-		units = { 
+		units = {
 			{count = 1, unit = miniBosses[j]}
 		},
 		maxAnger = 1000
@@ -2954,10 +2954,10 @@ addNewSquad({
 })
 
 --[[
-	Custom Squads Support 
-	This down here is meant for TweakDefs modders to allow them to add their custom modified Raptor units to the spawn rosters easily'ish.	
+	Custom Squads Support
+	This down here is meant for TweakDefs modders to allow them to add their custom modified Raptor units to the spawn rosters easily'ish.
 
-	Documentation WiP	
+	Documentation WiP
 
 	Available CustomParameters:
 
@@ -3036,7 +3036,7 @@ for name, unitDef in pairs(UnitDefNames) do
 				if unitDef.customParams.raptorsquadbehavior == "artillery" then
 					if not raptorBehaviours.SKIRMISH[unitDef.id] then
 						raptorBehaviours.SKIRMISH[unitDef.id] = {
-							chance = tonumber(unitDef.customParams.raptorsquadbehaviorchance) or 0.5, 
+							chance = tonumber(unitDef.customParams.raptorsquadbehaviorchance) or 0.5,
 							distance = tonumber(unitDef.customParams.raptorsquadbehaviordistance) or 500
 						}
 					end

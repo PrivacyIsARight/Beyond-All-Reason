@@ -21,7 +21,7 @@ local spEcho = Spring.Echo
 --------------------------------------------------------------------------------
 -- Bindable actions:	fov [number] - Set Field of View to [number] or 45 degrees
 -- 						fov_inc [number] - Increase Field of View [number] or 5 degrees
--- 						fov_dec [number] - Decrease Field of View [number] or 5 degrees	
+-- 						fov_dec [number] - Decrease Field of View [number] or 5 degrees
 --------------------------------------------------------------------------------
 local FOV_DEFAULT = 40
 local STEP_DEFAULT = 5
@@ -33,7 +33,7 @@ local function limitFieldOfView(fov)
 	if fov < 0 then
 		return 0
 	elseif fov > 100 then -- glitches beyond 100
-		return 100 
+		return 100
 	else
 		return fov
 	end

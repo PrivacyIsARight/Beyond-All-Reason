@@ -43,9 +43,9 @@ function widget:Update()
 	if doReload then
 		local reloadedCobDefs = {}
 		local selection = Spring.GetSelectedUnits()
-		for i, unitID in ipairs(selection) do 
+		for i, unitID in ipairs(selection) do
 			local unitDefID = Spring.GetUnitDefID(unitID)
-			if not reloadedCobDefs[unitDefID] then 
+			if not reloadedCobDefs[unitDefID] then
 				local unitDefName = UnitDefs[unitDefID].name
 				Spring.SendCommands('reloadcob ' .. unitDefName)
 				spEcho("Reloaded COB: ".. unitDefName .. " from " .. UnitDefs[unitDefID].scriptName)

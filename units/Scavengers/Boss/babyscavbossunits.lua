@@ -39,14 +39,14 @@ unitsTable['squadarmpwt4'].weapondefs.dronespawner = {
         spawns_surface = "LAND",
         spawnrate = 0.5,
         maxunits = 20,
-        controlradius = 1300,			
+        controlradius = 1300,
         carrierdeaththroe = "death",
         dockingarmor = 0.001,
         dockinghealrate = 1000,
         docktohealthreshold = 0,
         dockingHelperSpeed = 5,
         dockingpieces = "5 7 9 11",
-        dockingradius = 120,	
+        dockingradius = 120,
         holdfireradius = 300
     }
 }
@@ -175,14 +175,14 @@ unitsTable['squadcorakt4'].weapondefs.dronespawner = {
         spawns_surface = "LAND",
         spawnrate = 0.5,
         maxunits = 15,
-        controlradius = 1300,			
+        controlradius = 1300,
         carrierdeaththroe = "death",
         dockingarmor = 0.001,
         dockinghealrate = 1000,
         docktohealthreshold = 0,
         dockingHelperSpeed = 5,
         dockingpieces = "5 7 9 11",
-        dockingradius = 120,	
+        dockingradius = 120,
         holdfireradius = 300
     }
 }

@@ -241,7 +241,7 @@ local function highestAlliedTeamPower(teamID, allyID)
 end
 
 -- Returns the average of all allies of the input teamID or allyID. Returns a number.
-local function averageAlliedTeamPower(teamID, allyID) 
+local function averageAlliedTeamPower(teamID, allyID)
     allyID = allyID or select(6, Spring.GetTeamInfo(teamID))
     local totalPower = 0
     local teamCount = 0
@@ -407,7 +407,7 @@ local function totalPlayerPeakPower()
 end
 
 -- Returns the highest power achieved by any non scavenger/raptor team as a table {teamID, power}.
-local function highestPlayerPeakPower() 
+local function highestPlayerPeakPower()
     local highestPower = 0
     local highestTeamID = nil
 
@@ -424,7 +424,7 @@ local function highestPlayerPeakPower()
 end
 
 -- Returns the highest power achieved by any non scavenger/raptor team on the same team as the input teamID or allyID  as a table {teamID, power}.
-local function highestAlliedPeakPower(teamID, allyID) 
+local function highestAlliedPeakPower(teamID, allyID)
     allyID = allyID or select(6, Spring.GetTeamInfo(teamID))
     local highestPower = 0
     local highestTeamID = nil

@@ -272,7 +272,7 @@ function homeOptionsForBuilder(builderId, buildOptions)
 			table.insert(possibleOpts, optID)
 		end
 		local priorityOpts = filterByPriority(possibleOpts, homePriority)
-		local row = 3 
+		local row = 3
 		local index = cat + ((row - 1) * columns)
 		local topOption = options[index]
 		if next(priorityOpts) ~= nil then
@@ -293,7 +293,7 @@ function homeOptionsForBuilder(builderId, buildOptions)
 			end
 		end
 	end
-	
+
 	return options
 end
 

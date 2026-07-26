@@ -26,14 +26,14 @@ function widget:RecvLuaMsg(msg, playerID)
     if isSpec or senderIsSpec or (myAllyTeamID ~= senderAllyTeamID) then
         return
     end
-        
+
     if WG['notifications'] and WG['notifications'].queueNotification then
-        
+
         -- Check which resource is being requested
         if msg == 'alert:allyRequest:energy' then
             WG['notifications'].queueNotification("AllyRequestEnergy")
             return true
-            
+
         elseif msg == 'alert:allyRequest:metal' then
             WG['notifications'].queueNotification("AllyRequestMetal")
             return true

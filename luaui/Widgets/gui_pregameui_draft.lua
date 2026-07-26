@@ -111,7 +111,7 @@ local function updateTooltip()
 	else
 		cachedTooltipText = ""
 	end
-	
+
 	-- If ready blocked state changed, invalidate button (function defined later)
 	if oldReadyBlocked ~= isReadyBlocked then
 		buttonStateChanged = true
@@ -123,7 +123,7 @@ local RectRound, UiElement, UiButton, elementPadding, uiPadding
 local enableSubbing = false
 local eligibleAsSub = false
 local offeredAsSub = false
---local allowUnready = false	-- not enabled cause unreadying doesnt work, have to do workaroud
+--local allowUnready = false	-- not enabled cause unreadying doesn't work, have to do workaround
 
 local numPlayers = Spring.Utilities.GetPlayerCount()
 
@@ -581,7 +581,7 @@ end
 
 -- Helper function to check if button state has changed
 local function checkButtonStateChanged(color, cantPlaceNow, blinkButton, currentButtonW, currentButtonH)
-	return buttonStateChanged or 
+	return buttonStateChanged or
 		   lastButtonText ~= buttonText or
 		   lastShowLockButton ~= showLockButton or
 		   lastButtonColor[1] ~= color[1] or lastButtonColor[2] ~= color[2] or lastButtonColor[3] ~= color[3] or
@@ -596,7 +596,7 @@ local function updateButtonStateTracking(color, cantPlaceNow, blinkButton, curre
 	lastButtonText = buttonText
 	lastShowLockButton = showLockButton
 	lastButtonColor[1] = color[1]
-	lastButtonColor[2] = color[2]  
+	lastButtonColor[2] = color[2]
 	lastButtonColor[3] = color[3]
 	lastButtonW = currentButtonW
 	lastButtonH = currentButtonH
@@ -613,12 +613,12 @@ end
 local function drawButton()
 	-- Only refresh button text if needed (this may change button state)
 	buttonTextRefresh()
-	
+
 	local cantPlaceNow = not canPlayerPlaceNow(myPlayerID)
 	if draftMode ~= nil and draftMode ~= "disabled" and buttonText == "" and not mySpec and showLockButton then
 		showLockButton = false
 	end
-	
+
 	-- Calculate button color
 	local color = { 0.15, 0.15, 0.15 }
 	if not mySpec then
@@ -657,7 +657,7 @@ local function drawButton()
 			end
 			blinkButton = (numPlayers / numPlayersReady > 0.75)
 		end
-		-- in draftmode just blink the button if you didnt lock
+		-- in draftmode just blink the button if you didn't lock
 		if (draftMode ~= nil and draftMode ~= "disabled") and not cantPlaceNow and not locked then
 			blinkButton = true
 		end
@@ -668,7 +668,7 @@ local function drawButton()
 		-- Update button dimensions
 		buttonW = currentButtonW
 		buttonH = currentButtonH
-		
+
 		-- Recalculate button rectangles
 		uiElementRect = { buttonX - (buttonW / 2) - uiPadding, buttonY - (buttonH / 2) - uiPadding, buttonX + (buttonW / 2) + uiPadding, buttonY + (buttonH / 2) + uiPadding }
 		buttonRect = { buttonX - (buttonW / 2), buttonY - (buttonH / 2), buttonX + (buttonW / 2), buttonY + (buttonH / 2) }
@@ -689,7 +689,7 @@ local function drawButton()
 				UiElement(uiElementRect[1], uiElementRect[2], uiElementRect[3], uiElementRect[4], 1, 1, 1, 1, 1, 1, 1, 1)
 				UiButton(buttonRect[1], buttonRect[2], buttonRect[3], buttonRect[4], 1, 1, 1, 1, 1, 1, 1, 1, nil, { color[1]*0.55, color[2]*0.55, color[3]*0.55, 1 }, { color[1], color[2], color[3], 1 })
 			end)
-			
+
 			buttonHoverList = gl.CreateList(function()
 				UiElement(uiElementRect[1], uiElementRect[2], uiElementRect[3], uiElementRect[4], 1, 1, 1, 1, 1, 1, 1, 1)
 				UiButton(buttonRect[1], buttonRect[2], buttonRect[3], buttonRect[4], 1, 1, 1, 1, 1, 1, 1, 1, nil, { color[1]*0.85, color[2]*0.85, color[3]*0.85, 1 }, { color[1]*1.5, color[2]*1.5, color[3]*1.5, 1 })
@@ -758,7 +758,7 @@ local function drawButton()
 				UiButton(buttonRect[1], buttonRect[2], buttonRect[3], buttonRect[4], 1, 1, 1, 1, 1, 1, 1, 1, nil, { readyButtonColor[1]*0.55*mult, readyButtonColor[2]*0.55*mult, readyButtonColor[3]*0.55*mult, 1 }, { readyButtonColor[1]*mult, readyButtonColor[2]*mult, readyButtonColor[3]*mult, 1 })
 			end
 		end
-		
+
 		-- Draw text (this is relatively cheap so we do it every frame)
 		font:Begin()
 		font:Print(colorString .. buttonText, buttonRect[1]+((buttonRect[3]-buttonRect[1])/2), (buttonRect[2]+((buttonRect[4]-buttonRect[2])/2)) - (buttonH * 0.16), 24 * uiScale, "co")
@@ -818,7 +818,7 @@ function widget:ViewResize(viewSizeX, viewSizeY)
 	RectRound = WG.FlowUI.Draw.RectRound
 	elementPadding = WG.FlowUI.elementPadding
 	uiPadding = mathFloor(elementPadding * 4.5)
-	
+
 	-- Button dimensions/position changed, invalidate display lists
 	invalidateButtonState()
 end
@@ -1065,7 +1065,7 @@ function widget:DrawScreen()
 					font:Begin()
 					font:Print(DMDefaultColorString .. infotextBoxes or infotext, vsx * 0.5, vsy * 0.20315, 15.0 * uiScale, "co")
 					font:End()
-				end -- and if the player doens't have green box? not tell them anything?
+				end -- and if the player doesn't have green box? not tell them anything?
 			end
 			-- non-UI part
 			if draftMode ~= "fair" then

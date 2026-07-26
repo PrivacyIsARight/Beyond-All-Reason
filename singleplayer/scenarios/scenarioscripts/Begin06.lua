@@ -3,12 +3,12 @@ if not gadgetHandler:IsSyncedCode() then
 end
 --[[
 local function rot_to_facing(rotation)
-	
+
 	"south" | "s" | 0 == 0
 	"east" | "e" | 1  == 16384
 	"north" | "n" | 2 == +32 or -32k
 	"west" | "w" | 3 == -16384
-	
+
 	if rotation < 8192 and rotation > -8192 then
 		return 0
 	end
@@ -583,7 +583,7 @@ local objectiveUnits = {
 local objectiveUnitsAlive = {}
 
 local function Fail()
-    GG.wipeoutAllyTeam(0) -- kill all units when failed 
+    GG.wipeoutAllyTeam(0) -- kill all units when failed
     GameOver = Spring.GameOver({2}) --winningAllyTeamN where N is Ally ID
 end
 
@@ -621,7 +621,7 @@ end
 
 function gadget:UnitDestroyed(unitID, unitDefID)
     if objectiveUnitsAlive[unitID] then -- check if it hasn't already died
-        objectiveUnitsAlive[unitID] = nil -- remove it 
+        objectiveUnitsAlive[unitID] = nil -- remove it
         for i, unitGroup in ipairs(objectiveUnits) do
             for j, unit in ipairs(unitGroup) do
                 if unit.objectiveUnitID == 2 then
@@ -697,16 +697,16 @@ function gadget:GameFrame(frameNum)
         Loadout()   --Initial loadout with commands
         ObjectiveLoadout() -- objective loadout
     end
-    if n == 16200 then -- 9min 
+    if n == 16200 then -- 9min
         BackupOne() --One time insertion at certain GameFrame
     end
     if n == 32400 then -- 18min
         BackupTwo() --One time insertion at certain GameFrame
     end
     if n>0 and n%14400 == 0 then -- 8min ((30frame/s *60sec)*8=14400 )
-        Timed()  --Looped insertion at certain GameFrame   
+        Timed()  --Looped insertion at certain GameFrame
     end
-    if n>0 and n%36000 == 0 then -- 20min 
+    if n>0 and n%36000 == 0 then -- 20min
         Special()   --Looped insertion at certain GameFrame
     end
 end

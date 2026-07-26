@@ -15,7 +15,7 @@ function widget:GetInfo()
 		date = "2021.mar.29",
 		license = "GNU GPL, v2 or later",
 		layer = -200001,
-    
+
 		enabled = false,
 	}
 end
@@ -156,13 +156,13 @@ void main() {
   if (v_time_duration_wasgf.z > 0.5 ) fragColor = vec4(0.0, 0.0, 1.0, 1.0);
   if (v_time_duration_wasgf.w > 2.0 ) fragColor = vec4(1.0, 0.0, 1.0, 1.1);
   else fragColor.rgb = mix(fragColor.rgb, vec3(0.0), v_time_duration_wasgf.w);
-  
+
   if (abs(v_time_duration_wasgf.z - 1.0) < 0.01){ // SIM
     fragColor = vec4(1.0, 0.0, 0.0, 1.0);
   }
   else if (abs(v_time_duration_wasgf.z - 2.0) < 0.01){ // update
     fragColor = vec4(1.0, 1.0, 0.0, 1.0);
-  }  
+  }
   else if (abs(v_time_duration_wasgf.z - 3.0) < 0.01){ // draw
     fragColor = vec4(0.0, 1.0, 0.0, 1.0);
   }
@@ -234,18 +234,18 @@ local gameFrameHappened = false
 local drawspergameframe = 0
 
 
-local eventBuffer = {} 
--- This is a table of events that get pushed on every :DrawScreen 
+local eventBuffer = {}
+-- This is a table of events that get pushed on every :DrawScreen
 -- Even types are : "sim","update", "draw", "swap", params are start, duration, type
 
 local lastCallin = 'DrawGenesis'
 local lastTime = Spring.GetTimerMicros()
 
 local frametypeidx = {
-  sim = 1, -- 
-  update = 2, -- 
-  draw = 3, -- 
-  swap = 4, -- 
+  sim = 1, --
+  update = 2, --
+  draw = 3, --
+  swap = 4, --
   error = 5, -- error
 }
 
@@ -302,7 +302,7 @@ local function nowEvent(e)
 end
 
 
-function widget:GameFramePost() 
+function widget:GameFramePost()
   nowEvent("GameFramePost")
   --spEcho("GameFramePost", spGetGameFrame())
 end
@@ -325,7 +325,7 @@ function widget:DrawScreenPost()
   nowEvent("DrawScreenPost")
 end
 
-function widget:Update() 
+function widget:Update()
   nowEvent("Update")
 end
 
@@ -374,7 +374,7 @@ function widget:DrawScreen()
     local event = eventBuffer[i]
     local frametype = event[1]
     local lastframetime = event[2]
-    local lastframeduration = event[3] 
+    local lastframeduration = event[3]
 
     rectInstancePtr = rectInstancePtr+1
     if rectInstancePtr >= maxframes then rectInstancePtr = 0 end

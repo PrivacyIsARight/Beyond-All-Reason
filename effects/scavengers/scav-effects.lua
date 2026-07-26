@@ -1446,7 +1446,7 @@ return {
       },
     },
     fireglow = {
-      
+
       air                = true,
       class              = [[CSimpleParticleSystem]],
       count              = 1,
@@ -1476,7 +1476,7 @@ return {
       },
     },
     exhale = {
-      
+
       air                = true,
       class              = [[CSimpleParticleSystem]],
       count              = 1,
@@ -1587,7 +1587,7 @@ return {
               sizemod            = 1.0,
               texture            = [[randomdots]],
           },
-      },  
+      },
   },
 
 }

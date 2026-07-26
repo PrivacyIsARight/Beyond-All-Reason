@@ -5,7 +5,7 @@
 local function tstr(t,n)
 	if t==nil then return end
 	local res = tostring(n or "") .. ' {'
-	for k,v in pairs(t) do res = res .. tostring(k) .. "=" .. tostring(v) ..", " end 
+	for k,v in pairs(t) do res = res .. tostring(k) .. "=" .. tostring(v) ..", " end
 	print( res .. '}')
 end
 
@@ -15,31 +15,31 @@ SetListMT.__index = SetListMT
 function SetListMT:Add(key)
 	if self.hash[key] == nil then -- So that we dont add twice
 		self.count = self.count + 1
-		self.hash[key] = self.count 
+		self.hash[key] = self.count
 		self.list[self.count] = key
 	end
 end
 function SetListMT:Remove(key)
 	local popindex = self.hash[key]
 	if popindex then
-		if popindex ~= self.count then 
+		if popindex ~= self.count then
 			-- If not last element, then take the element at the very back, and emplace it at popindex
 			local popkey = self.list[self.count]
 			self.list[popindex] =  popkey -- bring it back in list
 			self.hash[popkey] = popindex
 		end
 		self.list[self.count] = nil
-		self.hash[key] = nil 
+		self.hash[key] = nil
 		self.count = self.count - 1
 	end
-	
+
 end
 function SetListMT:GetRandom()
 	if self.count > 0 then return self.list[mRandom(1, self.count)] end
 end
 local function NewSetList()
 	local t = {
-		hash = {}, -- Hash table map keys to positions in list 
+		hash = {}, -- Hash table map keys to positions in list
 		list = {}, -- List table maps positions in list to keys
 		count = 0, -- Keeps a tally of how many elements
 		}
@@ -62,14 +62,14 @@ end
 function setListMinMT:Remove(key)
 	local popindex = self.hash[key]
 	if popindex then
-		if popindex ~= self.count then 
+		if popindex ~= self.count then
 			-- If not last element, then take the element at the very back, and emplace it at popindex
 			local popkey = self.hash[-1 * self.count]
 			self.hash[-1 * popindex] =  popkey -- bring it back in list
 			self.hash[popkey] = popindex
 		end
 		self.hash[-1* self.count] = nil
-		self.hash[key] = nil 
+		self.hash[key] = nil
 		self.count = self.count - 1
 	end
 end
@@ -78,15 +78,15 @@ function setListMinMT:GetRandom()
 end
 local function NewSetListMin()
 	local t = {
-		hash = {}, -- Hash table map keys to positions in list 
+		hash = {}, -- Hash table map keys to positions in list
 		count = 0, -- Keeps a tally of how many elements
 		}
 	setmetatable(t, setListMinMT)
 	return t
 end
 
-	
--- A SetListNoTable is a data structure used for storing only positive integer keys, or string keys which arent called 'count'
+
+-- A SetListNoTable is a data structure used for storing only positive integer keys, or string keys which aren't called 'count'
 -- It consists of only the table itself. Negative numbers are not allowed
 
 local SetListNoTableMT = {}
@@ -101,14 +101,14 @@ end
 function SetListNoTableMT:Remove(key)
 	local popindex = self[key]
 	if popindex then
-		if popindex ~= self.count then 
+		if popindex ~= self.count then
 			-- If not last element, then take the element at the very back, and emplace it at popindex
 			local popkey = self[-1 * self.count]
 			self[-1 * popindex] =  popkey -- bring it back in list
 			self[popkey] = popindex
 		end
 		self[-1 * self.count] = nil
-		self[key] = nil 
+		self[key] = nil
 		self.count = self.count - 1
 	end
 end
@@ -123,7 +123,7 @@ end
 
 local SetListUtilities = {
 	NewSetListNoTable = NewSetListNoTable,
-	NewSetListMin = NewSetListMin, 
+	NewSetListMin = NewSetListMin,
 	NewSetList = NewSetList
 }
 return SetListUtilities
@@ -134,29 +134,29 @@ local totest = {NewSetList = NewSetList(), NewSetListMin = NewSetListMin(), NewS
 math.randomseed(os.clock())
 for methodname, tester in pairs(totest) do
 	print(methodname)
-		for j = 1, 10 do 
+		for j = 1, 10 do
 			tester:Add(string.char(65+j))
 		end
 		tstr(tester.hash, 'hash')
 		tstr(tester.list, 'list')
-		
-		for j = 1,11 do 
+
+		for j = 1,11 do
 			local r = tester:GetRandom()
 			tester:Remove(r)
 			print (j,r, tester.count)
 		end
-		
+
 	end
-	
+
 local rezrez = 0
 for methodname, tester in pairs(totest) do
 	local t0 = os.clock()
-	for i = 1, 1000 do 
-		for j = 1, 1000 do 
+	for i = 1, 1000 do
+		for j = 1, 1000 do
 			tester:Add(j)
 		end
 		if tester.list then
-			for k,v in pairs(tester.hash) do 
+			for k,v in pairs(tester.hash) do
 				rezrez = rezrez + k
 			end
 		end
@@ -169,12 +169,12 @@ for methodname, tester in pairs(totest) do
 end
 for methodname, tester in pairs(totest) do
 	local t0 = os.clock()
-	for i = 1, 1000 do 
-		for j = 1, 1000 do 
+	for i = 1, 1000 do
+		for j = 1, 1000 do
 			tester.Add(tester, j)
 		end
 		if tester.list then
-			for k,v in pairs(tester.hash) do 
+			for k,v in pairs(tester.hash) do
 				rezrez = rezrez + k
 			end
 		end
@@ -189,13 +189,13 @@ end
 local t0 = os.clock()
 local tester = {}
 local rezres = 0
-for i = 1, 1000 do 
+for i = 1, 1000 do
 	tester = {}
-	for j = 1, 1000 do 
+	for j = 1, 1000 do
 		tester[j] = j+ 1
 	end
-	rezres = tester[100] + rezres		
-	for k,v in pairs(tester) do 
+	rezres = tester[100] + rezres
+	for k,v in pairs(tester) do
 		rezrez = rezrez + k
 	end
 	for j = 1, 1000 do

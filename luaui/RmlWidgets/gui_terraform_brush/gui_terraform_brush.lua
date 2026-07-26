@@ -11300,7 +11300,7 @@ function widget:Update()
 		local sumEl2 = widgetState.document and getCachedEl(widgetState.document, "status-summary")
 		if sumEl2 then
 			local sep = '<span class="tf-ss-sep">|</span>'
-			setInnerRmlIfChanged(sumEl2, "status-summary", 
+			setInnerRmlIfChanged(sumEl2, "status-summary",
 				'<span class="tf-ss-mode tf-ss-pulse" style="color: #fdc04c;">GRASS</span>' .. sep .. '<span class="tf-ss-val tf-ss-pulse" style="color: #fdc04c;">No grass yet - click Grass tool to paint</span>')
 		end
 	end

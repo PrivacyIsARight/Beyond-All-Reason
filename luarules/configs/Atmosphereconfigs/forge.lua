@@ -55,7 +55,7 @@ function gadget:GameFrame(n)
 
 -- Use _ for damage, paralyzedamage, damageradius if you want to disable
 
--- common foggy cliffs	
+-- common foggy cliffs
 	if n%360 == 0 then
 		SpawnCEGInPositionGround("fogdirty-red", 4608, 0, 4608)
 		SpawnCEGInPositionGround("fogdirty-red", 4608, 150, 4608)
@@ -66,16 +66,16 @@ function gadget:GameFrame(n)
 		SpawnCEGInPositionGround("smokeblack", 4608, 600, 4608)
 		SpawnCEGInPositionGround("smokeblack", 4608, 700, 4608)
 		SpawnCEGInPositionGround("smokeblack", 4608, 800, 4608)
-		
+
 		SpawnCEGInPositionGround("smokeblack", 4650, 0, 1610)
 		SpawnCEGInPositionGround("smokeblack", 4650, 0, 1660)
-		
+
 		SpawnCEGInPositionGround("smokeblack", 4630, 0, 7500)
 		SpawnCEGInPositionGround("smokeblack", 4630, 0, 7550)
-		
+
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	-- if n%380 == 150 then
 		-- SpawnCEGInPositionGround("fogdirty", 6139, 32, 2550)
 		-- SpawnCEGInPositionGround("fogdirty", 2256, 32, 4227)
@@ -83,24 +83,24 @@ function gadget:GameFrame(n)
 
 	-- end
 
--- -- mistyclouds	
+-- -- mistyclouds
 	-- if n%1200 == 550 then
 	-- 	SpawnCEGInPositionGround("mistycloud", 9076, 150, 6829)
 	-- end
 
--- -- rare sanddune dust	
+-- -- rare sanddune dust
 -- 	if n%450 == 0 then
 -- 		SpawnCEGInPositionGround("dunecloud", 4542, 0, 5326)
 -- 	end
 
--- alternate rare foggy cliffs	
+-- alternate rare foggy cliffs
 	-- if n%620 == 300 then
 		-- SpawnCEGInPositionGround("fogdirty", 10965, 32, 4792)
 		-- SpawnCEGInPositionGround("fogdirty", 10910, 16, 1254)
 		-- SpawnCEGInPositionGround("fogdirty", 810, 0, 6156)
 	-- end
 
--- super rare foggy cliffs	
+-- super rare foggy cliffs
 	-- if n%1000 == 400 then
 		-- SpawnCEGInPositionGround("fogdirty", 6022, 16, 4232)
 		-- SpawnCEGInPositionGround("fogdirty", 9535, 32, 6993)
@@ -119,5 +119,5 @@ function gadget:GameFrame(n)
 		SpawnCEGInRandomMapPos("lightninginair", 50)
 --		SpawnCEGInPositionGround("lightningstrike", 50)
 	end
-		
+
 end

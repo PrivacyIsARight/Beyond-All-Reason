@@ -40,7 +40,7 @@ end
 
 local function command(cmdID)
 	local ret
-	
+
 	-- Typically negative IDs are build/construct commands
 	if cmdID < 0 then
 		if not UnitDefs[-cmdID] then
@@ -56,12 +56,12 @@ local function command(cmdID)
 		return ret
 	end
 
-	-- If not found, return UKNOWN with the cmdID
+	-- If not found, return UNKNOWN with the cmdID
 	return "UNKNOWN(" .. cmdID .. ")"
 end
 
--- Spring.SetCustomCommandDrawData 
--- 
+-- Spring.SetCustomCommandDrawData
+--
 
 if gadgetHandler:IsSyncedCode() then
 	-- Synced
@@ -72,7 +72,7 @@ if gadgetHandler:IsSyncedCode() then
 		Spring.Echo("CommandFallback", "uID", unitID, "defID", unitDefID,   command(cmdID), "params", summaryOrSomething(cmdParams), "opts", summaryOrSomething(cmdOptions), "tag", cmdTag)
 		return false
 	end
-	
+
 	function gadget:AllowCommand(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdOptions, cmdTag, fromSynced, fromLua)
 		if unitTeam ~= 0 then
 			return true
@@ -99,15 +99,15 @@ else
 
 		return nil
 	end
-	
+
 	function gadget:UnitCommand(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdOptions, cmdTag)
 		if unitTeam ~= 0 then
 			return
 		end
-		
+
 		Spring.Echo("UnitCommand", "uID", unitID, "defID", unitDefID,   command(cmdID), "params", summaryOrSomething(cmdParams), "opts", summaryOrSomething(cmdOptions), "tag", cmdTag)
 	end
-	
+
 	function gadget:UnitCmdDone(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdOptions, cmdTag)
 		if unitTeam ~= 0 then
 			return
@@ -124,7 +124,7 @@ else
 		if unitTeam ~= 0 then
 			return
 		end
-		
+
 		Spring.Echo("UnitIdle", "uID", unitID, "defID", unitDefID)
 		Spring.Echo(" ")
 	end

@@ -401,8 +401,8 @@ for id = 1, #FeatureDefs do
 				Spring.PreloadFeatureDefModel(id)
 				local lowercasetex1 = ""
 
-				if featureDef.model.textures.tex1 == nil then 
-					Spring.Echo("nil texture 1 detected for",featureDef.name) 
+				if featureDef.model.textures.tex1 == nil then
+					Spring.Echo("nil texture 1 detected for",featureDef.name)
 				else
 					lowercasetex1 = string.lower( featureDef.model.textures.tex1)
 				end
@@ -427,7 +427,7 @@ for id = 1, #FeatureDefs do
 	end
 end
 
-if #failedwrecknormaltex > 0 then 
+if #failedwrecknormaltex > 0 then
 	Spring.Echo("Failed to find normal map for unit wreck: ", table.concat(failedwrecknormaltex,','))
 end
 --------------------------------------------------------------------------------

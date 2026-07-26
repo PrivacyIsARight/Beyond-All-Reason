@@ -44,14 +44,14 @@ function gadget:GameFrame(n)
 		SpawnCEGInPositionGround("noceg", 5101, 300, 1455, _, _, _, "tropicalbeach", 0.5)
 	end
 
--- common foggy cliffs	
+-- common foggy cliffs
 	if n%360 == 0 then
 		SpawnCEGInPositionGround("fogdirty", 9809, 0, 3968)
 		SpawnCEGInPositionGround("fogdirty", 6297, 100, 4140)
 		SpawnCEGInPositionGround("fogdirty", 6320, 100, 3177)
 	end
 
--- rare foggy cliffs	
+-- rare foggy cliffs
 	if n%380 == 150 then
 		SpawnCEGInPositionGround("fogdirty", 265, 0, 1718)
 		SpawnCEGInPositionGround("fogdirty", 3919, 100, 4140)
@@ -59,24 +59,24 @@ function gadget:GameFrame(n)
 
 	end
 
--- -- mistyclouds	
+-- -- mistyclouds
 	if n%1200 == 550 then
 		SpawnCEGInPositionGround("mistycloud", 9076, 150, 6829)
 	end
 
--- -- rare sanddune dust	
+-- -- rare sanddune dust
 -- 	if n%450 == 0 then
 -- 		SpawnCEGInPositionGround("dunecloud", 4542, 0, 5326)
 -- 	end
 
--- alternate rare foggy cliffs	
+-- alternate rare foggy cliffs
 	if n%620 == 300 then
 		SpawnCEGInPositionGround("fogdirty", 9585, 0, 304)
 		SpawnCEGInPositionGround("fogdirty", 275, 0, 6675)
 		SpawnCEGInPositionGround("fogdirty", 10163, 0, 1763)
 	end
 
--- super rare foggy cliffs	
+-- super rare foggy cliffs
 	if n%1000 == 400 then
 		SpawnCEGInPositionGround("fogdirty", 1125, 0, 4042)
 		SpawnCEGInPositionGround("fogdirty", 5081, 0, 5634)
@@ -95,5 +95,5 @@ function gadget:GameFrame(n)
 	if n%150 == 0 then
 		SpawnCEGInRandomMapPos("dustparticles", 50)
 	end
-		
+
 end

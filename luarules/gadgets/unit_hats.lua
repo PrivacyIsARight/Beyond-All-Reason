@@ -19,7 +19,7 @@ end
 
 local DEBUG = false
 
-function gadget:GameID(gameID) 
+function gadget:GameID(gameID)
 	-- make sure gameID is a string because i'm not actually sure
 	cachedGameID = tostring(gameID)
 	-- Initialise this madness
@@ -27,7 +27,7 @@ function gadget:GameID(gameID)
 	-- because yes
 	for i = 1,1000 do
 		-- Check if the next character in the game ID is a number
-		if tonumber(string.sub(cachedGameID, i, i)) then 
+		if tonumber(string.sub(cachedGameID, i, i)) then
 			-- Make sure the number we are creating doesn't grow beyond the 32bit integrer limits
 			if (not tonumber(FakeRandomSeed)) or i <= 8 or (i > 8 and tonumber(FakeRandomSeed .. tonumber(string.sub(cachedGameID, i, i))) < 10) then
 				-- Add the next character that is for sure a number
@@ -304,7 +304,7 @@ CosmeticDefinitions = {
 		faction = {arm = true, cor = false, leg = false},
 		conflictsWith = {},
 	},
-	
+
 	CortexNationWarsGERLeftShoulder = {
 		slot = "leftshoulder",
 		implementation = "unit",
@@ -376,14 +376,14 @@ end
 --    if a hat is already present on a commander, then it is destroyed
 -- if the wearer dies, detach the hat
 -- decoys?
---  if decoys cant wear hats, then it becomes obvious
+--  if decoys can't wear hats, then it becomes obvious
 --  so decoys will be able to wear hats
 -- giving:
 -- wearer loses hat if given comm with hat
--- hats should not prevent game end! as they arent real units
+-- hats should not prevent game end! as they aren't real units
 -- attachunit somehow does not pass the direction, and passes the position of the piece attached to it about 1 frame late
 -- consider manually repositioning hats then? could start to get expensive
--- You cant pick up allied hats
+-- You can't pick up allied hats
 -- Hats should not prevent game ending if they are the only unit left.
 -- e.g. dying comms should give hats to gaia
 
@@ -601,7 +601,7 @@ function gadget:UnitDestroyed(unitID, unitDefID, teamID, attackerID, attackerDef
 			Spring.UnitDetach(hatID)
 			Hats[hatID] = -1
 			Spring.SetUnitNoSelect(hatID, false)
-			Spring.TransferUnit(hatID, spGetGaiaTeamID()) -- ( number unitID,  numer newTeamID [, boolean given = true ] ) -> nil if given=false, the unit is captured
+			Spring.TransferUnit(hatID, spGetGaiaTeamID()) -- ( number unitID,  number newTeamID [, boolean given = true ] ) -> nil if given=false, the unit is captured
 			local px, py, pz = Spring.GetUnitPosition(unitID)
 			if px and pz then
 				Spring.SetUnitPosition(hatID, px + 32, pz + 32)
@@ -672,7 +672,7 @@ function gadget:UnitGiven(unitID, unitDefID, unitTeam)
 			end
 		end
 		if DEBUG then
-			Spring.Echo("Hat was given, but found noone to put it onto, destroying", hatID)
+			Spring.Echo("Hat was given, but found no one to put it onto, destroying", hatID)
 		end
 		Spring.DestroyUnit(hatID)
 	end

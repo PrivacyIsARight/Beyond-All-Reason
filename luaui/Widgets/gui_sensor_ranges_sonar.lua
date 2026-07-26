@@ -49,7 +49,7 @@ local sonarStencilShader = nil
 local sonarCircleShader = nil
 local circleInstanceVBO = nil
 
-local sonarStencilTexture 
+local sonarStencilTexture
 local resolution = 4
 local vsx, vsy  = spGetViewGeometry()
 
@@ -75,8 +75,8 @@ local circleShaderSourceCache = {
 		rangeColor = rangeColor,
 	},
 	silent = not debugmode, -- do not print shader compile timing
-} 
- 
+}
+
 local stencilShaderSourceCache = table.copy(circleShaderSourceCache) -- copy the circle shader source cache, and modify it for stencil pass
 stencilShaderSourceCache.shaderConfig.STENCILPASS = 1 -- this is a stencil pass
 stencilShaderSourceCache.shaderName = 'Sonar Ranges Stencil GL4'
@@ -86,7 +86,7 @@ local function goodbye(reason)
 	widgetHandler:RemoveWidget()
 	return false
 end
- 
+
 local function CreateStencilShaderAndTexture()
 	vsx, vsy = spGetViewGeometry()
 	circleShaderSourceCache.shaderConfig.VSX = vsx
@@ -96,7 +96,7 @@ local function CreateStencilShaderAndTexture()
 	stencilShaderSourceCache.shaderConfig.VSY = vsy
 	stencilShaderSourceCache.forceupdate = true
 
-	sonarStencilShader = LuaShader.CheckShaderUpdates(stencilShaderSourceCache,0)	
+	sonarStencilShader = LuaShader.CheckShaderUpdates(stencilShaderSourceCache,0)
 
 	if not sonarStencilShader then
   		return goodbye("Failed to compile sonarrange stencil shader GL4 ")
@@ -123,7 +123,7 @@ end
 local function initgl4()
 	-- Due to the view size being part of the shader config, we need to initialize the shaders after the view size is known.
 
-	-- Note that we are createing a special Circle VBO, that starts at the center vertex! This is needed for triangle fans
+	-- Note that we are creating a special Circle VBO, that starts at the center vertex! This is needed for triangle fans
 	local circleVBO, numVertices = InstanceVBOTable.makeCircleVBO(circleSegments, nil, true, "sonarrangeCircles")
 	local circleInstanceVBOLayout = {
 		{ id = 1, name = 'radius_params', size = 4 }, -- radius, gameframe, 2 unused floats
@@ -137,15 +137,15 @@ local function initgl4()
 
 	CreateStencilShaderAndTexture()
 end
- 
- 
+
+
 local function DrawLOSStencil() -- about 0.025 ms
 	if circleInstanceVBO.usedElements > 0 then
         gl.Clear(GL.COLOR_BUFFER_BIT,0,0,0,0)
 		gl.BlendEquation(GL.MAX)
 		gl.Blending(GL.ONE, GL.ONE)
         gl.Culling(false)
-		
+
 		gl.Texture(0, "$heightmap") -- Bind the heightmap texture
 		sonarStencilShader:Activate()
 		circleInstanceVBO.VAO:DrawArrays(GL.TRIANGLE_FAN, circleInstanceVBO.numVertices, 0, circleInstanceVBO.usedElements, 0)
@@ -160,8 +160,8 @@ function widget:DrawGenesis()
 end
 
 -- This shows the debug stencil texture in the bottom left corner of the screen
-if debugmode then 
-	function widget:DrawScreen()	
+if debugmode then
+	function widget:DrawScreen()
 		sonarCircleShader = LuaShader.CheckShaderUpdates(circleShaderSourceCache,0) or sonarCircleShader
 		sonarStencilShader = LuaShader.CheckShaderUpdates(stencilShaderSourceCache,0) or sonarStencilShader
 		gl.Color(1,1,1,1)
@@ -170,7 +170,7 @@ if debugmode then
 		gl.TexRect(0, 0, vsx/resolution, vsy/resolution, 0, 0, 1, 1)
 		gl.Blending(GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA)
 	end
-end  
+end
 
 -- Functions shortcuts
 local spGetSpectatingState = Spring.GetSpectatingState
@@ -196,7 +196,7 @@ for unitDefID, unitDef in pairs(UnitDefs) do
 	if unitDef.sonarDistance and unitDef.sonarDistance >= minSonarDistance then	-- save perf by excluding low sonar range units
 		if  string.find(unitDef.name, "raptor", nil, true) then
 			-- skip raptors from sonar
-		else	
+		else
 			unitRange[unitDefID] = unitDef.sonarDistance
 		end
 	end
@@ -204,7 +204,7 @@ end
 
 function widget:ViewResize(newX, newY)
 	CreateStencilShaderAndTexture()
-end 
+end
 
 -- a reusable table, since we will literally only modify its first element.
 local instanceCache = {0,0,0,0,0,0,0,0}
@@ -247,7 +247,7 @@ function widget:Initialize()
 		setOpacity = function(value) opacity = value end,
 	}
 
-	initgl4()	
+	initgl4()
 
 	InitializeUnits()
 end
@@ -274,16 +274,16 @@ function widget:VisibleUnitAdded(unitID, unitDefID, unitTeam, reason,  noupload)
 	local active = spGetUnitIsActive(unitID)
 	local gameFrame = spGetGameFrame()
 	if reason == "UnitFinished" then
-		if active then 
+		if active then
 			instanceCache[2] = spGetGameFrame()
 		else
 			instanceCache[2] = -2 -- start from full size
 		end
 	else
-		if active then 
+		if active then
 			instanceCache[2] = gameFrame
 		else
-			instanceCache[2] = -1 * gameFrame 
+			instanceCache[2] = -1 * gameFrame
 		end
 	end
 	unitList[unitID] = active
@@ -322,17 +322,17 @@ end
 
 function widget:DrawWorld()
 	--if spec and fullview then return end
-	if Spring.IsGUIHidden() or 
+	if Spring.IsGUIHidden() or
 		(circleInstanceVBO.usedElements == 0) or
 		(opacity <= 0.01)
 	then return end
-    
+
 	--gl.Clear(GL.STENCIL_BUFFER_BIT) -- Preemtively clear the stencil buffer
 	gl.StencilTest(true) -- Enable stencil testing
 	gl.StencilFunc(GL_NOTEQUAL, 2, 2) -- Always Passes, 0 Bit Plane, 0 As Mask
 	gl.StencilOp(GL_KEEP, GL_KEEP, GL_REPLACE) -- Set The Stencil Buffer To 1 Where Draw Any Polygon
 	gl.StencilMask(15) -- Only check the first bit of the stencil buffer
-  
+
 	sonarCircleShader:Activate()
 	gl.Texture(0, "$heightmap") -- Bind the heightmap texture
 	gl.Texture(1, sonarStencilTexture) -- Bind the heightmap texture
@@ -344,18 +344,18 @@ function widget:DrawWorld()
 	gl.LineWidth(rangeLineWidth * lineScale * 1.0)
 
 	gl.DepthTest(true)
-	-- Note that we are skipping the first and last vertex, as those are the center of the circle : 
-	circleInstanceVBO.VAO:DrawArrays(GL_LINE_LOOP, circleInstanceVBO.numVertices -0, 0, circleInstanceVBO.usedElements) 
+	-- Note that we are skipping the first and last vertex, as those are the center of the circle :
+	circleInstanceVBO.VAO:DrawArrays(GL_LINE_LOOP, circleInstanceVBO.numVertices -0, 0, circleInstanceVBO.usedElements)
 	-- TODO: In the future, when BASE VERTEX works, use the following line instead:
-	--circleInstanceVBO.VAO:DrawArrays(GL_LINE_LOOP, circleInstanceVBO.numVertices -2, 1, circleInstanceVBO.usedElements) 
-	
+	--circleInstanceVBO.VAO:DrawArrays(GL_LINE_LOOP, circleInstanceVBO.numVertices -2, 1, circleInstanceVBO.usedElements)
+
 	sonarCircleShader:Deactivate()
 	gl.Texture(0, false)
 	gl.Texture(1, false)
 	gl.DepthTest(true)
 	gl.StencilTest(false) -- Disable stencil testing
 
-	gl.LineWidth(1.0) 
+	gl.LineWidth(1.0)
 	--gl.Clear(GL.STENCIL_BUFFER_BIT)
 end
 

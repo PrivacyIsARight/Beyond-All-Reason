@@ -21,7 +21,7 @@ function widget:Initialize()
 	end
 end
 
--- Doing it a bit late also hopes to catch the state after people already toggled widgets on/off  
+-- Doing it a bit late also hopes to catch the state after people already toggled widgets on/off
 local REPORT_DELAY_FRAMES = 30
 local MAX_WIDGETS_PER_REPORT = 50
 local MAX_WIDGET_DESCRIPTION_LEN = 100
@@ -48,11 +48,11 @@ local function GetWidgetToggleValue(widgetname)
 end
 
 local function processWidget(widget)
-	-- I know this is redundant as we literally just defined these values ourselves, 
+	-- I know this is redundant as we literally just defined these values ourselves,
 	-- but i want to keep the GetWidgetToggleValue the same as the original
 	local state = GetWidgetToggleValue(widget.name)
-	if state == false then   
-		widget.state = 0 
+	if state == false then
+		widget.state = 0
 	elseif state == 0.5 then
 		widget.state = -1
 	else

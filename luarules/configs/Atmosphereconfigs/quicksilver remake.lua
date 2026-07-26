@@ -7,7 +7,7 @@ function gadget:GameFrame(n)
 
 -- SpawnCEGInAreaGround(cegname, midposx, groundOffset, midposz, radius, damage, paralyzedamage, damageradius, sound, soundvolume)
 
--- SND water ocean 
+-- SND water ocean
 	if n%1030 == 0 then
 		SpawnCEGInPositionGround("noceg", 3800, 60, 3800, _, _, _, "oceangentlesurf", 0.3)
 	end

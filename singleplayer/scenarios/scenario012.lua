@@ -31,7 +31,7 @@ Scoring:
 	playerstarty	= "85%", -- Y position of where player comm icon should be drawn, from top left of the map
 	partime 		= 600, -- par time in seconds (time a mission is expected to take on average)
 	parresources	= 10000, -- par resource amount (amount of metal one is expected to spend on mission)
-	difficulty		= 2, -- Percieved difficulty at 'normal' level: integer 1-10
+	difficulty		= 2, -- Perceived difficulty at 'normal' level: integer 1-10
     defaultdifficulty = "Normal", -- an entry of the difficulty table
     difficulties    = { -- Array for sortedness, Keys are text that appears in selector (as well as in scoring!), values are handicap levels
     -- handicap values range [-100 - +100], with 0 being regular resources
@@ -315,7 +315,7 @@ Scoring:
 {name = 'armflash', x = 3310, y = 593, z = 583, rot = 0 , team = 1},
 {name = 'armflash', x = 3342, y = 593, z = 583, rot = 0 , team = 1},
 {name = 'cornanotc', x = 3771, y = 321, z = 3614, rot = 0 , team = 0},
- 
+
 		},
 		featureloadout = {
 			-- Similarly to units, but these can also be resurrectable!

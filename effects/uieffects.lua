@@ -82,7 +82,7 @@ return {
     },
   },
 
--- Don't use _ground since groundflash in it discards airlos=false 
+-- Don't use _ground since groundflash in it discards airlos=false
   -- ["radarpulse_t2_ground"] = {
 
   --   groundflash_small = {

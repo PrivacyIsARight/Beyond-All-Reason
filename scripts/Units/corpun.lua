@@ -29,9 +29,9 @@ end
 
 
 function script.QueryWeapon1()
-	if (currBarrel == 1) then 
+	if (currBarrel == 1) then
 		return flare1
-	else 
+	else
 		return flare2
 	end
 end
@@ -57,7 +57,7 @@ function script.FireWeapon1()
 		Sleep (150)
 		Move (barrel1, z_axis, 0.000000, 1.000000)
 	end
-	
+
 	if currBarrel == 2 then
 		EmitSfx(flare2, 1024+0)
 		Move (barrel2, z_axis, -1.500000)
@@ -73,17 +73,17 @@ function script.FireWeapon1()
 end
 
 function script.QueryWeapon2()
-	if (currBarrel == 1) then 
+	if (currBarrel == 1) then
 		return flare1
-	else 
+	else
 		return flare2
 	end
 end
-	
+
 function script.AimFromWeapon2()
 	return turret
 end
-	
+
 function script.Killed(recentDamage, maxHealth)
 	local severity = recentDamage / maxHealth
 

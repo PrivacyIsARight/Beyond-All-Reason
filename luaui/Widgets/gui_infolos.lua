@@ -10,7 +10,7 @@ function widget:GetInfo()
 		author = "Beherith",
 		date = "2022.12.12",
 		license = "Lua code is GPL V2, GLSL is (c) Beherith",
-		layer = -10000, -- lol this isnt even a number
+		layer = -10000, -- lol this isn't even a number
 		enabled = true
 	}
 end
@@ -55,12 +55,12 @@ local GL_RGBA32F_ARB = 0x8814
 
 -- TODO 2024.11.19
 	-- [x] Make the shader have exact visibility per 8 elmo square (hmap - 1)
-	-- [ ] Make the shader update at updaterate for true smoothness. 
-		-- [ ] When does the LOS texture actually get updated though? 
+	-- [ ] Make the shader update at updaterate for true smoothness.
+		-- [ ] When does the LOS texture actually get updated though?
 		-- [ ] Would need to double-buffer the texture, and perform a swap every (15) gameframes
-		-- [ ] API must then expose the new and the old texture, and the progress factor between them. 
+		-- [ ] API must then expose the new and the old texture, and the progress factor between them.
 		-- [ ] The default 30hz smootheness is far from enough
-	-- [ ] The delayed approach is fucking stupid. 
+	-- [ ] The delayed approach is fucking stupid.
 	-- [ ] The mip level should be the 'smallest' mip level possible, and save a fused texture
 	-- [ ] Note that we must retain the 'never been seen'/ 'never been in radar' functionality
 
@@ -143,7 +143,7 @@ local function renderToTextureFunc() -- this draws the fogspheres onto the textu
 	gl.Texture(1, "$info:airlos")
 	gl.Texture(2, "$info:radar") --$info:los
 	gl.Blending(GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA)
-	
+
 	fullScreenQuadVAO:DrawArrays(GL.TRIANGLES)
 	--gl.TexRect(-1, -1, 1, 1, 0, 0, 1, 1)
 	gl.Texture(0, false)
@@ -269,7 +269,7 @@ function widget:DrawScreen() -- the debug display output
 		gl.Texture(0,"$info:los")
 		--gl.TexRect(texX, 0, texX + shaderConfig['LOSXSIZE'], shaderConfig['LOSYSIZE'], 0, 1, 1, 0)
 		gl.Texture(0,false)
-		
+
 		gl.Blending(GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA)
 		if infoShader.DrawPrintf then infoShader.DrawPrintf() end
 	end

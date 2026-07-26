@@ -9,19 +9,19 @@ local ta = math.rad (30)
 
 function walk()
 	Signal(SIG_WALK)
-	SetSignalMask(SIG_WALK)		
+	SetSignalMask(SIG_WALK)
 	while (true) do
 		Turn (foot1, x_axis, ta, tspeed)
 		Turn (foot2, x_axis, -ta, tspeed)
 		WaitForTurn (foot2, x_axis)
 		WaitForTurn (foot2, x_axis)
-		
+
 		Turn (foot1, x_axis, -ta, tspeed)
 		Turn (foot2, x_axis, ta, tspeed)
 		WaitForTurn (foot2, x_axis)
 		WaitForTurn (foot2, x_axis)
 		Sleep (10)
-	end	
+	end
 end
 
 function stopwalk()
@@ -36,7 +36,7 @@ function script.StartMoving()
 	Turn (body, x_axis, math.rad (10), math.rad (45))
 	StartThread(walk)
 end
-	
+
 function script.StopMoving()
 	StartThread(stopwalk)
 end
@@ -50,5 +50,5 @@ function script.AimWeapon1( heading, pitch )
 end
 
 function script.Shot1()
-	
+
 end
