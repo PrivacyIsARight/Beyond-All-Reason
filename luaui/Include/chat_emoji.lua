@@ -453,7 +453,19 @@ function ChatEmoji.GetTexcoordInset()
 end
 
 function ChatEmoji.GetLeadingColorPrefix(text)
-	return text and string.byte(text, 1) == 255 and #text >= 4 and ssub(text, 1, 4) or ""
+	local prefix = ""
+	local len = text and #text or 0
+	local pos = 1
+	while pos <= len do
+		local c = sbyte(text, pos)
+		local codeLen = c == 255 and 4 or (c == 254 and 9 or 0)
+		if codeLen == 0 or pos + codeLen - 1 > len then
+			break
+		end
+		prefix = ssub(text, pos, pos + codeLen - 1)
+		pos = pos + codeLen
+	end
+	return prefix
 end
 
 function ChatEmoji.WordWrapRichText(text, maxWidth, fontSize, usedFont)
